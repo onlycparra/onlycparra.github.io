@@ -1,0 +1,13 @@
+#+TITLE: How to programatically read L2 events in Ryzen 3960x
+#+DESCRIPTION: perf, amd, ryzen, 3960x, performance counters, linux, PMU
+#+LANGUAGE: en
+#+AUTHOR: Claudio Parra
+#+EMAIL: onlycparra@hotmail.com
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css">
+#+OPTIONS: html-style:nil num:nil ^:nil f:nil toc:2
+#+PROPERTY: results silent
+
+* Work in progress
+This is still work in progress, as I get more results, I will post them here
+
+[[file:../index.html][Back to Home]]

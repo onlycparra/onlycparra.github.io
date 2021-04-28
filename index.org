@@ -1,0 +1,16 @@
+#+TITLE: Blog of Claudio Parra
+#+DESCRIPTION: Technology, Programming, Linux, and something else.
+#+LANGUAGE: en
+#+AUTHOR: Claudio Parra
+#+EMAIL: onlycparra@hotmail.com
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="style.css">
+#+OPTIONS: html-style:nil num:nil ^:nil f:nil toc:2
+#+PROPERTY: results silent
+
+
+
+* About myself and this Blog
+  Welcome to my blog! this is the first entry of my blog, so far I am not sure about what to share in here, or how is this going to work, but I will just start with something. What about how I did this very website?
+
+* Metrology
+  - [[file:posts/2021-04-28-perf.html][Measure raw perf events programatically in Ryzen 3960X]]
