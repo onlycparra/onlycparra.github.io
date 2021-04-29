@@ -1,16 +1,22 @@
-#+TITLE: Blog of Claudio Parra
-#+DESCRIPTION: Technology, Programming, Linux, and something else.
+#+HTML_DOCTYPE: html5
+#+HTML_HEAD: <meta name="viewport" content="width=device-width, initial-scale=1.0">
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="style.css">
 #+LANGUAGE: en
+#+OPTIONS: html-style:nil
+#+OPTIONS: ^:nil f:not-nil num:nil
+#+OPTIONS: toc:2
+#+OPTIONS: creator:nil
+#+OPTIONS: email:non-nil
 #+AUTHOR: Claudio Parra
 #+EMAIL: onlycparra@hotmail.com
-#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="style.css">
-#+OPTIONS: html-style:nil num:nil ^:nil f:nil toc:2
-#+PROPERTY: results silent
 
+#+TITLE: Blog of Claudio Parra
+#+DESCRIPTION: perf, amd, ryzen, 3960x, performance counters, linux, PMU
 
 
 * About myself and this Blog
   Welcome to my Blog! this is the first entry of my blog, so far I am not sure about what to share in here, or how is this going to work, but I will just start with the things I am working on now.
+  - [[file:posts/template.html][What I am using to make this website]]
 
 * Adventures with Linux Perf
   - [[file:posts/2021-04-28-perf.html][Measure raw perf events programatically in Ryzen 3960X]]

@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Org-Mode Showcase</title>
+<!-- 2021-04-28 Wed 17:06 -->
+<meta  charset="utf-8">
+<meta  name="generator" content="Org-mode">
+<meta  name="author" content="Claudio Parra">
+<meta  name="description" content="A demonstration of org-mode to html+css exporting"
+>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="../style.css">
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Org-Mode Showcase</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">First Words</a></li>
+<li><a href="#sec-2">Quoting somebody</a></li>
+<li><a href="#sec-3">Headlines</a>
+<ul>
+<li><a href="#sec-3-1">Second Level headline</a></li>
+<li><a href="#sec-3-2">Tags</a></li>
+</ul>
+</li>
+<li><a href="#sec-4">Tracking to-do lists.</a>
+<ul>
+<li><a href="#sec-4-1"><span class="todo TODO">TODO</span> Cat managment</a></li>
+<li><a href="#sec-4-2"><span class="done DONE">DONE</span> Dog Managment</a></li>
+<li><a href="#sec-4-3"><code>[2/2]</code> Garden care</a></li>
+<li><a href="#sec-4-4"><code>[50%]</code> Other shores</a></li>
+</ul>
+</li>
+<li><a href="#sec-5">Tables</a></li>
+<li><a href="#sec-6">Links</a></li>
+<li><a href="#sec-7">Source Code</a></li>
+<li><a href="#sec-8">Exporting an org-mode buffer</a></li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">First Words</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Here some demo of what is possible with org-mode and the css that I am using now.
+You can make pretty lists with any of these <code>-</code>, <code>*</code>, <code>+</code>, <code>1.</code>, <code>1)</code> strings as bullets:
+</p>
+<ul class="org-ul">
+<li>Apple
+</li>
+<li>Pear
+</li>
+<li>Mango
+</li>
+<li>Grapes
+</li>
+<li>Watermelon
+</li>
+</ul>
+
+<p>
+Or use numbers if you want:
+</p>
+<ol class="org-ol">
+<li>First thing.
+</li>
+<li>Second thing.
+<ol class="org-ol">
+<li>One part of it.
+</li>
+<li>And the oter part. 
+</li>
+</ol>
+</li>
+<li>Fourth thing.
+</li>
+</ol>
+
+<p>
+Even make checklists:
+</p>
+<ul class="org-ul">
+<li><code>[&#xa0;]</code> Haven't done this yet.
+</li>
+<li><code>[X]</code> This one is ready.
+</li>
+<li><code>[-]</code> Half way done.
+</li>
+</ul>
+
+<p>
+Add some basic formating:
+</p>
+<ul class="org-ul">
+<li><span class="underline">underscores let you underline things</span>
+</li>
+<li><b>stars add emphasis</b>
+</li>
+<li><i>slashes are italics</i>
+</li>
+<li><del>pluses are strikethrough</del>
+</li>
+<li><code>equal signs are verbatim text</code>
+</li>
+<li><code>tildes can also be used</code>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">Quoting somebody</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+You can include quotes of some famous person by using <code>#+BEGIN_blockquote</code> and <code>#+END_blockquote</code>
+</p>
+
+<div class="blockquote">
+<p>
+Some famous quote with a lot of wisdom in in, nobody actually knows the author, but let's guess that it was Gandi.
+</p>
+
+<p>
+&#x2013;Gandi.
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3">Headlines</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Nesting headlines is as easy as adding another start
+</p>
+</div>
+<div id="outline-container-sec-3-1" class="outline-3">
+<h3 id="sec-3-1">Second Level headline</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+Text of the second level.
+</p>
+</div>
+<div id="outline-container-sec-3-1-1" class="outline-4">
+<h4 id="sec-3-1-1">Third level headline</h4>
+<div class="outline-text-4" id="text-3-1-1">
+<p>
+Text of the third level.
+</p>
+</div>
+<ul class="org-ul"><li><a id="sec-3-1-1-1" name="sec-3-1-1-1"></a>Fourth level headline<br ><div class="outline-text-5" id="text-3-1-1-1">
+<p>
+Just in case you have really complicated steps to describe.
+</p>
+</div>
+<ul class="org-ul"><li><a id="sec-3-1-1-1-1" name="sec-3-1-1-1-1"></a>Deeper<br ><div class="outline-text-6" id="text-3-1-1-1-1">
+<p>
+This is pretty much useless at this point, unless you are describing a rocket disassembly.
+</p>
+</div>
+</li></ul>
+</li></ul>
+</div>
+</div>
+
+<div id="outline-container-sec-3-2" class="outline-3">
+<h3 id="sec-3-2">Tags</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+Headlines can have tags, you add a tag by adding your tag surrounded by colons <code>:tag_name:</code> at the right of the headline. You can add several tags too: <code>:tag1:tag2:</code>
+</p>
+</div>
+<div id="outline-container-sec-3-2-1" class="outline-4">
+<h4 id="sec-3-2-1">Headline with a tag&#xa0;&#xa0;&#xa0;<span class="tag"><span class="one_tag">one_tag</span>&#xa0;<span class="another">another</span></span></h4>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4">Tracking to-do lists.</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+Headlines can have manual the keywords <code>TODO</code> and <code>DONE</code> to denote their state, or automatic counters of checked sub-items by using <code>[/]</code> and <code>[%]</code>.
+</p>
+</div>
+<div id="outline-container-sec-4-1" class="outline-3">
+<h3 id="sec-4-1"><span class="todo TODO">TODO</span> Cat managment</h3>
+<div class="outline-text-3" id="text-4-1">
+<ul class="org-ul">
+<li><code>[X]</code> Feed my cat.
+</li>
+<li><code>[&#xa0;]</code> Sell my cat.
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-4-2" class="outline-3">
+<h3 id="sec-4-2"><span class="done DONE">DONE</span> Dog Managment</h3>
+<div class="outline-text-3" id="text-4-2">
+<ul class="org-ul">
+<li><code>[X]</code> Find a nice dog
+</li>
+<li><code>[X]</code> Offer the money I make with the cat as copay for it.
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-4-3" class="outline-3">
+<h3 id="sec-4-3"><code>[2/2]</code> Garden care</h3>
+<div class="outline-text-3" id="text-4-3">
+<ul class="org-ul">
+<li><code>[X]</code> Water plants.
+</li>
+<li><code>[X]</code> Weed out.
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-4-4" class="outline-3">
+<h3 id="sec-4-4"><code>[50%]</code> Other shores</h3>
+<div class="outline-text-3" id="text-4-4">
+<ul class="org-ul">
+<li><code>[X]</code> Do laundry.
+</li>
+<li><code>[&#xa0;]</code> Make lunch.
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5">Tables</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+Auto expanding tables are one of the coolest features of org-mode, because
+tables in Markdown just plain suck. In order to create a new table, you can
+start typing it manually, or press <code>C-c |</code>, which will prompt for the table's
+dimensions.
+</p>
+
+<table>
+
+
+<colgroup>
+<col  class="left">
+
+<col  class="left">
+
+<col  class="right">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">First Name</th>
+<th scope="col" class="left">Last Name</th>
+<th scope="col" class="right">Years using Emacs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left">Lee</td>
+<td class="left">Hinman</td>
+<td class="right">5</td>
+</tr>
+
+<tr>
+<td class="left">Mike</td>
+<td class="left">Hunsinger</td>
+<td class="right">2</td>
+</tr>
+
+<tr>
+<td class="left">Daniel</td>
+<td class="left">Glauser</td>
+<td class="right">4</td>
+</tr>
+
+<tr>
+<td class="left">Really-long-first-name-guy</td>
+<td class="left">long-last-name-pers</td>
+<td class="right">1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-sec-6" class="outline-2">
+<h2 id="sec-6">Links</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+In an org-mode file, you can press <code>C-c l</code> to store a pointer to wherever you
+are in the file. Then, with (or without) text highlighted hit <code>C-C C-l</code> to make
+it into a link.
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-fundamental">[[http://google.com/][Google]]
+</pre>
+</div>
+
+<p>
+translates into this: <a href="http://google.com/">Google</a>. You can link to files, images, websites, emails, irc, and all kinds of things.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-7" class="outline-2">
+<h2 id="sec-7">Source Code</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+Lisp
+</p>
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">(<span style="color: #778c00; font-weight: bold;">defun</span> <span style="color: #007ec4; font-size: 120%; text-decoration: underline;">my/function</span> ()
+  <span style="color: #11948b;">"docstring"</span>
+  (<span style="color: #778c00; font-weight: bold;">interactive</span>)
+  (<span style="color: #778c00; font-weight: bold;">progn</span>
+    (+ 1 1)
+    (message <span style="color: #11948b;">"Hi"</span>)))
+</pre>
+</div>
+
+<p>
+Bash (sh)
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh"><span style="color: #596e76; font-weight: bold;">echo</span> $<span style="color: #007ec4;">data</span> &gt; /tmp/foo
+<span style="color: #778c00; font-weight: bold;">for</span> i<span style="color: #778c00; font-weight: bold;"> in</span> *.pdf; <span style="color: #778c00; font-weight: bold;">do</span>
+  convert $<span style="color: #007ec4;">i</span> $<span style="color: #007ec4;">i</span>.png
+<span style="color: #778c00; font-weight: bold;">done</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-8" class="outline-2">
+<h2 id="sec-8">Exporting an org-mode buffer</h2>
+<div class="outline-text-2" id="text-8">
+<p>
+Org has a lot of export options, they are all contained behind a <code>C-c C-e</code>
+export backend, exporting to HTML, markdown, plain text, pdf, etc.
+</p>
+
+<p>
+<a href="../index.html">Back to Home</a>
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Claudio Parra</p>
+<p class="email">Email: <a href="mailto:onlycparra@hotmail.com">onlycparra@hotmail.com</a></p>
+<p class="date">Created: 2021-04-28 Wed 17:06</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

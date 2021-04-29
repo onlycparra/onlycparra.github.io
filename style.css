@@ -71,7 +71,7 @@ aside {
   font-weight: 400;
   font-display: fallback;
   src: local('Libre Baskerville'), local('LibreBaskerville-Regular'),
-    url(/fonts/libre-baskerville.woff2) format('woff2'),
+    url(fonts/libre-baskerville.woff2) format('woff2'),
     url(./fonts/libre-baskerville.woff2) format('woff2');
 }
 @font-face {
@@ -80,7 +80,7 @@ aside {
   font-weight: 700;
   font-display: fallback;
   src: local('Libre Baskerville Bold'), local('LibreBaskerville-Bold'),
-    url(/fonts/libre-baskerville-bold.woff2) format('woff2'),
+    url(fonts/libre-baskerville-bold.woff2) format('woff2'),
     url(./fonts/libre-baskerville-bold.woff2) format('woff2');
 }
 @font-face {
@@ -89,27 +89,38 @@ aside {
   font-weight: 400;
   font-display: fallback;
   src: local('Libre Baskerville Italic'), local('LibreBaskerville-Italic'),
-    url(/fonts/libre-baskerville-italic.woff2) format('woff2'),
+    url(fonts/libre-baskerville-italic.woff2) format('woff2'),
     url(./fonts/libre-baskerville-italic.woff2) format('woff2');
 }
 
 html {
-  font: 16px/180% 'Libre Baskerville', 'DejaVu Serif', 'Bitstream Vera Serif', 'Georgia', serif;
-  /* Possible sans-serif alternative; note you may want to adjust the
-   * line-height and font-size if you want the fonts. Different values work
-   * better for different fonts.
-   * font: 18px/160% Calibri, 'DejaVu Sans Serif', sans-serif;
-   */
-
-          text-size-adjust: none;      /* Disables text adjustment algorithm on some mobile browsers, this is */
-  -webkit-text-size-adjust: none;      /* intended for sites that are not designed for mobile viewing. */
+    /* Possible sans-serif alternative; note you may want to adjust the
+     * line-height and font-size if you want the fonts. Different values work
+     * better for different fonts.
+     * font: 18px/160% Calibri, 'DejaVu Sans Serif', sans-serif;
+     */
+    font: 16px/180% 'Libre Baskerville', 'DejaVu Serif', 'Bitstream Vera Serif', 'Georgia', serif;
+    
+    /* Disables text adjustment algorithm on some mobile browsers, this is */
+    text-size-adjust: none;
+    
+     /* intended for sites that are not designed for mobile viewing. */
+    -webkit-text-size-adjust: none;
 }
 
-@media (max-width: /*bodywidth*/54em) { /* Use smaller fonts and line-height on smaller screens. */
-  html { font-size: 14px; line-height: 160%; }
+/* For small screens */
+@media only screen and (max-width: 60em) {
+    html {
+        font-size: 14px;
+        line-height: 160%;
+    }
 }
-@media (max-width: /*bodywidth*/26em) {
-  html { font-size: 12px; line-height: 150%; }
+
+/* For super small screens */
+@media only screen and (max-width: 30em) {
+    html {
+        font-size: 12px;
+        line-height: 150%; }
 }
 
 pre, code {
@@ -122,19 +133,8 @@ code {
 }
 
 pre {
-  font-size: 14px;                     /* Smaller text to fit more. */
-  line-height: 130%;                   /* Idem. */
-}
-
-h1, h2, h3, h4, h5, h6 {
-  /* Enable ligatures, works well with Libre Baskerville, which adds
-   * (old-fashioned but handsome) ligatures on "st", "ct", and "sp".
-   *
-   * You'll need to add "&subset=all" if you're using it from Google Fonts:
-   *   https://fonts.googleapis.com/css?family=Libre+Baskerville&subset=all
-   */
-  /*font-variant-ligatures: common-ligatures discretionary-ligatures;
-  font-feature-settings: 'liga' on, 'dlig' on;*/
+    font-size: 14px;                     /* Smaller text to fit more. */
+    line-height: 130%;                   /* Idem. */
 }
 
 
@@ -145,29 +145,40 @@ h1, h2, h3, h4, h5, h6 {
 
 /* DEFAULTS */
 * {
-  box-sizing: border-box;              /* Element width/height includes the border. */
+    /* Element width/height includes the border. */
+    box-sizing: border-box;
 }
 
 *:target {
-    background-color: #ffc;              /* Highlight elements in URL fragment, e.g. #some-header, or #footnote-1. */    
+    /* Highlight elements in URL fragment, e.g. #some-header, or #footnote-1. */
+    background-color: #ffc;
 }
 
     
 html {
-  background-color: #eee;              /* Neutral background to contrast with the page. */
-  color: /*textcolor*/#252525;         /* Slightly less "harsh" black; looks subtly better. */
-       tab-size: 4;                    /* Tab size of 4 is probably more common in editors etc. */
-  -moz-tab-size: 4;                    /* Still needed as of Jan 2019 :-( https://bugzil.la/737785 */
+    /* Neutral background to contrast with the page. */
+    background-color: #eee;
+    /* Slightly less "harsh" black; looks subtly better. */
+    color: /*textcolor*/#252525;
+    /* Tab size of 4 is probably more common in editors etc. */
+    tab-size: 4;
+    /* Still needed as of Jan 2019 :-( https://bugzil.la/737785 */
+    -moz-tab-size: 4;
 }
 
 html, body {
-  margin: 0;                           /* No extra margin; shows up in some cases (e.g. when printing). */
+    /* No extra margin; shows up in some cases (e.g. when printing). */
+    margin: 0;
 }
 
 .center, .page, #table-of-contents, #postamble, .outline-2 {
-  max-width: /*bodywidth*/60rem;       /* Don't make it too wide, as that makes it harder to read. */
-  margin: .5rem auto;                  /* Add some extra space at top/bottom, and centre it. */
-  position: relative;                  /* So that absolute/relative positioning is relative to the page, which is almost always what's desired. */
+    /* Don't make it too wide, as that makes it harder to read. */
+    max-width: /*bodywidth*/60rem;
+    /* Add some extra space at top/bottom, and centre it. */
+    margin: .5rem auto;
+    /* So that absolute/relative positioning is relative to 
+     * the page, which is almost always what's desired. */
+    position: relative;
 }
 
 #postamble {
@@ -180,29 +191,38 @@ html, body {
     padding: 0;
 }
 
+#postamble .validation {
+    display: none;
+}
 
 .page, .outline-2 {
-  padding: /*pady*/1rem /*padx*/4rem;  /* Small padding on top, larger on sides. */
-  background-color: /*bgcolor*/#fffff4;   /* White background to override the html one */
-                                       /* A slightly grey or yellowish tint also works well, and gives a warmer feel.
-                                        * Some suggestions: #fbfbf7, #fffff7 */
-                                       /* Remove this and the box-shadow for an even background colour. */
-  box-shadow: 5px 5px 8px rgba(0,0,0,.2);  /* Box-shadow effect looks quite handsome here. */
-}
-@media (max-width: /*bodywidth*/54em) {
-  .page, .center, #table-of-contents, #postamble, .outline-2{
-    max-width: 100%;                   /* Full-width page. */
-    padding: 0 1rem;                   /* Modest amount of padding to prevent wasting screen space. */
-  }
+    /*Small padding on top, larger on sides.*/
+    padding: /*pady*/1rem /*padx*/4rem;
+
+    /*
+     * White background to override the html one. A slightly grey or yellowish
+     * tint also works well, and gives a warmer feel. Some suggestions: 
+     * #fbfbf7, #fffff7. Remove this and the box-shadow for an even background
+     * colour.
+     */
+    background-color: /*bgcolor*/#fffff4;
+
+    /* Box-shadow effect looks quite handsome here. */
+    box-shadow: 5px 5px 8px rgba(0,0,0,.2);
 }
 
-#table-of-contents h2 {
-    margin-left: 0em;
-    margin-right: 0em;
+/* For small screens */
+@media only screen and (max-width: 60em) {
+    .page, .center, #table-of-contents, #postamble, .outline-2{
+        /* Full-width page. */
+        max-width: 100%;
+        /* Modest amount of padding to prevent wasting screen space. */
+        padding: .5rem 1rem;
+    }
 }
 
 /* Put the table of contents on the side if there is enough space */
-@media screen and (min-width: /*bodywidth*/105em) {
+@media only screen and (min-width: 105em) {
     #table-of-contents  {
         position: fixed;
         top: 5%;
@@ -272,12 +292,13 @@ html, body {
 
 
 /* LINKS */
-a,
-a code,                                /* Otherwise it would just stay black text; common enough to include here. */
-.link {
-  color: #00f;                         /* Make sure colour is the same in all browsers. */
-  text-decoration: none;               /* Underlining can look "busy"; the colour on its own should be enough. */
-  transition: color .2s;               /* Animate the change in colour effect on hover; subtle but noticeable. */
+a, a code, .link {
+    /* Make sure colour is the same in all browsers. */
+    color: #00f;
+    /* Underlining can look "busy"; the colour on its own should be enough. */
+    text-decoration: none;
+    /* Animate the change in colour effect on hover; subtle but noticeable. */
+    transition: color .2s;
 }
 a:hover, .link:hover {
   text-decoration: underline;          /* Provide some feedback by underlining and changing colour. */
@@ -313,38 +334,49 @@ form {                                 /* Make sure forms don't affect visual la
 
 /* The intention is that there is only one h1 on a page: at the top. If you use
  * h1 different, then you may want to add a border like in the h2. */
+
+h1, h2, h3, h4, h5, h6 {
+
+}
+
 h1 {
-  text-align: center;
-  padding: .5em 0;                     /* More than default. */
-  font-size: 2em;                    /* Default of 2em is pretty large. */
+    margin-bottom: 0;
+    padding: 0 .5em;
+    text-align: center;
+    line-height: 180%;
+    font-size: 2em;
 }
 
 h2 {
     border-bottom: 2px solid /*textcolor*/#252525;  /* Underline to stand out more. */
-    margin-left: -1em;
-    margin-right: -1em;
+    margin-left: 0em;
+    margin-right: 0em;
     padding-bottom: .2em;                /* Border not too close to the text. */
     font-size: 1.5em;                    /* Default of 1.8em is pretty large. */
 }
 
+#table-of-contents h2 {
+    margin-top: 0; 
+}
+
 h3 {
     padding-top: 1em;
-    margin-left: 0em;
-    margin-right: 0em;
+    margin-left: 1em;
+    margin-right: 1em;
     border-bottom: 2px solid #ccc;       /* Underline to stand out more. */
     font-size: 1.3em;                    /* Default of 1.6em is pretty large. */
 }
 
 h4 {
     font-size: 1.1em;                    /* Slightly larger than default of 1em. */
-    margin-left: 1em;
-    margin-right: 1em;
+    margin-left: 2em;
+    margin-right: 2em;
 }
 
 h5, h6 {
     font-size: 1em;                      /* Don't make h5 and h6 smaller than base font. */
-    margin-left: 2em;
-    margin-right: 2em;
+    margin-left: 3em;
+    margin-right: 3em;
 }
 
 /* ORG MODE */
@@ -360,11 +392,12 @@ h5, h6 {
 }
 
 .tag {
-    border: 2px solid;
-    border-color: #aaa;
+    border: 1px solid;
+    border-color: #ba4;
     border-radius: 5px;
+    box-shadow: 0 0 0.2em 0px #986;
     padding: 2px;
-    background: #ddd;
+    background: #fec;
 }
 
 
