@@ -1,0 +1,19 @@
+#+HTML_DOCTYPE: html5
+#+HTML_HEAD: <meta name="viewport" content="width=device-width, initial-scale=1.0">
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css">
+#+LANGUAGE: en
+#+OPTIONS: html-style:nil
+#+OPTIONS: ^:nil f:not-nil num:nil
+#+OPTIONS: toc:2
+#+OPTIONS: creator:nil
+#+OPTIONS: email:non-nil
+#+AUTHOR: Claudio Parra
+#+EMAIL: onlycparra@hotmail.com
+
+#+TITLE: Balloons
+#+DESCRIPTION: joke, balloons, cute, funny
+
+* Balloons
+  [[file:balloons.png]]
+
+[[file:../index.html][Back to Home]]

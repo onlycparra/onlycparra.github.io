@@ -11,7 +11,7 @@
 #+EMAIL: onlycparra@hotmail.com
 
 #+TITLE: Blog of Claudio Parra
-#+DESCRIPTION: perf, amd, ryzen, 3960x, performance counters, linux, PMU
+#+DESCRIPTION: personal blog, computer science, programming
 
 
 * About myself and this Blog
@@ -20,3 +20,6 @@
 
 * Adventures with Linux Perf
   - [[file:posts/2021-04-28-perf.html][Measure raw perf events programatically in Ryzen 3960X]]
+
+* Fun
+  - [[file:fun/balloons.html][Balloons]]
