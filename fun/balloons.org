@@ -4,7 +4,7 @@
 #+LANGUAGE: en
 #+OPTIONS: html-style:nil
 #+OPTIONS: ^:nil f:not-nil num:nil
-#+OPTIONS: toc:2
+#+OPTIONS: toc:nil
 #+OPTIONS: creator:nil
 #+OPTIONS: email:non-nil
 #+AUTHOR: Claudio Parra
