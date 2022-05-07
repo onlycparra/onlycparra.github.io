@@ -1,0 +1,123 @@
+#sky {
+    position: relative;
+    z-index: 2;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    height: 20rem;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(#a0d8f8,#f8ffff);
+    overflow: hidden;
+}
+#plane {
+    z-index: 3;
+    position: relative;
+    height: 6rem;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation-name: animate-plane-arrive, animate-plane;
+    animation-duration: 6s, 2s;
+    animation-timing-function: ease-out,linear;
+    animation-direction: normal,alternate;
+    animation-iteration-count: 1, infinite;
+    animation-delay: 0s, 6.5s;
+}
+
+#seat {
+    z-index: -1;
+    position: absolute;
+    height: 10rem;
+    right: -10rem;
+    bottom: -2rem;
+    display: flex;
+    opacity: 0.1;
+    filter: blur(2px);
+}
+
+#cal {
+    z-index: -1;
+    position: absolute;
+    height: 10rem;
+    left: -6rem;
+    bottom: 0;
+    display: flex;
+    opacity: 0.1;
+    filter: blur(1px);
+}
+    
+    
+
+@keyframes animate-plane-arrive {
+    0% {transform: translate(-50vw, 0px);}
+    100% {transform: translate(0px, 0px);}
+}
+
+@keyframes animate-plane {
+    from {transform: translateY(0px);}
+    to {transform: translateY(12px);}
+}
+
+.cloud {
+    position: absolute;
+    top: 0;
+    left: 100vw;
+    right: 0;
+    bottom: 0;
+    
+}
+
+.cloud.far {
+    z-index: 1;
+    animation: animate-cloud 30s linear infinite;
+}
+
+.cloud.mid {
+    z-index: 2;
+    animation: animate-cloud 15s linear infinite;
+}
+
+.cloud.clo {
+    z-index: 4;
+    animation: animate-cloud 7s linear infinite;
+}
+
+#clo-f1 {
+    top: 7rem;
+    animation-delay: 0s;
+}
+
+#clo-f2 {
+    top: 4rem;
+    animation-delay: 11s;
+}
+
+#clo-f3 {
+    top: 9rem;
+    animation-delay: 17s;
+}
+
+#clo-m1 {
+    top: 4rem;
+    animation-delay: 7s;
+}
+
+#lo-cm2 {
+    top: 13rem;
+    animation-delay: 13s;
+}
+
+#clo-c1 {
+    top: 9rem;
+    animation-delay: 21s;
+}
+
+@keyframes animate-cloud {
+    from {transform: translateX(0);}
+    to {transform: translateX(-150vw)}
+}

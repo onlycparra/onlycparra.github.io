@@ -19,6 +19,8 @@ Welcome to my Blog! this is the first entry of my blog, so far I am not sure abo
 - [[file:posts/template.html][What I am using to make this website]]
 * Personal
 - [[file:posts/viaje_chile.html][Viaje a Chile]]
+- [[file:posts/2022/seattle.html][Trip to Seattle]]
+  
 
 * Adventures with Linux Perf
 - [[file:posts/2021-04-28-perf.html][Measure raw perf events programatically in Ryzen 3960X]]
