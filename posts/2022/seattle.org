@@ -1,6 +1,7 @@
 #+HTML_DOCTYPE: html5
 #+HTML_HEAD: <meta name="viewport" content="width=device-width, initial-scale=1.0">
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="/style.css">
+#+HTML_HEAD_EXTRA: <link rel="shortcut icon" href="plane.png">
 #+LANGUAGE: en
 #+OPTIONS: html-style:nil
 #+OPTIONS: ^:nil f:not-nil num:nil
@@ -24,8 +25,8 @@
 <img id="clo-m1" class="cloud mid" src="clouds/mid-1.svg">
 <img id="clo-m2" class="cloud mid" src="clouds/mid-2.svg">
 <img id="clo-c1" class="cloud clo" src="clouds/clo-1.svg">
-<img id="cal" src="calif.png">
-<img id="seat" src="seattle.png">
+<img id="city-orig" class="city orig" src="calif.png">
+<img id="city-dest" class="city dest" src="seattle.svg">
 </div>
 #+END_EXPORT
 

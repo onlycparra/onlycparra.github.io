@@ -10,10 +10,61 @@
     background: linear-gradient(#a0d8f8,#f8ffff);
     overflow: hidden;
 }
+
+
+/* Cities */
+.city {
+    z-index: -1;
+    position: absolute;
+    display: flex;
+    max-width: 40%;
+    max-height: 90%;
+    opacity: 0.1;
+    filter: blur(1px);
+}
+    
+.orig {
+    left: 0;
+    bottom: 0;
+    animation: fadeout 8s cubic-bezier(.65,.05,.36,1) forwards;
+}
+    
+    
+.dest {
+    right: 0;
+    bottom: 0;
+}
+
+.city-arrive {
+    z-index:2;
+    animation: fadein 8s cubic-bezier(.65,.05,.36,1) forwards;
+}
+
+@keyframes fadein {
+    to {
+        filter: none;
+        opacity: 1;
+    }
+}
+
+@keyframes fadeout {
+    from {
+        filter: none;
+        opacity: 1;
+    }
+    to {
+        filter: blur(1px);
+        opacity: 0.1;
+    }
+}
+
+
+
+/* Plane */
 #plane {
     z-index: 3;
     position: relative;
-    height: 6rem;
+    width: 10rem;
     top: 0;
     left: 0;
     right: 0;
@@ -21,7 +72,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    animation-name: animate-plane-arrive, animate-plane;
+    animation-name: animate-plane-departure, animate-plane-flight;
     animation-duration: 6s, 2s;
     animation-timing-function: ease-out,linear;
     animation-direction: normal,alternate;
@@ -29,42 +80,31 @@
     animation-delay: 0s, 6.5s;
 }
 
-#seat {
-    z-index: -1;
-    position: absolute;
-    height: 10rem;
-    right: -10rem;
-    bottom: -2rem;
-    display: flex;
-    opacity: 0.1;
-    filter: blur(2px);
+#plane.plane-arrive {
+    animation: animate-plane-arrive 5s cubic-bezier(.65,.5,.36,1) forwards;
 }
 
-#cal {
-    z-index: -1;
-    position: absolute;
-    height: 10rem;
-    left: -6rem;
-    bottom: 0;
-    display: flex;
-    opacity: 0.1;
-    filter: blur(1px);
-}
-    
-    
-
-@keyframes animate-plane-arrive {
-    0% {transform: translate(-50vw, 0px);}
-    100% {transform: translate(0px, 0px);}
+@keyframes animate-plane-departure {
+    0% {transform: translate(-40vw,8.5rem);}
+    100% {transform: translate(0, 0);}
 }
 
-@keyframes animate-plane {
-    from {transform: translateY(0px);}
+@keyframes animate-plane-flight {
+    from {transform: translateY(0);}
     to {transform: translateY(12px);}
 }
+@keyframes animate-plane-arrive {
+    0% {transform: translate(0,0);}
+    100% {transform: translate(calc(35vw - 2rem), 8.5rem);z-index: 10;}
+}
 
+
+
+
+/* Clouds */
 .cloud {
     position: absolute;
+    height: min(10vw, 10rem);
     top: 0;
     left: 100vw;
     right: 0;
