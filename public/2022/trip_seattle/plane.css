@@ -1,0 +1,163 @@
+#sky {
+    position: relative;
+    z-index: 2;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    height: 20rem;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(#a0d8f8,#f8ffff);
+    overflow: hidden;
+}
+
+
+/* Cities */
+.city {
+    z-index: -1;
+    position: absolute;
+    display: flex;
+    max-width: 40%;
+    max-height: 90%;
+    opacity: 0.1;
+    filter: blur(1px);
+}
+    
+.orig {
+    left: 0;
+    bottom: 0;
+    animation: fadeout 8s cubic-bezier(.65,.05,.36,1) forwards;
+}
+    
+    
+.dest {
+    right: 0;
+    bottom: 0;
+}
+
+.city-arrive {
+    z-index:2;
+    animation: fadein 8s cubic-bezier(.65,.05,.36,1) forwards;
+}
+
+@keyframes fadein {
+    to {
+        filter: none;
+        opacity: 1;
+    }
+}
+
+@keyframes fadeout {
+    from {
+        filter: none;
+        opacity: 1;
+    }
+    to {
+        filter: blur(1px);
+        opacity: 0.1;
+    }
+}
+
+
+
+/* Plane */
+#plane {
+    z-index: 3;
+    position: relative;
+    width: 10rem;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation-name: animate-plane-departure, animate-plane-flight;
+    animation-duration: 6s, 2s;
+    animation-timing-function: ease-out,linear;
+    animation-direction: normal,alternate;
+    animation-iteration-count: 1, infinite;
+    animation-delay: 0s, 6.5s;
+}
+
+#plane.plane-arrive {
+    animation: animate-plane-arrive 5s cubic-bezier(.65,.5,.36,1) forwards;
+}
+
+@keyframes animate-plane-departure {
+    0% {transform: translate(-40vw,8.5rem);}
+    100% {transform: translate(0, 0);}
+}
+
+@keyframes animate-plane-flight {
+    from {transform: translateY(0);}
+    to {transform: translateY(12px);}
+}
+@keyframes animate-plane-arrive {
+    0% {transform: translate(0,0);}
+    100% {transform: translate(calc(35vw - 2rem), 8.5rem);z-index: 10;}
+}
+
+
+
+
+/* Clouds */
+.cloud {
+    position: absolute;
+    height: min(10vw, 10rem);
+    top: 0;
+    left: 100vw;
+    right: 0;
+    bottom: 0;
+    
+}
+
+.cloud.far {
+    z-index: 1;
+    animation: animate-cloud 30s linear infinite;
+}
+
+.cloud.mid {
+    z-index: 2;
+    animation: animate-cloud 15s linear infinite;
+}
+
+.cloud.clo {
+    z-index: 4;
+    animation: animate-cloud 7s linear infinite;
+}
+
+#clo-f1 {
+    top: 7rem;
+    animation-delay: 0s;
+}
+
+#clo-f2 {
+    top: 4rem;
+    animation-delay: 11s;
+}
+
+#clo-f3 {
+    top: 9rem;
+    animation-delay: 17s;
+}
+
+#clo-m1 {
+    top: 4rem;
+    animation-delay: 7s;
+}
+
+#lo-cm2 {
+    top: 13rem;
+    animation-delay: 13s;
+}
+
+#clo-c1 {
+    top: 9rem;
+    animation-delay: 21s;
+}
+
+@keyframes animate-cloud {
+    from {transform: translateX(0);}
+    to {transform: translateX(-150vw)}
+}

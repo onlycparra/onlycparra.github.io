@@ -1,0 +1,41 @@
+#+HTML_DOCTYPE: html5
+#+HTML_HEAD: <meta name="viewport" content="width=device-width, initial-scale=1.0">
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="/style.css">
+#+HTML_HEAD_EXTRA: <link rel="shortcut icon" href="plane.png">
+#+LANGUAGE: en
+#+OPTIONS: html-style:nil
+#+OPTIONS: ^:nil f:not-nil num:nil
+#+OPTIONS: toc:nil
+#+OPTIONS: creator:nil
+#+OPTIONS: email:non-nil
+#+AUTHOR: Claudio Parra
+#+EMAIL: onlycparra@hotmail.com
+
+#+TITLE: Trip to Seattle
+#+DESCRIPTION: travel, counter
+
+#+BEGIN_EXPORT html
+<link rel="stylesheet" href="/posts/counter.css">
+<link rel="stylesheet" href="plane.css">
+<div id="sky">
+<img id="plane" src="plane.png">
+<img id="clo-f1" class="cloud far" src="clouds/far-1.svg">
+<img id="clo-f2" class="cloud far" src="clouds/far-2.svg">
+<img id="clo-f3" class="cloud far" src="clouds/far-3.svg">
+<img id="clo-m1" class="cloud mid" src="clouds/mid-1.svg">
+<img id="clo-m2" class="cloud mid" src="clouds/mid-2.svg">
+<img id="clo-c1" class="cloud clo" src="clouds/clo-1.svg">
+<img id="city-orig" class="city orig" src="calif.png">
+<img id="city-dest" class="city dest" src="seattle.svg">
+</div>
+#+END_EXPORT
+
+* Dito comes to Seattle in...
+
+#+BEGIN_EXPORT html
+<div id="timer" class="countdown" data-target="2022-05-27 13:39"></div>
+<script src="counter.js"></script> 
+#+END_EXPORT
+
+# #+INCLUDE: "counter.html" export html
+[[../../index.org][Back to Home]]

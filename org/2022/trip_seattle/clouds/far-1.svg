@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   version="1.1"
+   id="svg2"
+   xml:space="preserve"
+   width="330.95044"
+   height="158.91901"
+   viewBox="0 0 330.95042 158.919"
+   sodipodi:docname="far-1.svg"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><defs
+     id="defs6"><filter
+       inkscape:collect="always"
+       style="color-interpolation-filters:sRGB"
+       id="filter14759"
+       x="-0.016048761"
+       y="-0.034624781"
+       width="1.0320975"
+       height="1.0692496"><feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="1.6081768"
+         id="feGaussianBlur14761" /></filter></defs><sodipodi:namedview
+     id="namedview4"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="0.81843744"
+     inkscape:cx="667.73583"
+     inkscape:cy="536.9989"
+     inkscape:window-width="1792"
+     inkscape:window-height="1551"
+     inkscape:window-x="1764"
+     inkscape:window-y="270"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="g8" /><g
+     id="g8"
+     inkscape:groupmode="layer"
+     inkscape:label="ink_ext_XXXXXX"
+     transform="matrix(1.3333333,0,0,-1.3333333,-53.018366,1012.9315)"><path
+       d="m 278.002,644.369 c 3.883,6.731 6.115,14.532 6.115,22.86 0,25.314 -20.52,45.835 -45.834,45.835 -1.306,0 -2.596,-0.069 -3.874,-0.175 -3.255,24.248 -24.011,42.95 -49.151,42.95 -15.778,0 -29.824,-7.375 -38.91,-18.857 -7.322,5.084 -16.208,8.072 -25.797,8.072 -21.2268,0 -39.0369,-14.604 -43.9463,-34.312 -19.1383,-6.198 -32.9813,-24.16 -32.9813,-45.362 0,-7.542 1.7579,-14.671 4.8754,-21.011 H 278.002"
+       style="opacity:0.749803;fill:#d7f4fa;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.1;filter:url(#filter14759)"
+       id="path40" /></g></svg>

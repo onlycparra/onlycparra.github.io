@@ -1,0 +1,103 @@
+body {
+    margin: 0;
+    padding-top: 1em;
+    background: #f8f4e0;
+    font-family: sans;
+}
+
+#content {
+    background: #fff;
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 0.5em;
+    padding-bottom: 4em;
+    margin-bottom: 4em;
+    font-family: system-ui, sans;
+    font-weight: normal;
+    border: solid 1px #e8e8d4;
+    border-radius: 5px;
+}
+
+#content > * {
+    margin-left: 2em;
+    margin-right: 2em;
+}
+
+header {
+    margin-inline: 0.5em !important;
+    padding-block: 2em;
+    text-align: center;
+}
+
+h1 {
+    margin: 0 auto;
+    padding: 0.5em 0;
+    text-align: center;
+}
+
+nav {
+    margin-inline: 0 !important;
+    margin-bottom: 1em;
+}
+
+nav > ul {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    border-bottom: solid 4px #f8f4e0;
+}
+
+nav > ul > li {
+    display: inline-block;
+    padding-block: 0.6em;
+    margin: 0;
+    font-size: 0.8em;
+}
+
+nav > ul > li > a {
+    text-decoration: none;
+    padding-inline: 0.5em;
+    padding-block: 0.6em;
+    color: #666;
+}
+
+nav > ul > li > a:hover {
+    background: #f8f4e0;
+}
+
+nav > ul > li > a:active {
+    background: #ffd;
+    color: black;
+}
+
+.outline-2 {
+    margin-left: 3em !important;
+    margin-right: 3em !important;
+    line-height: 1.5em;
+}
+
+#content > .outline-2:not(:first-of-type) {
+    margin-top: 1.5em !important;
+    border-top: solid 1px #ccc;
+}
+
+table {
+    margin-bottom: 0.5em;
+}
+
+table tbody td {
+    padding: 0.2em 0.4em;
+}
+
+table thead {
+    background: #fed;
+}
+
+table tbody td:first-child {
+    text-align: right;
+    width: 3em;
+}
+
+table tbody td:not(:last-child):nth-child(2) {
+    width: 4.5em;
+}

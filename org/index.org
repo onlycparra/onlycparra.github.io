@@ -9,5 +9,7 @@ Welcome to my Blog! this is the first entry of my blog, so far I am not sure abo
 - [[file:professional/training.org][Leetcode Training]]
 * Research
 - [[file:posts/2021-04-28-perf.html][Measure raw perf events programatically in Ryzen 3960X]]
-* Fun
+* Personal
+- [[file:posts/viaje_chile.html][Viaje a Chile]]
+- [[file:posts/2022/seattle.html][Trip to Seattle]]
 - [[file:fun/balloons.html][Balloons]]

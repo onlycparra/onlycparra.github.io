@@ -1,0 +1,27 @@
+.countdown{
+    text-align: center;
+    width: 100%;
+}
+
+.count_expired{
+    font-size: min(4em,15vw);
+    line-height: 1em;
+}
+.rotor {
+    display: inline-block;
+    font-size: min(4em,15vw);
+    min-height: 1em;
+    line-height: 1em;
+    padding: 0;
+    margin: 0;
+}
+.rotor-group {
+    display: inline-block;
+    width: calc((100% - 6px) / 4);
+    padding: 0 0.5em;
+}
+.rotor-group:not(:last-child) {
+    border-right-color: #bbb;
+    border-right-style: solid;
+    border-right-width: 2px;
+}
