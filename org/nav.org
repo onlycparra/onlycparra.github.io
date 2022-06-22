@@ -1,0 +1,11 @@
+#+HTML_DOCTYPE: html5
+#+OPTIONS: toc:nil num:nil html-postamble:nil ^:nil
+#+OPTIONS: html-style:nil
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="style.css" />
+#+BEGIN_EXPORT html
+<nav class="nav">
+#+END_EXPORT
+- [[file:../../index.org][Back to Home]]
+#+BEGIN_EXPORT html
+</nav>
+#+END_EXPORT

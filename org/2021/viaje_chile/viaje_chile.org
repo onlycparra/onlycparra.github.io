@@ -1,16 +1,7 @@
-#+HTML_DOCTYPE: html5
-#+HTML_HEAD: <meta name="viewport" content="width=device-width, initial-scale=1.0">
-#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css">
-#+LANGUAGE: en
-#+OPTIONS: html-style:nil
-#+OPTIONS: ^:nil f:not-nil num:nil
-#+OPTIONS: toc:nil
-#+OPTIONS: creator:nil
-#+OPTIONS: email:non-nil
-#+AUTHOR: Claudio Parra
-#+EMAIL: onlycparra@hotmail.com
-
+#+setupfile: ../../config.org
+#+options: :toc nil :htmlized-source t
 #+TITLE: Viaje a Chile
+#+include: ../../nav.org
 #+DESCRIPTION: travel, counter
 
 * El Nan llega a Chile en...
@@ -19,6 +10,3 @@
 <div id="timer" class="countdown" data-target="2021-12-13 00:05"></div>
 <script src="counter.js"></script> 
 #+END_EXPORT
-
-# #+INCLUDE: "counter.html" export html
-[[file:../index.html][Back to Home]]

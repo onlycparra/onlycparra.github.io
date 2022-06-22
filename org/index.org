@@ -4,12 +4,14 @@
 
 * About myself and this Blog
 Welcome to my Blog! this is the first entry of my blog, so far I am not sure about what to share in here, or how is this going to work, but I will just start with the things I am working on now.
-- [[file:posts/template.html][What I am using to make this website]]
+
 * Professional
-- [[file:professional/training.org][Leetcode Training]]
+- [[file:2022/code_interview/training.org][Leetcode Training]]
+
 * Research
-- [[file:posts/2021-04-28-perf.html][Measure raw perf events programatically in Ryzen 3960X]]
+- [[file:2022/perf/perf.org][Measure raw perf events programatically in Ryzen 3960X]]
+
 * Personal
-- [[file:posts/viaje_chile.html][Viaje a Chile]]
-- [[file:posts/2022/seattle.html][Trip to Seattle]]
-- [[file:fun/balloons.html][Balloons]]
+- [[file:2021/viaje_chile/viaje_chile.org][Viaje a Chile]]
+- [[file:2022/trip_seattle/seattle.org][Trip to Seattle]]
+- [[file:2021/balloons/balloons.org][Balloons]]

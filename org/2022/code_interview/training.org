@@ -1,30 +1,71 @@
-#+HTML_DOCTYPE: html5
-#+HTML_HEAD: <meta name="viewport" content="width=device-width, initial-scale=1.0">
-#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css">
-#+LANGUAGE: en
-#+OPTIONS: html-style:nil
-#+OPTIONS: ^:nil f:not-nil num:nil
-#+OPTIONS: toc:2
-#+OPTIONS: creator:nil
-#+OPTIONS: email:non-nil
-#+AUTHOR: Claudio Parra
-#+EMAIL: onlycparra@hotmail.com
+#+setupfile: ../../config.org
+#+options: :toc nil :htmlized-source t
+#+title: Leetcode Exercises
+#+include: ../../nav.org
 
 #+STARTUP: nologdone
 #+TODO: TODO(t) CURRENT(r) | DONE(d) CANCELED(n@)
-* [2/2] Leetcode Exercises [2022-06-21 Tue]
+* [2/2] Day 1
+SCHEDULED: <2022-06-21 Tue>
 ** DONE Two Sum :easy:
 CLOSED: [2022-06-21 Tue 19:05]
-- Runtime :: O(n) 71%
-- Memory :: O(n) 49%
+- https://leetcode.com/problems/two-sum/
+- *Runtime:* O(n) 71%
+- *Memory:* O(n) 49%
 - Use a dictionary to store potential matches for future numbers.
-** DONE Valid parenthesis :easy:
+  #+begin_example python
+  class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        if not nums:
+            raise Exception("The list 'nums' is empty")
+        '''
+        dict with pairs (<number previously found>, <index of that number>)
+        for every number X in nums[], we will lookup this dictionary first to see
+        whether we have seen the value (target-X) before.
+        '''
+        wanted = {}
+        for j in range(len(nums)):
+            looking_for = target - nums[j]
+            if looking_for in wanted:
+                return(wanted[looking_for],j)
+            wanted[nums[j]] = j
+        raise Exception("No pair found, you lied to me...")
+        return
+    #+end_example
+** DONE Valid Parenthesis :easy:
 CLOSED: [2022-06-21 Tue 19:46]
 :LOGBOOK:
 CLOCK: [2022-06-21 Tue 19:12]--[2022-06-21 Tue 19:46] =>  0:34
 :END:
-- Runtime :: O(n) 19%
-- Memory :: O(n) 69%
+- *Runtime:* O(n) 19%
+- *Memory:* O(n) 69%
 - Use a stack to keep the open parenthesis in order.
 - if =([{=, then push. if =)]}=, check the correspondence and if ok, continue.
 - Keep the pairs in a dictionary, that makes it easy to maintain.
+  #+begin_example python
+  class Solution:
+    def isValid(self, s: str) -> bool:
+        # openers will contain all the opening parenthesis that are
+        # not closed yet.
+        openers = []
+        pairs = {'(':')', '[':']', '{':'}'}
+        for par in s:
+            if par in '([{':
+                # opening, push to stack
+                openers.append(par)
+            elif openers:
+                # closing AND there is at least one opener in the stack.
+                # check the corresponding opener
+                if pairs[openers.pop()] != par:
+                    return False
+            else:
+                # closing BUT the stack of openers is empty.
+                # This is a disbalance in the force...
+                return False
+        
+        # at this point nest_stack should be empty, because all parethesis
+        # should have closed with their matching pairs
+        if openers:
+            return False
+        return True
+    #+end_example

@@ -1,0 +1,8 @@
+#+setupfile: ../../config.org
+#+options: :toc nil :htmlized-source t
+#+TITLE: How to programatically read L2 events in Ryzen 3960x
+#+DESCRIPTION: perf, amd, ryzen, 3960x, performance counters, linux, PMU
+#+include: ../../nav.org
+
+* Work in progress
+This is still work in progress, as I get more results, I will post them here

@@ -110,17 +110,12 @@ html {
 
 /* For small screens */
 @media only screen and (max-width: 60em) {
-    html {
-        font-size: 14px;
-        line-height: 160%;
-    }
+
 }
 
 /* For super small screens */
 @media only screen and (max-width: 30em) {
-    html {
-        font-size: 12px;
-        line-height: 150%; }
+
 }
 
 pre, code {
@@ -171,11 +166,11 @@ html, body {
     margin: 0;
 }
 
-.center, .page, #table-of-contents, #postamble, .outline-2 {
+.center, .page, #table-of-contents, #postamble, .outline-2, nav {
     /* Don't make it too wide, as that makes it harder to read. */
-    max-width: /*bodywidth*/60rem;
+    max-width: 60em;
     /* Add some extra space at top/bottom, and centre it. */
-    margin: .5rem auto;
+    margin: 0 auto;
     /* So that absolute/relative positioning is relative to 
      * the page, which is almost always what's desired. */
     position: relative;
@@ -196,9 +191,6 @@ html, body {
 }
 
 .page, .outline-2 {
-    /*Small padding on top, larger on sides.*/
-    padding: /*pady*/1rem /*padx*/4rem;
-
     /*
      * White background to override the html one. A slightly grey or yellowish
      * tint also works well, and gives a warmer feel. Some suggestions: 
@@ -209,6 +201,12 @@ html, body {
 
     /* Box-shadow effect looks quite handsome here. */
     box-shadow: 5px 5px 8px rgba(0,0,0,.2);
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+}
+
+.outline-text-2 {
+    margin-inline: min(4%, 4em);
 }
 
 /* For small screens */
@@ -216,8 +214,6 @@ html, body {
     .page, .center, #table-of-contents, #postamble, .outline-2{
         /* Full-width page. */
         max-width: 100%;
-        /* Modest amount of padding to prevent wasting screen space. */
-        padding: .5rem 1rem;
     }
 }
 
@@ -348,23 +344,23 @@ h1 {
 }
 
 h2 {
-    border-bottom: 2px solid /*textcolor*/#252525;  /* Underline to stand out more. */
-    margin-left: 0em;
-    margin-right: 0em;
-    padding-bottom: .2em;                /* Border not too close to the text. */
     font-size: 1.5em;                    /* Default of 1.8em is pretty large. */
+    border-bottom: 4px solid #acaca8;
+    padding: 1em;
+    text-align: center;
+    margin-bottom: 0;
+    margin-top: 0;
 }
 
 #table-of-contents h2 {
+    display: none;
     margin-top: 0; 
 }
 
 h3 {
-    padding-top: 1em;
-    margin-left: 1em;
-    margin-right: 1em;
-    border-bottom: 2px solid #ccc;       /* Underline to stand out more. */
     font-size: 1.3em;                    /* Default of 1.6em is pretty large. */
+    margin-top: 2em;
+    text-align: center;
 }
 
 h4 {
@@ -389,15 +385,22 @@ h5, h6 {
 .done {
     font-weight: bold;
     color: darkgreen;
+    background: #d2f7d0;
+    font-size: 0.9em;
+    border: solid 1px darkgreen;
+    border-radius: 3px;
+    padding: 0 6px;
 }
 
 .tag {
-    border: 1px solid;
-    border-color: #ba4;
-    border-radius: 5px;
-    box-shadow: 0 0 0.2em 0px #986;
-    padding: 2px;
-    background: #fec;
+    font-size: 0.6em;
+    padding: 1px 4px;
+    border: 1px;
+    border-color: #c8c4acc4;
+    background: #fff3dabf;
+    vertical-align: bottom;
+    font-family: mono;
+    border-style: dashed;
 }
 
 
@@ -433,6 +436,87 @@ figure.border {
     border-right: none;
   }
 }
+
+
+
+
+#table-of-contents > h2 {
+  border-style: none;
+  display: none;
+}
+
+.outline-3:last-child {
+  padding-bottom: 4em;
+}
+
+#text-table-of-contents > ul > li > ul {
+  display: inline-block;
+}
+
+#text-table-of-contents > ul > li > ul > li > a {
+  text-decoration: ;
+  text-overflow: clip;
+}
+
+#text-table-of-contents > ul > li > ul > li {
+  margin: 0 0.3em;
+  text-decoration: ;
+  font-size: 0.9em;
+}
+
+#text-table-of-contents > ul > li > a {
+  color: #713a00;
+  font-size: 1.2em;
+}
+
+.outline-3 {
+  padding: 0 min(4%, 4em);
+}
+
+
+
+
+nav {
+    margin-top: 1em;
+    margin-bottom: 0;
+}
+
+nav > ul {
+    margin: 0;
+    padding: 0;
+    text-align: right;
+}
+
+nav > ul > li {
+    display: inline-block;
+    margin: 0;
+    font-size: 0.8em;
+}
+
+nav > ul > li > a {
+    text-decoration: none;
+    padding-inline: 0.5em;
+    padding-block: 0.6em;
+    color: #666;
+    background: #fffff4;
+    box-shadow: 2px -1px 8px 2px #8888;
+    border-radius: 5px 5px 0 0;
+}
+
+nav > ul > li > a:hover {
+    background: #f8f4e0;
+    box-shadow: 2px -1px 7px 1px #888c;
+}
+
+nav > ul > li > a:active {
+    background: #ffd;
+    color: black;
+}
+
+
+
+
+
 
 
 
@@ -481,7 +565,7 @@ h1 src, h2 src, h3 src, h4 src, h5 src, h6 src {
 /* TABLES */
 table {
   border-collapse: collapse;           /* No space between borders. */
-  width: 100%;
+  /*width: 100%;*/
 }
 table + table {
   margin-top: 2em;                     /* Add margin for subsequent tables. */
