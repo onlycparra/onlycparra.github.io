@@ -1,0 +1,30 @@
+#+HTML_DOCTYPE: html5
+#+HTML_HEAD: <meta name="viewport" content="width=device-width, initial-scale=1.0">
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css">
+#+LANGUAGE: en
+#+OPTIONS: html-style:nil
+#+OPTIONS: ^:nil f:not-nil num:nil
+#+OPTIONS: toc:2
+#+OPTIONS: creator:nil
+#+OPTIONS: email:non-nil
+#+AUTHOR: Claudio Parra
+#+EMAIL: onlycparra@hotmail.com
+
+#+STARTUP: nologdone
+#+TODO: TODO(t) CURRENT(r) | DONE(d) CANCELED(n@)
+* [2/2] Leetcode Exercises [2022-06-21 Tue]
+** DONE Two Sum :easy:
+CLOSED: [2022-06-21 Tue 19:05]
+- Runtime :: O(n) 71%
+- Memory :: O(n) 49%
+- Use a dictionary to store potential matches for future numbers.
+** DONE Valid parenthesis :easy:
+CLOSED: [2022-06-21 Tue 19:46]
+:LOGBOOK:
+CLOCK: [2022-06-21 Tue 19:12]--[2022-06-21 Tue 19:46] =>  0:34
+:END:
+- Runtime :: O(n) 19%
+- Memory :: O(n) 69%
+- Use a stack to keep the open parenthesis in order.
+- if =([{=, then push. if =)]}=, check the correspondence and if ok, continue.
+- Keep the pairs in a dictionary, that makes it easy to maintain.
