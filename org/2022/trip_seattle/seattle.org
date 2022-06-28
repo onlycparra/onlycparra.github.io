@@ -1,4 +1,4 @@
-#+setupfile: ../../config.org
+#+setupfile: ../../__config/config.org
 #+options: :toc nil :htmlized-source t
 #+TITLE: Trip to Seattle
 #+DESCRIPTION: travel, counter
@@ -19,10 +19,8 @@
 </div>
 #+END_EXPORT
 
-#+include: ../../nav.org
+#+include: ../../__config/nav.org
 * Dito comes to Seattle in...
 
-#+BEGIN_EXPORT html
-<div id="timer" class="countdown" data-target="2022-05-27 13:39"></div>
-<script src="counter.js"></script> 
-#+END_EXPORT
+#+HTML: <div id="timer" class="countdown" data-target="2022-05-27 13:39"></div>
+#+HTML: <script src="counter.js"></script>

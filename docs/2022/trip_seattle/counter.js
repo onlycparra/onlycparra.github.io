@@ -39,6 +39,16 @@ function update_count() {
     var now = new Date().getTime();
     // Find the distance between now and the count down date
     var distance = target_date - now;
+    
+    // If the count down is over, write some text 
+    if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("timer").classList.add("count_expired");
+        document.getElementById("timer").innerHTML = "Dito is here!";
+        animate_landing();
+        return;
+    }
+    
     // Time calculations for days, hours, minutes and seconds
     var days = Math.floor(distance / (1000 * 60 * 60 * 24));
     var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -49,13 +59,6 @@ function update_count() {
     document.getElementById("hours").innerHTML = hours
     document.getElementById("mins").innerHTML = minutes
     document.getElementById("secs").innerHTML = seconds
-    // If the count down is over, write some text 
-    if (distance < 0) {
-        clearInterval(x);
-        document.getElementById("timer").classList.add("count_expired");
-        document.getElementById("timer").innerHTML = "Dito is here!";
-        animate_landing();
-    }
 }
 
 var target_date = get_target_date();

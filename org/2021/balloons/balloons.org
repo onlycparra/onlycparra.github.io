@@ -1,7 +1,7 @@
-#+setupfile: ../../config.org
+#+setupfile: ../../__config/config.org
 #+options: :toc nil :htmlized-source t
 #+TITLE: Balloons
-#+include: ../../nav.org
+#+include: ../../__config/nav.org
 #+DESCRIPTION: joke, balloons, cute, funny
 
 * Shuuu...

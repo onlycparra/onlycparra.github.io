@@ -1,7 +1,7 @@
-#+setupfile: ../../config.org
+#+setupfile: ../../__config/config.org
 #+options: :toc nil :htmlized-source t
 #+TITLE: Viaje a Chile
-#+include: ../../nav.org
+#+include: ../../__config/nav.org
 #+DESCRIPTION: travel, counter
 
 * El Nan llega a Chile en...
