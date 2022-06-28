@@ -7,13 +7,15 @@ OMIT_STR := __
 # explicit list of org files that don't have to be converted to html
 NO_PAGES := 
 
+# exclude from find
+NO_FIND := -not -name '*~' -not -wholename '*$(OMIT_STR)*' -not -wholename '*/.*'
 # all org files
-ALL_ORGS := $(sort $(shell find -L $(ORG) -type f -name '*.org' -not -wholename '*$(OMIT_STR)*'))
+ALL_ORGS := $(sort $(shell find -L $(ORG) -type f -name '*.org' $(NO_FIND)))
 # all html files generated from org files
 PAGES := $(patsubst %.org,%.html,$(filter-out $(NO_PAGES),$(ALL_ORGS)))
 
 # all assets that are not .org files
-ASSETS := $(sort $(shell find -L $(ORG) -type f -not -name '*.org' -not -name '*~' -not -wholename '*$(OMIT_STR)*'))
+ASSETS := $(sort $(shell find -L $(ORG) -type f -not -name '*.org' $(NO_FIND)))
 ASSETS := $(filter-out $(PAGES),$(ASSETS))
 # where to put not-org assets in the target directory.
 DEST_ASSETS := $(patsubst $(ORG)/%,$(PUBLIC)/%,$(ASSETS))
@@ -79,3 +81,14 @@ echo:
 
 	@echo -e "\nOther assets in source directory to simply copy:"
 	@echo $(ASSETS) | tr ' ' '\n'
+
+continuous-build:
+	@echo "Waiting for changes in '$(ORG)/'"
+	@echo "[Ctrl-C] to exit."
+	@find -L $(ORG) -type f -not -name '*~' -not -wholename '*/.*' -not -name '*.html' | entr -pc make --no-print-directory all
+
+serve-website:
+	@(\
+		cd $(PUBLIC) ;\
+		python3 -m http.server ;\
+	)

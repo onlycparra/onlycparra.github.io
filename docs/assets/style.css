@@ -4,15 +4,15 @@
  */
 
 aside {
-  hyphens: auto;                       /* Hyphenate, as this text is quite narrow. */
+    hyphens: auto;                       /* Hyphenate, as this text is quite narrow. */
 }
 
 aside {
-  position: absolute;
-  left: /*padx*/-15em;
-  width: 14em;
-  text-align: right;
-  font-size: .9em;
+    position: absolute;
+    left: /*padx*/-15em;
+    width: 14em;
+    text-align: right;
+    font-size: .9em;
 }
 
 /* Alternative: place on the right.
@@ -24,15 +24,15 @@ aside {
 */
 
 @media (max-width: 63em) {             /* Place inline if it won't fit on the screen. */
-  aside {
-    position: static;
-    width: auto;
-    text-align: left;
-    background-color: #f7f7f7;
-    padding: .4em 2em;
-    border: 1px solid /*bordercolor*/#aaa;
-    hyphens: none;
-  }
+    aside {
+        position: static;
+        width: auto;
+        text-align: left;
+        background-color: #f7f7f7;
+        padding: .4em 2em;
+        border: 1px solid /*bordercolor*/#aaa;
+        hyphens: none;
+    }
 }
 
 /* Optional: place the page further to the right, so that there's more space for
@@ -40,7 +40,7 @@ aside {
  * Adjust the media query above to max-width: 63em
  */
 .outline-2 {
-  margin: 10em 0 0 0;
+    margin: 10em 0 0 0;
 }
 
 
@@ -66,31 +66,31 @@ aside {
  * A copy is in the "fonts" dir.
  */
 @font-face {
-  font-family: 'Libre Baskerville';
-  font-style: normal;
-  font-weight: 400;
-  font-display: fallback;
-  src: local('Libre Baskerville'), local('LibreBaskerville-Regular'),
-    url(fonts/libre-baskerville.woff2) format('woff2'),
-    url(./fonts/libre-baskerville.woff2) format('woff2');
+    font-family: 'Libre Baskerville';
+    font-style: normal;
+    font-weight: 400;
+    font-display: fallback;
+    src: local('Libre Baskerville'), local('LibreBaskerville-Regular'),
+         url(fonts/libre-baskerville.woff2) format('woff2'),
+         url(./fonts/libre-baskerville.woff2) format('woff2');
 }
 @font-face {
-  font-family: 'Libre Baskerville';
-  font-style: normal;
-  font-weight: 700;
-  font-display: fallback;
-  src: local('Libre Baskerville Bold'), local('LibreBaskerville-Bold'),
-    url(fonts/libre-baskerville-bold.woff2) format('woff2'),
-    url(./fonts/libre-baskerville-bold.woff2) format('woff2');
+    font-family: 'Libre Baskerville';
+    font-style: normal;
+    font-weight: 700;
+    font-display: fallback;
+    src: local('Libre Baskerville Bold'), local('LibreBaskerville-Bold'),
+         url(fonts/libre-baskerville-bold.woff2) format('woff2'),
+         url(./fonts/libre-baskerville-bold.woff2) format('woff2');
 }
 @font-face {
-  font-family: 'Libre Baskerville';
-  font-style: italic;
-  font-weight: 400;
-  font-display: fallback;
-  src: local('Libre Baskerville Italic'), local('LibreBaskerville-Italic'),
-    url(fonts/libre-baskerville-italic.woff2) format('woff2'),
-    url(./fonts/libre-baskerville-italic.woff2) format('woff2');
+    font-family: 'Libre Baskerville';
+    font-style: italic;
+    font-weight: 400;
+    font-display: fallback;
+    src: local('Libre Baskerville Italic'), local('LibreBaskerville-Italic'),
+         url(fonts/libre-baskerville-italic.woff2) format('woff2'),
+         url(./fonts/libre-baskerville-italic.woff2) format('woff2');
 }
 
 html {
@@ -104,7 +104,7 @@ html {
     /* Disables text adjustment algorithm on some mobile browsers, this is */
     text-size-adjust: none;
     
-     /* intended for sites that are not designed for mobile viewing. */
+    /* intended for sites that are not designed for mobile viewing. */
     -webkit-text-size-adjust: none;
 }
 
@@ -119,7 +119,7 @@ html {
 }
 
 pre, code {
-  font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Consolas', monospace;
+    font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Consolas', monospace;
 }
 
 code {
@@ -149,7 +149,7 @@ pre {
     background-color: #ffc;
 }
 
-    
+
 html {
     /* Neutral background to contrast with the page. */
     background-color: #eee;
@@ -232,7 +232,7 @@ html, body {
     #table-of-contents h2 {
         font-size: 1em;
     }
-        
+    
 }
 
 
@@ -246,32 +246,32 @@ html, body {
 
 /* PRINTING */
 @page {
-  margin: 0;                           /* Don't add extra margin to pages, .page already has it. */
-                                       /* Also hides URL and such that most browsers add. */
+    margin: 0;                           /* Don't add extra margin to pages, .page already has it. */
+    /* Also hides URL and such that most browsers add. */
 }
 @media print {                         /* Reset some stuff for printing. */
-  body {
-    background-color: #fff;
-  }
-  .page, .center, #postamble, .outline-2 {
-    box-shadow: none;
-    padding: 0 1cm;
-    margin: 0;
-    max-width: none;
-  }
-  .page:first-child, .center:first-child, #postamble:first-child {
-    padding-top: 5mm;
-  }
+    body {
+        background-color: #fff;
+    }
+    .page, .center, #postamble, .outline-2 {
+        box-shadow: none;
+        padding: 0 1cm;
+        margin: 0;
+        max-width: none;
+    }
+    .page:first-child, .center:first-child, #postamble:first-child {
+        padding-top: 5mm;
+    }
 }
 
 .page-a4, .page.page-a4 {              /* A4 paper used in most places */
-  width: 21cm;
-  height: 29.7cm;
+    width: 21cm;
+    height: 29.7cm;
 }
 
 .page-letter, .page.page-letter {      /* Standard U.S. letter */
-  width: 8.5in;
-  height: 11in;
+    width: 8.5in;
+    height: 11in;
 }
 
 
@@ -297,32 +297,32 @@ a, a code, .link {
     transition: color .2s;
 }
 a:hover, .link:hover {
-  text-decoration: underline;          /* Provide some feedback by underlining and changing colour. */
-  color: #6491ff;                      /* Light blue */
+    text-decoration: underline;          /* Provide some feedback by underlining and changing colour. */
+    color: #6491ff;                      /* Light blue */
 }
 a:hover code  {
-  color: #6491ff;                      /* Also change colour of code on hover. */
+    color: #6491ff;                      /* Also change colour of code on hover. */
 }
 
 form {                                 /* Make sure forms don't affect visual layout. */
-  display: inline;
-  margin: 0;
-  padding: 0;
+    display: inline;
+    margin: 0;
+    padding: 0;
 }
 
 .link {
-  background: transparent;             /* Reset basic appearance. */
-  border: none;
-  outline: none;
-  margin: 0;
-  padding: 0;
-  cursor: pointer;
-  font: inherit;
-  line-height: 1rem;
-  display: inline;
+    background: transparent;             /* Reset basic appearance. */
+    border: none;
+    outline: none;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    font: inherit;
+    line-height: 1rem;
+    display: inline;
 
-  -moz-user-select: inherit;           /* Otherwise text isn't selectable. */
-  -webkit-appearance: none;
+    -moz-user-select: inherit;           /* Otherwise text isn't selectable. */
+    -webkit-appearance: none;
 }
 
 
@@ -344,8 +344,8 @@ h1 {
 }
 
 h2 {
-    font-size: 1.5em;                    /* Default of 1.8em is pretty large. */
-    border-bottom: 4px solid #acaca8;
+    font-size: 1.7em;                    /* Default of 1.8em is pretty large. */
+    /*border-bottom: 4px solid #acaca8;*/
     padding: 1em;
     text-align: center;
     margin-bottom: 0;
@@ -359,8 +359,8 @@ h2 {
 
 h3 {
     font-size: 1.3em;                    /* Default of 1.6em is pretty large. */
-    margin-top: 2em;
-    text-align: center;
+    /*margin-top: 2em;*/
+    text-align: left;
 }
 
 h4 {
@@ -406,71 +406,72 @@ h5, h6 {
 
 /* BLOCKQUOTE */
 .blockquote {
-  font-style: italic;                  /* Quotations are usually typeset in italics. */
+    font-style: italic;                  /* Quotations are usually typeset in italics. */
 }
 
 
 /* IMAGES */
 img {
-  max-width: 100%;                     /* Make sure it's never larger than the page. */
+    max-width: 100%;                     /* Make sure it's never larger than the page. */
 }
 figure {
-  text-align: center;                  /* Centre images and associated captions (if any). */
-  margin: 1rem 0;                      /* Don't need 40px of margin on either side. */
+    text-align: center;                  /* Centre images and associated captions (if any). */
+    margin: 1rem 0;                      /* Don't need 40px of margin on either side. */
 }
 
 figure.border {
-  border: 1px solid /*bordercolor*/#aaa; /* Add border. */
-  padding: 5px;                        /* Slight gap between image and border. */
-  margin: -5px;                        /* Put the border in the margin, so the padding doesn't shrink the image. */
+    border: 1px solid /*bordercolor*/#aaa; /* Add border. */
+    padding: 5px;                        /* Slight gap between image and border. */
+    margin: -5px;                        /* Put the border in the margin, so the padding doesn't shrink the image. */
 }
 
 @media (min-width: /*bodywidth*/54em) { /* Only if the screen is wide enough. */
-  figure.full {                        /* Make sure this is after .border so that adding both works. */
-    margin-left: /*padx*/-4rem;
-    width: calc(100% + /*padx*/8rem);
-  }
+    figure.full {                        /* Make sure this is after .border so that adding both works. */
+        margin-left: /*padx*/-4rem;
+        width: calc(100% + /*padx*/8rem);
+    }
 
-  figure.full.border {
-    border-left: none;                 /* Remove side borders on .full */
-    border-right: none;
-  }
+    figure.full.border {
+        border-left: none;                 /* Remove side borders on .full */
+        border-right: none;
+    }
 }
 
 
 
 
 #table-of-contents > h2 {
-  border-style: none;
-  display: none;
+    border-style: none;
+    display: none;
 }
 
-.outline-3:last-child {
-  padding-bottom: 4em;
-}
+/* .outline-3:last-child { */
+/*     padding-bottom: 4em; */
+/* } */
 
 #text-table-of-contents > ul > li > ul {
-  display: inline-block;
+    display: inline-block;
 }
 
 #text-table-of-contents > ul > li > ul > li > a {
-  text-decoration: ;
-  text-overflow: clip;
+    text-decoration: ;
+    text-overflow: clip;
 }
 
 #text-table-of-contents > ul > li > ul > li {
-  margin: 0 0.3em;
-  text-decoration: ;
-  font-size: 0.9em;
+    margin: 0 0.3em;
+    text-decoration: ;
+    font-size: 0.9em;
 }
 
 #text-table-of-contents > ul > li > a {
-  color: #713a00;
-  font-size: 1.2em;
+    color: #713a00;
+    font-size: 1.2em;
 }
 
 .outline-3 {
-  padding: 0 min(4%, 4em);
+    border-top: solid 1px #ccc;
+    padding: 0.2em min(4%, 4em) 4em min(4%, 4em);
 }
 
 
@@ -524,85 +525,85 @@ nav > ul > li > a:active {
 
 /* CODE */
 src, pre, kbd, samp {
-  background-color: #f1fffa;           /* Make it stand out a bit more. */
-  color: #000;                         /* Override the softer black, as we're now using a grey background. */
+    background-color: #f1fffa;           /* Make it stand out a bit more. */
+    color: #000;                         /* Override the softer black, as we're now using a grey background. */
 }
 
 pre {
-  overflow: auto;                      /* Add scrollbars if the content is too high or wide. */
-  max-height: 500px;                   /* Scroll content larger than this. */
-  margin: 1em 0;
-  padding: .5em 1em;                   /* Don't put the text right on the edge. */
-  border-radius: 2px;                  /* Looks better with subtly rounded corner. */
-  border-top: 1px solid #aaa;          /* Looks better. */
-  border-bottom: 1px solid #aaa;       /* Looks better. */
+    overflow: auto;                      /* Add scrollbars if the content is too high or wide. */
+    max-height: 500px;                   /* Scroll content larger than this. */
+    margin: 1em 0;
+    padding: .5em 1em;                   /* Don't put the text right on the edge. */
+    border-radius: 2px;                  /* Looks better with subtly rounded corner. */
+    border-top: 1px solid #aaa;          /* Looks better. */
+    border-bottom: 1px solid #aaa;       /* Looks better. */
 }
 
 /*@media (min-width: 54em) { /* Only if the screen is wide enough. */
 @media (max-width: /*bodywidth*/54em) {
-  pre {
-    margin: 1rem -1rem 0 -1rem;
-    width: calc(100% + 2rem);
-  }
+    pre {
+        margin: 1rem -1rem 0 -1rem;
+        width: calc(100% + 2rem);
+    }
 }
 
 src, kbd, samp {
-  padding: 1px 2px;                    /* Make sure the text isn't right on the edge of the background. */
+    padding: 1px 2px;                    /* Make sure the text isn't right on the edge of the background. */
 }
 pre > src {                           /* Reset the above styling on <pre><src> */
-  padding: 0;
-  box-shadow: none;
-  border: none;
+    padding: 0;
+    box-shadow: none;
+    border: none;
 }
 
 h1 src, h2 src, h3 src, h4 src, h5 src, h6 src {
-  background-color: transparent;       /* Don't include grey background in headers, looks ugly. */
-  box-shadow: none;
-  color: inherit;
+    background-color: transparent;       /* Don't include grey background in headers, looks ugly. */
+    box-shadow: none;
+    color: inherit;
 }
 
 
 /* TABLES */
 table {
-  border-collapse: collapse;           /* No space between borders. */
-  /*width: 100%;*/
+    border-collapse: collapse;           /* No space between borders. */
+    /*width: 100%;*/
 }
 table + table {
-  margin-top: 2em;                     /* Add margin for subsequent tables. */
+    margin-top: 2em;                     /* Add margin for subsequent tables. */
 }
 
 @media (min-width: /*bodywidth*/54em) {  /* Only if the screen is wide enough. */
-  table.full {
-    margin-left: /*padx*/-3.5rem;
-    width: calc(100% + /*padx*/7rem);
-  }
+    table.full {
+        margin-left: /*padx*/-3.5rem;
+        width: calc(100% + /*padx*/7rem);
+    }
 }
 
 caption {
-  font-weight: bold;                   /* Make caption stand out more. */
+    font-weight: bold;                   /* Make caption stand out more. */
 }
 
 tr {
-  border-bottom: 1px solid #ddd;       /* Divide rows with a border. */
+    border-bottom: 1px solid #ddd;       /* Divide rows with a border. */
 }
 table > tr:last-child, tbody tr:last-child, tfoot tr:last-child {
-  border-bottom: none;                 /* No border on the last row. */
+    border-bottom: none;                 /* No border on the last row. */
 }
 tfoot tr:first-child {
-  border-top: 1px solid #ddd;          /* Continue border on first tfoot row; removed with tbody tr:last-child. */
+    border-top: 1px solid #ddd;          /* Continue border on first tfoot row; removed with tbody tr:last-child. */
 }
 
 td, th {
-  padding: .2em .5em;                  /* Whitespace on top/bottom to make it less dense. */
-                                       /* And to the side to prevent cells from touching. */
-  hyphens: none;                       /* Disable hyphenation by default, as it tends to wreak havoc with cell width calculations. */
+    padding: .2em .5em;                  /* Whitespace on top/bottom to make it less dense. */
+    /* And to the side to prevent cells from touching. */
+    hyphens: none;                       /* Disable hyphenation by default, as it tends to wreak havoc with cell width calculations. */
 }
 
 td.left, th.left  {                    /* Left aligned table cells (mainly for <th>). */
-  text-align: left;
+    text-align: left;
 }
 td.right, th.right {                   /* Right aligned table cells. */
-  text-align: right;
+    text-align: right;
 }
 table td.right {
     font-feature-settings: 'tnum' on;  /* Use tabular numbers for alignment. */
@@ -613,16 +614,16 @@ table td.right {
 /* SUPER- AND SUBSCRIPT */
 
 sup, sub {                             /* Make sure the line height isn't affected. */
-  height: 0;
-  line-height: 1;
-  vertical-align: baseline;
-  position: relative;
+    height: 0;
+    line-height: 1;
+    vertical-align: baseline;
+    position: relative;
 }
 sup {
-  bottom: 1ex;
+    bottom: 1ex;
 }
 sub {
-  top: .5ex;
+    top: .5ex;
 }
 
 /* HORIZONTAL RULER */
@@ -630,40 +631,40 @@ sub {
 /* Make the <hr> element look better by replacing it with some text (usually
  * decorative characters such as fleurons or an asterism. */
 hr {
-  border: none;                        /* Remove default border. */
-  text-align: center;                  /* Centre the characters. */
-  font-size: 60px;                     /* Make it larger; what looks good depends a bit on which character you choose. */
-  color: /*textcolor*/#252525;         /* Standard text colour; it's grey by default. */
-  opacity: .9;                         /* But make it slightly less dark than regular text. */
+    border: none;                        /* Remove default border. */
+    text-align: center;                  /* Centre the characters. */
+    font-size: 60px;                     /* Make it larger; what looks good depends a bit on which character you choose. */
+    color: /*textcolor*/#252525;         /* Standard text colour; it's grey by default. */
+    opacity: .9;                         /* But make it slightly less dark than regular text. */
 }
 
 hr:before {
-  /* Two fleurons with touching edges.
+    /* Two fleurons with touching edges.
   content: "☙❧";
   letter-spacing: -4px;
-  */
+   */
 
-  /* As SVG, because too many browsers suck at rendering fonts well. This is
-   * the same as the above two rules (as they *should* render). */
-  content: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMC4yIDkuMiIgaGVpZ2h0PSIzNC44IiB3aWR0aD0iMTE0LjMiPjxwYXRoIGQ9Ik0xMy4yIDBxMS4xIDAgMS4zIDEuMiAwIDEtLjcgMS4yLTEuOC40LTIgLjggMi42LjMgMy4yIDMuMWguMmwuMi44LS40LjFxLS4yIDEuOC0xLjggMS45LTEgMC0xLjMtMSAwLS44LjItLjguMi40LjguNC44IDAgMS0uOFExMSA2LjEgMTEgMy43cS0xLjQgMC0yLjEgMSAxLjQuNyAxLjQgMS44LS4xIDIuNS0zLjYgMi43US41IDkuMiAwIDUuNXEwLS42LjctLjcuNSAwIC42LjV2LjJsLS4xLjRxMCAxIDEuMSAxIDEgMCAxLS43UTQgMS4yIDcgMXEyIC4xIDIgMS43di4xcTAgLjQtLjQgMS41IDEtLjggMi0xIC42IDAgLjYtLjQuOC0xIDEuNi0xLjMuNi0uNC42LS44bC0uMi0uNHEtLjItLjMgMC0uNHptLTEuNiAzLjd2LjFxMCAxLjQgMi4zIDIuMi0uMy0yLTIuMy0yLjN6Ii8+PHBhdGggZD0iTTE3IDBxLTEgMC0xLjMgMS4yIDAgMSAuOCAxLjIgMS44LjQgMiAuOC0yLjcuMy0zLjIgMy4xSDE1bC0uMi44LjUuMXEuMiAxLjggMS44IDEuOSAxIDAgMS4yLTEgMC0uOC0uMi0uOC0uMS40LS43LjQtLjkgMC0xLS44IDIuNy0uOCAyLjgtMy4yIDEuNCAwIDIgMS0xLjMuNy0xLjMgMS44IDAgMi41IDMuNSAyLjcgNi40IDAgNi44LTMuNyAwLS42LS42LS43LS42IDAtLjcuNXYuMmwuMi40cTAgMS0xLjIgMS0uOSAwLTEtLjctLjYtNS0zLjctNS4yLTIgLjEtMiAxLjd2LjFxMCAuNC40IDEuNS0xLS44LTItMS0uNiAwLS42LS40LS43LTEtMS41LTEuMy0uNi0uNC0uNi0uOGwuMi0uNHEuMi0uMyAwLS40em0xLjcgMy43di4xcTAgMS40LTIuNCAyLjIuMy0yIDIuNC0yLjN6Ii8+PC9zdmc+);
+    /* As SVG, because too many browsers suck at rendering fonts well. This is
+     * the same as the above two rules (as they *should* render). */
+    content: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMC4yIDkuMiIgaGVpZ2h0PSIzNC44IiB3aWR0aD0iMTE0LjMiPjxwYXRoIGQ9Ik0xMy4yIDBxMS4xIDAgMS4zIDEuMiAwIDEtLjcgMS4yLTEuOC40LTIgLjggMi42LjMgMy4yIDMuMWguMmwuMi44LS40LjFxLS4yIDEuOC0xLjggMS45LTEgMC0xLjMtMSAwLS44LjItLjguMi40LjguNC44IDAgMS0uOFExMSA2LjEgMTEgMy43cS0xLjQgMC0yLjEgMSAxLjQuNyAxLjQgMS44LS4xIDIuNS0zLjYgMi43US41IDkuMiAwIDUuNXEwLS42LjctLjcuNSAwIC42LjV2LjJsLS4xLjRxMCAxIDEuMSAxIDEgMCAxLS43UTQgMS4yIDcgMXEyIC4xIDIgMS43di4xcTAgLjQtLjQgMS41IDEtLjggMi0xIC42IDAgLjYtLjQuOC0xIDEuNi0xLjMuNi0uNC42LS44bC0uMi0uNHEtLjItLjMgMC0uNHptLTEuNiAzLjd2LjFxMCAxLjQgMi4zIDIuMi0uMy0yLTIuMy0yLjN6Ii8+PHBhdGggZD0iTTE3IDBxLTEgMC0xLjMgMS4yIDAgMSAuOCAxLjIgMS44LjQgMiAuOC0yLjcuMy0zLjIgMy4xSDE1bC0uMi44LjUuMXEuMiAxLjggMS44IDEuOSAxIDAgMS4yLTEgMC0uOC0uMi0uOC0uMS40LS43LjQtLjkgMC0xLS44IDIuNy0uOCAyLjgtMy4yIDEuNCAwIDIgMS0xLjMuNy0xLjMgMS44IDAgMi41IDMuNSAyLjcgNi40IDAgNi44LTMuNyAwLS42LS42LS43LS42IDAtLjcuNXYuMmwuMi40cTAgMS0xLjIgMS0uOSAwLTEtLjctLjYtNS0zLjctNS4yLTIgLjEtMiAxLjd2LjFxMCAuNC40IDEuNS0xLS44LTItMS0uNiAwLS42LS40LS43LTEtMS41LTEuMy0uNi0uNC0uNi0uOGwuMi0uNHEuMi0uMyAwLS40em0xLjcgMy43di4xcTAgMS40LTIuNCAyLjIuMy0yIDIuNC0yLjN6Ii8+PC9zdmc+);
 
-  /* Alternative: separate with a space:
+    /* Alternative: separate with a space:
   content: "☙ ❧";
-  */
+   */
 
-  /* Or separate with letter-spacing and padding:
+    /* Or separate with letter-spacing and padding:
   letter-spacing: 1em;
   padding-left: 1em;
-  */
+   */
 
-  /* Or asterism:
+    /* Or asterism:
   content: "⁂";
-  */
+   */
 
-  /* Many possibilities
+    /* Many possibilities
   content: "* * *";
   content: "· · ·";
-  */
+   */
 }
 /* BLOCKQUOTE */
 
@@ -675,9 +676,9 @@ hr:before {
 }
 
 .blockquote:before /*, .blockquote:after*/ {
-  position: absolute;                  /* Don't interfere with regular layout. */
-  color: #dbdbdb;                      /* Just decorational, so don't stand out too much. */
-  font-size: 5em;
+    position: absolute;                  /* Don't interfere with regular layout. */
+    color: #dbdbdb;                      /* Just decorational, so don't stand out too much. */
+    font-size: 5em;
 }
 
 .blockquote:before {
@@ -744,74 +745,74 @@ input[type="range"],
 input[type="number"],
 textarea,
 select {
-  font: 1em/100% sans-serif;          /* Use  sans-serif font with the default font size. */
+    font: 1em/100% sans-serif;          /* Use  sans-serif font with the default font size. */
 }
 
 textarea,
 button:not(.link),
 select,
 input:not([type="checkbox"]):not([type="file"]):not([type="image"]):not([type="radio"]):not([type="range"]) {
-  padding: .6em;                       /* Chrome adds almost no padding. */
-  border: 1px solid #bbb;
-  border-radius: 3px;
+    padding: .6em;                       /* Chrome adds almost no padding. */
+    border: 1px solid #bbb;
+    border-radius: 3px;
 }
 
 textarea {
-  width: 100%;                         /* Use entire width of container. */
-  height: 10rem;                       /* A reasonable default height for most purposes. */
-  line-height: 130%;                   /* Reduce line-height since we set a sans-serif font. */
+    width: 100%;                         /* Use entire width of container. */
+    height: 10rem;                       /* A reasonable default height for most purposes. */
+    line-height: 130%;                   /* Reduce line-height since we set a sans-serif font. */
 }
 
 button:not(.link), input[type="submit"]:not(.link) {
-  color: #000;                         /* Bit more contrast. */
-  cursor: pointer;                     /* Clearer it's clickable. */
-  margin-left: .5em;                   /* Bit of margin generally looks better. */
-  padding: .6em 1.5em;                 /* More padding for left/right. */
-  background-color: #f6f5f4;           /* Background gets reset when border is set; defaults from Firefox. */
-  background: linear-gradient(#f6f5f4, #edebe9);
-  border: .5px outset #e9e9e9;         /* More or less the same as the Firefox border. */
-  border-radius: 3px;
-  border-top-color: #ccc;
-  border-left-color: #ccc;
+    color: #000;                         /* Bit more contrast. */
+    cursor: pointer;                     /* Clearer it's clickable. */
+    margin-left: .5em;                   /* Bit of margin generally looks better. */
+    padding: .6em 1.5em;                 /* More padding for left/right. */
+    background-color: #f6f5f4;           /* Background gets reset when border is set; defaults from Firefox. */
+    background: linear-gradient(#f6f5f4, #edebe9);
+    border: .5px outset #e9e9e9;         /* More or less the same as the Firefox border. */
+    border-radius: 3px;
+    border-top-color: #ccc;
+    border-left-color: #ccc;
 }
 
 select {
-  background-color: inherit;           /* No need for just selects to be grey. */
+    background-color: inherit;           /* No need for just selects to be grey. */
 }
 
 input:not(.link):focus,
 button:not(.link):focus,
 textarea:focus,
 select:focus {                         /* Firefox removes this once you start styling */
-  outline: 1px solid #00f;
-  box-shadow: 0 0 .2em #00f;
-  color: #000;                         /* Increase contrast a bit. */
-  cursor: pointer;                     /* Clearer that you can click this. */
+    outline: 1px solid #00f;
+    box-shadow: 0 0 .2em #00f;
+    color: #000;                         /* Increase contrast a bit. */
+    cursor: pointer;                     /* Clearer that you can click this. */
 }
 
 button:not(.link):hover,               /* Bit darker on hover. */
 input[type="submit"]:not(.link):hover {
-  background-color: #f0f0f0;
-  background: linear-gradient(#f0f0f0, #d0cecc);
+    background-color: #f0f0f0;
+    background: linear-gradient(#f0f0f0, #d0cecc);
 }
 button:not(.link):active,              /* Reverse when active/clicking. */
 input[type="submit"]:not(.link):active {
-  background-color: #d0cecc;
-  background: linear-gradient(#d0cecc, #f0f0f0);
-  border-style: inset;
+    background-color: #d0cecc;
+    background: linear-gradient(#d0cecc, #f0f0f0);
+    border-style: inset;
 }
 
 form > strong, fieldset > strong {     /* Header. */
-  display: inline-block;
-  margin-top: .5em;
+    display: inline-block;
+    margin-top: .5em;
 }
 
 form span {
-  margin-left: .2em;                   /* Help text or error; so it doesn't sit flush with the input. */
+    margin-left: .2em;                   /* Help text or error; so it doesn't sit flush with the input. */
 }
 
 fieldset {
-  border: 1px solid /*bordercolor*/#aaa; /* More modern-looking border instead of inset or 2px. */
+    border: 1px solid /*bordercolor*/#aaa; /* More modern-looking border instead of inset or 2px. */
 }
 
 /* VERTICAL FORM */
@@ -833,44 +834,44 @@ fieldset {
 .vertical input[type="number"],
 .vertical textarea,
 .vertical select {
-  display: block;                      /* One input per line. */
-  min-width: 20rem;                    /* Roughly half the page. */
+    display: block;                      /* One input per line. */
+    min-width: 20rem;                    /* Roughly half the page. */
 }
 
 .vertical input[type="number"] {
-  min-width: 10rem;                    /* Numbers don't need to be so wide. */
-  width: 10rem;
+    min-width: 10rem;                    /* Numbers don't need to be so wide. */
+    width: 10rem;
 }
 
 .vertical label {
-  display: block;                      /* One label per line. */
-  margin-top: .5em;                    /* Clear from the previous input. */
+    display: block;                      /* One label per line. */
+    margin-top: .5em;                    /* Clear from the previous input. */
 }
 
 /* HORIZONTAL FORM */
 form.horizontal {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 form.horizontal label {
-  width: 30%;
+    width: 30%;
 }
 
 form.horizontal > div {
-  width: 65%;
-  margin-bottom: 1em;
+    width: 65%;
+    margin-bottom: 1em;
 }
 
 form.horizontal input[type=submit],
 form.horizontal button[type=submit] {
-  margin-left: 35%;                    /* Align submit buttons with inputs. */
+    margin-left: 35%;                    /* Align submit buttons with inputs. */
 }
 
 form.horizontal span {                 /* Help text, put below the input. */
-  display: block;
-  margin-left: .2em;
+    display: block;
+    margin-left: .2em;
 }
 /* PERMALINK MARKERS */
 
@@ -883,18 +884,18 @@ form.horizontal span {                 /* Help text, put below the input. */
  * in text browsers.
  */
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
-  font-size: .7em;                     /* Doesn't need to be so large. */
-  line-height: 0;                      /* Don't affect line-height of header. */
-  color: #999;                         /* Use subdued colour, don't need to stand out too much. */
+    font-size: .7em;                     /* Doesn't need to be so large. */
+    line-height: 0;                      /* Don't affect line-height of header. */
+    color: #999;                         /* Use subdued colour, don't need to stand out too much. */
 }
 
 h1 a:after, h2 a:after, h3 a:after, h4 a:after, h5 a:after, h6 a:after {
-  content: "¶";                        /* So it won't get copy/pasted. */
-  /* Alternative:
+    content: "¶";                        /* So it won't get copy/pasted. */
+    /* Alternative:
   content: "🔗";
   content: "§";
   content: "[link]";
-  */
+   */
 }
 
 /* Alternative: put it before the element, in the page margin. Not done for h1
@@ -919,38 +920,38 @@ h2 a, h3 a, h4 a, h5 a, h6 a {
  * end of a chapter.
  */
 .postscript {
-  margin-top: 3em;                     /* Clear a bit from regular content. */
-  border-top: 1px solid /*bordercolor*/#aaa; /* Border to separate. */
-  font-size: .9em;                     /* Slightly smaller text. */
-  position: relative;                  /* So we can place the header. */
+    margin-top: 3em;                     /* Clear a bit from regular content. */
+    border-top: 1px solid /*bordercolor*/#aaa; /* Border to separate. */
+    font-size: .9em;                     /* Slightly smaller text. */
+    position: relative;                  /* So we can place the header. */
 
 }
 .postscript + .postscript {
-  margin-top: 2em;                     /* Less margin for subsequent footnotes. */
+    margin-top: 2em;                     /* Less margin for subsequent footnotes. */
 }
 
 .postscript > strong {
-  font-style: normal;                  /* Override the italics. */
-  position: absolute;                  /* Move to the to align with the border. */
-  top: -1em;
-  left: 1em;
-  background-color: /*bgcolor*/#fff;   /* Add background colour and padding to hide the border. */
-  padding: 0 .5em;
+    font-style: normal;                  /* Override the italics. */
+    position: absolute;                  /* Move to the to align with the border. */
+    top: -1em;
+    left: 1em;
+    background-color: /*bgcolor*/#fff;   /* Add background colour and padding to hide the border. */
+    padding: 0 .5em;
 }
 
 .postscript > p {
-  margin: 1em 2em                      /* Make margin same as list. */
+    margin: 1em 2em                      /* Make margin same as list. */
 }
 
 /* Make the border take up the page padding if the screen is wide enough. */
 @media (min-width: /*bodywidth*/54rem) {
-  .postscript {
-    margin-left: /*padx*/-4em;           /* Put the div in the margin too, so the border is wider. */
-    width: calc(100% + /*padx*/8em);
-    padding: 0 /*padx*/4em;              /* Add page margin. */
-  }
+    .postscript {
+        margin-left: /*padx*/-4em;           /* Put the div in the margin too, so the border is wider. */
+        width: calc(100% + /*padx*/8em);
+        padding: 0 /*padx*/4em;              /* Add page margin. */
+    }
 
-  .postscript > strong {
-    left: /*padx*/6em;
-  }
+    .postscript > strong {
+        left: /*padx*/6em;
+    }
 }
