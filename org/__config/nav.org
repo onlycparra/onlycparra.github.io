@@ -1,7 +1,6 @@
 #+HTML_DOCTYPE: html5
 #+OPTIONS: toc:nil num:nil html-postamble:nil ^:nil
 #+OPTIONS: html-style:nil
-#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="/assets/style.css" />
 
 #+HTML: <nav class="nav">
 - [[file:../../index.org][Back to Home]]

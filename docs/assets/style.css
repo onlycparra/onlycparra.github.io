@@ -445,10 +445,6 @@ figure.border {
     display: none;
 }
 
-/* .outline-3:last-child { */
-/*     padding-bottom: 4em; */
-/* } */
-
 #text-table-of-contents > ul > li > ul {
     display: inline-block;
 }
@@ -577,6 +573,11 @@ table + table {
         margin-left: /*padx*/-3.5rem;
         width: calc(100% + /*padx*/7rem);
     }
+}
+
+table.bench {
+    margin-left: 36px;
+    font-size: 0.9em;
 }
 
 caption {
@@ -955,3 +956,14 @@ h2 a, h3 a, h4 a, h5 a, h6 a {
         left: /*padx*/6em;
     }
 }
+
+.org-right {
+    text-align: right;
+}
+.org-center {
+    text-align: center;
+}
+.org-left {
+    text-align: left;
+}
+
