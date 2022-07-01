@@ -161,6 +161,7 @@ a {
 
 /*SOURCE CODE*/
 .src {
+    padding: 0.5rem;
     background: var(--col-src-bg);
     color: var(--col-src-text);
     font-family: mono;
