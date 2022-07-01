@@ -1,969 +1,186 @@
-/* ASIDE */
-/* Put content to the left or right of the page as an "aside". This is an
- * alternative to footnotes.
- */
-
-aside {
-    hyphens: auto;                       /* Hyphenate, as this text is quite narrow. */
-}
-
-aside {
-    position: absolute;
-    left: /*padx*/-15em;
-    width: 14em;
-    text-align: right;
-    font-size: .9em;
-}
-
-/* Alternative: place on the right.
-aside {
-  position: absolute;
-  right: -15em;
-  width: 14em;
-}
-*/
-
-@media (max-width: 63em) {             /* Place inline if it won't fit on the screen. */
-    aside {
-        position: static;
-        width: auto;
-        text-align: left;
-        background-color: #f7f7f7;
-        padding: .4em 2em;
-        border: 1px solid /*bordercolor*/#aaa;
-        hyphens: none;
-    }
-}
-
-/* Optional: place the page further to the right, so that there's more space for
- * the aside.
- * Adjust the media query above to max-width: 63em
- */
-.outline-2 {
-    margin: 10em 0 0 0;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* FONTS */
-
-/* I like the Libre Baskerville typeface, which is a nice Serif font.
- *
- * https://github.com/impallari/Libre-Baskerville
- * https://web.archive.org/web/20150918205958/http://www.impallari.com/projects/update/86
- * https://fonts.google.com/specimen/Libre+Baskerville
- *
- * A copy is in the "fonts" dir.
- */
-@font-face {
-    font-family: 'Libre Baskerville';
-    font-style: normal;
-    font-weight: 400;
-    font-display: fallback;
-    src: local('Libre Baskerville'), local('LibreBaskerville-Regular'),
-         url(fonts/libre-baskerville.woff2) format('woff2'),
-         url(./fonts/libre-baskerville.woff2) format('woff2');
-}
-@font-face {
-    font-family: 'Libre Baskerville';
-    font-style: normal;
-    font-weight: 700;
-    font-display: fallback;
-    src: local('Libre Baskerville Bold'), local('LibreBaskerville-Bold'),
-         url(fonts/libre-baskerville-bold.woff2) format('woff2'),
-         url(./fonts/libre-baskerville-bold.woff2) format('woff2');
-}
-@font-face {
-    font-family: 'Libre Baskerville';
-    font-style: italic;
-    font-weight: 400;
-    font-display: fallback;
-    src: local('Libre Baskerville Italic'), local('LibreBaskerville-Italic'),
-         url(fonts/libre-baskerville-italic.woff2) format('woff2'),
-         url(./fonts/libre-baskerville-italic.woff2) format('woff2');
-}
-
 html {
-    /* Possible sans-serif alternative; note you may want to adjust the
-     * line-height and font-size if you want the fonts. Different values work
-     * better for different fonts.
-     * font: 18px/160% Calibri, 'DejaVu Sans Serif', sans-serif;
-     */
-    font: 16px/180% 'Libre Baskerville', 'DejaVu Serif', 'Bitstream Vera Serif', 'Georgia', serif;
+    --page-width: 100ch;
+    --page-margin: 5rem;
+    --src-width: 80ch;
     
-    /* Disables text adjustment algorithm on some mobile browsers, this is */
-    text-size-adjust: none;
+    --col-body-bg: #e1e1e1;
+    --col-page-bg: #f8f8f8;
+    --col-page-text: #222;
+
+    --col-text-a: #125cd9;
     
-    /* intended for sites that are not designed for mobile viewing. */
-    -webkit-text-size-adjust: none;
+    --col-dark-bg: #3c3c3c;
+    --col-dark-text: #f8f8f8;
+    --col-dark-a: #bdf;
+
+    --col-accent: #a40800;
+
+    --col-src-bg: #151414;
+    --col-src-text: #fafafa;
+
+    --col-error: darkred;
+    --col-ok: darkgreen;
+    --col-ok-lg: #d2f7d0;
 }
-
-/* For small screens */
-@media only screen and (max-width: 60em) {
-
-}
-
-/* For super small screens */
-@media only screen and (max-width: 30em) {
-
-}
-
-pre, code {
-    font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Consolas', monospace;
-}
-
-code {
-    background: #ddd;
-    padding: 2px;
-}
-
-pre {
-    font-size: 14px;                     /* Smaller text to fit more. */
-    line-height: 130%;                   /* Idem. */
-}
-
-
-
-
-
-
-
-/* DEFAULTS */
-* {
-    /* Element width/height includes the border. */
+body {
+    display: flex;
+    height: 100vh;
+    align-items: stretch;
+    flex-direction: column;
     box-sizing: border-box;
-}
-
-*:target {
-    /* Highlight elements in URL fragment, e.g. #some-header, or #footnote-1. */
-    background-color: #ffc;
-}
-
-
-html {
-    /* Neutral background to contrast with the page. */
-    background-color: #eee;
-    /* Slightly less "harsh" black; looks subtly better. */
-    color: /*textcolor*/#252525;
-    /* Tab size of 4 is probably more common in editors etc. */
-    tab-size: 4;
-    /* Still needed as of Jan 2019 :-( https://bugzil.la/737785 */
-    -moz-tab-size: 4;
-}
-
-html, body {
-    /* No extra margin; shows up in some cases (e.g. when printing). */
     margin: 0;
+    background: var(--col-body-bg);
+    /*to inherit*/
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6rem;
 }
-
-.center, .page, #table-of-contents, #postamble, .outline-2, nav {
-    /* Don't make it too wide, as that makes it harder to read. */
-    max-width: 60em;
-    /* Add some extra space at top/bottom, and centre it. */
+#content, #postamble {
+    width: var(--page-width);
     margin: 0 auto;
-    /* So that absolute/relative positioning is relative to 
-     * the page, which is almost always what's desired. */
-    position: relative;
+    box-sizing: border-box;
+    padding: 0;
 }
-
+#content {
+    flex-grow: 1;
+    background: var(--col-page-bg);
+    color: var(--col-page-text);
+    /* border-top: solid 1.5rem var(--col-dark-bg); */
+    padding-bottom: 6rem;
+}
 #postamble {
-    margin: 2em auto;
-    text-align: center; /*align the footer in the center*/
+    flex-grow: 0;
+    text-align: center;
+    background: var(--col-dark-bg);
+    color: var(--col-dark-text);
 }
-
 #postamble p {
-    margin: 0 .5em;
-    padding: 0;
+    margin-block: 0.2rem;
 }
-
-#postamble .validation {
-    display: none;
-}
-
-.page, .outline-2 {
-    /*
-     * White background to override the html one. A slightly grey or yellowish
-     * tint also works well, and gives a warmer feel. Some suggestions: 
-     * #fbfbf7, #fffff7. Remove this and the box-shadow for an even background
-     * colour.
-     */
-    background-color: /*bgcolor*/#fffff4;
-
-    /* Box-shadow effect looks quite handsome here. */
-    box-shadow: 5px 5px 8px rgba(0,0,0,.2);
-    padding-bottom: 1em;
-    margin-bottom: 1em;
-}
-
-.outline-text-2 {
-    margin-inline: min(4%, 4em);
-}
-
-/* For small screens */
-@media only screen and (max-width: 60em) {
-    .page, .center, #table-of-contents, #postamble, .outline-2{
-        /* Full-width page. */
-        max-width: 100%;
-    }
-}
-
-/* Put the table of contents on the side if there is enough space */
-@media only screen and (min-width: 105em) {
-    #table-of-contents  {
-        position: fixed;
-        top: 5%;
-        left: 2%;
-        width: 20em;
-        margin-top: 20pt;
-        border: 1px solid;
-        padding: 0 1em;
-    }
-
-    #table-of-contents h2 {
-        font-size: 1em;
-    }
-    
-}
-
-
-
-
-
-
-
-
-
-
-/* PRINTING */
-@page {
-    margin: 0;                           /* Don't add extra margin to pages, .page already has it. */
-    /* Also hides URL and such that most browsers add. */
-}
-@media print {                         /* Reset some stuff for printing. */
-    body {
-        background-color: #fff;
-    }
-    .page, .center, #postamble, .outline-2 {
-        box-shadow: none;
-        padding: 0 1cm;
-        margin: 0;
-        max-width: none;
-    }
-    .page:first-child, .center:first-child, #postamble:first-child {
-        padding-top: 5mm;
-    }
-}
-
-.page-a4, .page.page-a4 {              /* A4 paper used in most places */
-    width: 21cm;
-    height: 29.7cm;
-}
-
-.page-letter, .page.page-letter {      /* Standard U.S. letter */
-    width: 8.5in;
-    height: 11in;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* LINKS */
-a, a code, .link {
-    /* Make sure colour is the same in all browsers. */
-    color: #00f;
-    /* Underlining can look "busy"; the colour on its own should be enough. */
+#postamble a {
+    color: var(--col-dark-a);
     text-decoration: none;
-    /* Animate the change in colour effect on hover; subtle but noticeable. */
-    transition: color .2s;
 }
-a:hover, .link:hover {
-    text-decoration: underline;          /* Provide some feedback by underlining and changing colour. */
-    color: #6491ff;                      /* Light blue */
-}
-a:hover code  {
-    color: #6491ff;                      /* Also change colour of code on hover. */
+#content>*, #postamble>* {
+    margin-left: var(--page-margin);
+    margin-right: var(--page-margin);
 }
 
-form {                                 /* Make sure forms don't affect visual layout. */
-    display: inline;
-    margin: 0;
-    padding: 0;
-}
-
-.link {
-    background: transparent;             /* Reset basic appearance. */
-    border: none;
-    outline: none;
-    margin: 0;
-    padding: 0;
-    cursor: pointer;
-    font: inherit;
-    line-height: 1rem;
-    display: inline;
-
-    -moz-user-select: inherit;           /* Otherwise text isn't selectable. */
-    -webkit-appearance: none;
+@media screen and (max-width: 100ch) { /*var(--page-width)*/
+    #content, #postamble {
+        max-width: 100vw;
+    }
+    #content>*, #postamble>* {
+        margin-left: var(--page-margin);
+        margin-right: var(--page-margin);
+    }
 }
 
 
-/* HEADERS */
-
-/* The intention is that there is only one h1 on a page: at the top. If you use
- * h1 different, then you may want to add a border like in the h2. */
-
-h1, h2, h3, h4, h5, h6 {
-
+/*NAVEGATION*/
+#navbar {
+    z-index: 10;
+    background: var(--col-accent);
+    margin-left: 0;
+    margin-right: 0;
+    height: 1.6rem;
+}
+#navbar>.org-ul {
+    display: flex;
+    justify-content: flex-end;
+    margin-inline: 0;
+    margin-block: 0;
+}
+#navbar>ul>li {
+    list-style: none;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+#navbar>ul>li>a {
+    display: inline-block;
+    height: 100%;
+    padding-inline: 1rem;
+    color: var(--col-dark-text);
+    font-weight: bold;
+}
+#navbar>ul>li>a:hover {
+    color: var(--col-dark-bg);
+    background: var(--col-page-bg);
+    font-weight: bold;
+}
+.sticky {
+    position: fixed;
+    top: 0;
+    width: var(--page-width);
 }
 
-h1 {
-    margin-bottom: 0;
-    padding: 0 .5em;
+
+
+
+/*HEADERS AND TEXT ELEMENTS */
+.title {
     text-align: center;
-    line-height: 180%;
-    font-size: 2em;
+    font-size: 3rem;
+    line-height: 3rem;
 }
-
 h2 {
-    font-size: 1.7em;                    /* Default of 1.8em is pretty large. */
-    /*border-bottom: 4px solid #acaca8;*/
-    padding: 1em;
-    text-align: center;
-    margin-bottom: 0;
-    margin-top: 0;
+    margin-top: 4rem;
+    border-bottom: solid 2px var(--col-accent);
 }
-
-#table-of-contents h2 {
-    display: none;
-    margin-top: 0; 
+a {
+    color: var(--col-text-a);
+    text-decoration: none;
 }
-
-h3 {
-    font-size: 1.3em;                    /* Default of 1.6em is pretty large. */
-    /*margin-top: 2em;*/
-    text-align: left;
-}
-
-h4 {
-    font-size: 1.1em;                    /* Slightly larger than default of 1em. */
-    margin-left: 2em;
-    margin-right: 2em;
-}
-
-h5, h6 {
-    font-size: 1em;                      /* Don't make h5 and h6 smaller than base font. */
-    margin-left: 3em;
-    margin-right: 3em;
-}
-
-/* ORG MODE */
-
-.todo {
-    font-weight: bold;
-    color: darkred;
-}
-
-.done {
-    font-weight: bold;
-    color: darkgreen;
-    background: #d2f7d0;
-    font-size: 0.9em;
-    border: solid 1px darkgreen;
-    border-radius: 3px;
-    padding: 0 6px;
-}
-
 .tag {
     font-size: 0.6em;
-    padding: 1px 4px;
-    border: 1px;
-    border-color: #c8c4acc4;
+    padding: 0 6px;
+    border: dashed 2px #c8c4acc4;
     background: #fff3dabf;
     vertical-align: bottom;
     font-family: mono;
-    border-style: dashed;
 }
 
-
-/* BLOCKQUOTE */
-.blockquote {
-    font-style: italic;                  /* Quotations are usually typeset in italics. */
-}
-
-
-/* IMAGES */
-img {
-    max-width: 100%;                     /* Make sure it's never larger than the page. */
-}
-figure {
-    text-align: center;                  /* Centre images and associated captions (if any). */
-    margin: 1rem 0;                      /* Don't need 40px of margin on either side. */
-}
-
-figure.border {
-    border: 1px solid /*bordercolor*/#aaa; /* Add border. */
-    padding: 5px;                        /* Slight gap between image and border. */
-    margin: -5px;                        /* Put the border in the margin, so the padding doesn't shrink the image. */
-}
-
-@media (min-width: /*bodywidth*/54em) { /* Only if the screen is wide enough. */
-    figure.full {                        /* Make sure this is after .border so that adding both works. */
-        margin-left: /*padx*/-4rem;
-        width: calc(100% + /*padx*/8rem);
-    }
-
-    figure.full.border {
-        border-left: none;                 /* Remove side borders on .full */
-        border-right: none;
-    }
-}
-
-
-
-
-#table-of-contents > h2 {
-    border-style: none;
-    display: none;
-}
-
-#text-table-of-contents > ul > li > ul {
-    display: inline-block;
-}
-
-#text-table-of-contents > ul > li > ul > li > a {
-    text-decoration: ;
-    text-overflow: clip;
-}
-
-#text-table-of-contents > ul > li > ul > li {
-    margin: 0 0.3em;
-    text-decoration: ;
-    font-size: 0.9em;
-}
-
-#text-table-of-contents > ul > li > a {
-    color: #713a00;
-    font-size: 1.2em;
-}
-
-.outline-3 {
-    border-top: solid 1px #ccc;
-    padding: 0.2em min(4%, 4em) 4em min(4%, 4em);
-}
-
-
-
-
-nav {
-    margin-top: 1em;
-    margin-bottom: 0;
-}
-
-nav > ul {
-    margin: 0;
-    padding: 0;
-    text-align: right;
-}
-
-nav > ul > li {
-    display: inline-block;
-    margin: 0;
+.todo, .done {
+    font-weight: bold;
     font-size: 0.8em;
+    padding: 0 4px;
+}
+.todo {
+    color: var(--col-error);
 }
 
-nav > ul > li > a {
-    text-decoration: none;
-    padding-inline: 0.5em;
-    padding-block: 0.6em;
-    color: #666;
-    background: #fffff4;
-    box-shadow: 2px -1px 8px 2px #8888;
-    border-radius: 5px 5px 0 0;
-}
-
-nav > ul > li > a:hover {
-    background: #f8f4e0;
-    box-shadow: 2px -1px 7px 1px #888c;
-}
-
-nav > ul > li > a:active {
-    background: #ffd;
-    color: black;
-}
-
-
-
-
-
-
-
-
-
-
-/* CODE */
-src, pre, kbd, samp {
-    background-color: #f1fffa;           /* Make it stand out a bit more. */
-    color: #000;                         /* Override the softer black, as we're now using a grey background. */
-}
-
-pre {
-    overflow: auto;                      /* Add scrollbars if the content is too high or wide. */
-    max-height: 500px;                   /* Scroll content larger than this. */
-    margin: 1em 0;
-    padding: .5em 1em;                   /* Don't put the text right on the edge. */
-    border-radius: 2px;                  /* Looks better with subtly rounded corner. */
-    border-top: 1px solid #aaa;          /* Looks better. */
-    border-bottom: 1px solid #aaa;       /* Looks better. */
-}
-
-/*@media (min-width: 54em) { /* Only if the screen is wide enough. */
-@media (max-width: /*bodywidth*/54em) {
-    pre {
-        margin: 1rem -1rem 0 -1rem;
-        width: calc(100% + 2rem);
-    }
-}
-
-src, kbd, samp {
-    padding: 1px 2px;                    /* Make sure the text isn't right on the edge of the background. */
-}
-pre > src {                           /* Reset the above styling on <pre><src> */
-    padding: 0;
-    box-shadow: none;
-    border: none;
-}
-
-h1 src, h2 src, h3 src, h4 src, h5 src, h6 src {
-    background-color: transparent;       /* Don't include grey background in headers, looks ugly. */
-    box-shadow: none;
-    color: inherit;
-}
-
-
-/* TABLES */
-table {
-    border-collapse: collapse;           /* No space between borders. */
-    /*width: 100%;*/
-}
-table + table {
-    margin-top: 2em;                     /* Add margin for subsequent tables. */
-}
-
-@media (min-width: /*bodywidth*/54em) {  /* Only if the screen is wide enough. */
-    table.full {
-        margin-left: /*padx*/-3.5rem;
-        width: calc(100% + /*padx*/7rem);
-    }
-}
-
-table.bench {
-    margin-left: 36px;
-    font-size: 0.9em;
-}
-
-caption {
-    font-weight: bold;                   /* Make caption stand out more. */
-}
-
-tr {
-    border-bottom: 1px solid #ddd;       /* Divide rows with a border. */
-}
-table > tr:last-child, tbody tr:last-child, tfoot tr:last-child {
-    border-bottom: none;                 /* No border on the last row. */
-}
-tfoot tr:first-child {
-    border-top: 1px solid #ddd;          /* Continue border on first tfoot row; removed with tbody tr:last-child. */
-}
-
-td, th {
-    padding: .2em .5em;                  /* Whitespace on top/bottom to make it less dense. */
-    /* And to the side to prevent cells from touching. */
-    hyphens: none;                       /* Disable hyphenation by default, as it tends to wreak havoc with cell width calculations. */
-}
-
-td.left, th.left  {                    /* Left aligned table cells (mainly for <th>). */
-    text-align: left;
-}
-td.right, th.right {                   /* Right aligned table cells. */
-    text-align: right;
-}
-table td.right {
-    font-feature-settings: 'tnum' on;  /* Use tabular numbers for alignment. */
-    font-variant-numeric: tabular-nums;
-    font-family: sans-serif;           /* Libre Baskerville has no aligned numbers :-( */
-}
-
-/* SUPER- AND SUBSCRIPT */
-
-sup, sub {                             /* Make sure the line height isn't affected. */
-    height: 0;
-    line-height: 1;
-    vertical-align: baseline;
-    position: relative;
-}
-sup {
-    bottom: 1ex;
-}
-sub {
-    top: .5ex;
-}
-
-/* HORIZONTAL RULER */
-
-/* Make the <hr> element look better by replacing it with some text (usually
- * decorative characters such as fleurons or an asterism. */
-hr {
-    border: none;                        /* Remove default border. */
-    text-align: center;                  /* Centre the characters. */
-    font-size: 60px;                     /* Make it larger; what looks good depends a bit on which character you choose. */
-    color: /*textcolor*/#252525;         /* Standard text colour; it's grey by default. */
-    opacity: .9;                         /* But make it slightly less dark than regular text. */
-}
-
-hr:before {
-    /* Two fleurons with touching edges.
-  content: "☙❧";
-  letter-spacing: -4px;
-   */
-
-    /* As SVG, because too many browsers suck at rendering fonts well. This is
-     * the same as the above two rules (as they *should* render). */
-    content: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMC4yIDkuMiIgaGVpZ2h0PSIzNC44IiB3aWR0aD0iMTE0LjMiPjxwYXRoIGQ9Ik0xMy4yIDBxMS4xIDAgMS4zIDEuMiAwIDEtLjcgMS4yLTEuOC40LTIgLjggMi42LjMgMy4yIDMuMWguMmwuMi44LS40LjFxLS4yIDEuOC0xLjggMS45LTEgMC0xLjMtMSAwLS44LjItLjguMi40LjguNC44IDAgMS0uOFExMSA2LjEgMTEgMy43cS0xLjQgMC0yLjEgMSAxLjQuNyAxLjQgMS44LS4xIDIuNS0zLjYgMi43US41IDkuMiAwIDUuNXEwLS42LjctLjcuNSAwIC42LjV2LjJsLS4xLjRxMCAxIDEuMSAxIDEgMCAxLS43UTQgMS4yIDcgMXEyIC4xIDIgMS43di4xcTAgLjQtLjQgMS41IDEtLjggMi0xIC42IDAgLjYtLjQuOC0xIDEuNi0xLjMuNi0uNC42LS44bC0uMi0uNHEtLjItLjMgMC0uNHptLTEuNiAzLjd2LjFxMCAxLjQgMi4zIDIuMi0uMy0yLTIuMy0yLjN6Ii8+PHBhdGggZD0iTTE3IDBxLTEgMC0xLjMgMS4yIDAgMSAuOCAxLjIgMS44LjQgMiAuOC0yLjcuMy0zLjIgMy4xSDE1bC0uMi44LjUuMXEuMiAxLjggMS44IDEuOSAxIDAgMS4yLTEgMC0uOC0uMi0uOC0uMS40LS43LjQtLjkgMC0xLS44IDIuNy0uOCAyLjgtMy4yIDEuNCAwIDIgMS0xLjMuNy0xLjMgMS44IDAgMi41IDMuNSAyLjcgNi40IDAgNi44LTMuNyAwLS42LS42LS43LS42IDAtLjcuNXYuMmwuMi40cTAgMS0xLjIgMS0uOSAwLTEtLjctLjYtNS0zLjctNS4yLTIgLjEtMiAxLjd2LjFxMCAuNC40IDEuNS0xLS44LTItMS0uNiAwLS42LS40LS43LTEtMS41LTEuMy0uNi0uNC0uNi0uOGwuMi0uNHEuMi0uMyAwLS40em0xLjcgMy43di4xcTAgMS40LTIuNCAyLjIuMy0yIDIuNC0yLjN6Ii8+PC9zdmc+);
-
-    /* Alternative: separate with a space:
-  content: "☙ ❧";
-   */
-
-    /* Or separate with letter-spacing and padding:
-  letter-spacing: 1em;
-  padding-left: 1em;
-   */
-
-    /* Or asterism:
-  content: "⁂";
-   */
-
-    /* Many possibilities
-  content: "* * *";
-  content: "· · ·";
-   */
-}
-/* BLOCKQUOTE */
-
-/* Put decorational quotation marks around blockquote elements. */
-.blockquote {
-    margin: 0 2em 0 5em;
-    font-style: italic;                  /* Quotations are usually typeset in italics. */
-    position: relative;                  /* So that position: absolute is relative to this. */
-}
-
-.blockquote:before /*, .blockquote:after*/ {
-    position: absolute;                  /* Don't interfere with regular layout. */
-    color: #dbdbdb;                      /* Just decorational, so don't stand out too much. */
-    font-size: 5em;
-}
-
-.blockquote:before {
-    content: "“";
-    left: -.6em;
-    top: .25em;
-}
-
-/* Optional: place a mark after the quote, too. I personally don't like it as
- * often times the last line won't end at the line, and there just seems to be a
- * "dangling" quotation mark there.
- *
- * Note: add blockquote:after to the first selector above too.
- */
-/*
-.blockquote:after {
-  content: "„"; /* Use the German-style opening quote as it's easier to align, and it should look the same. *
-  right: -.6em;
-  bottom: .25em;
-}
-*/
-/* FORMS */
-
-/* Simple form layouts.
- *
- * Use the "vertical" class to make the labels sit above the input fields:
- *
- *     Label
- *     [        ]
- *
- *     [x] Checkbox
- *
- *     [Submit]
- *
- *
- * Use the "horizontal" class if you want a more "horizontal" layout:
- *
- *     Label    [       ]
- *
- *     Another  [       ]
- *
- *              [x] Checkbox
- *
- *              [Submit]
- *
- * You need to explicitly add one of the layout classes to make it easier to use
- * forms as simple UI elements.
- */
-
-
-/* GENERIC STYLES */
-input[type="text"],
-input[type="search"],
-input[type="tel"],
-input[type="url"],
-input[type="email"],
-input[type="password"],
-input[type="date"],
-input[type="month"],
-input[type="week"],
-input[type="time"],
-input[type="datetime-local"],
-input[type="range"],
-input[type="number"],
-textarea,
-select {
-    font: 1em/100% sans-serif;          /* Use  sans-serif font with the default font size. */
-}
-
-textarea,
-button:not(.link),
-select,
-input:not([type="checkbox"]):not([type="file"]):not([type="image"]):not([type="radio"]):not([type="range"]) {
-    padding: .6em;                       /* Chrome adds almost no padding. */
-    border: 1px solid #bbb;
+.done {
+    color: var(--col-ok);
+    background: var(--col-ok-lg);
+    border: solid 1px var(--col-ok);
     border-radius: 3px;
 }
 
-textarea {
-    width: 100%;                         /* Use entire width of container. */
-    height: 10rem;                       /* A reasonable default height for most purposes. */
-    line-height: 130%;                   /* Reduce line-height since we set a sans-serif font. */
+
+
+
+
+/*SOURCE CODE*/
+.src {
+    background: var(--col-src-bg);
+    color: var(--col-src-text);
+    font-family: mono;
+    font-size: 0.8rem;
+    line-height: 1rem;
+    max-height: 25rem;
+    overflow: scroll;
+    max-width: var(--src-width);
+    margin: auto;
+}
+code {
+    background: #ddd;
+    padding: 0.1rem 0.2rem;
+    font-weight: bold;
 }
 
-button:not(.link), input[type="submit"]:not(.link) {
-    color: #000;                         /* Bit more contrast. */
-    cursor: pointer;                     /* Clearer it's clickable. */
-    margin-left: .5em;                   /* Bit of margin generally looks better. */
-    padding: .6em 1.5em;                 /* More padding for left/right. */
-    background-color: #f6f5f4;           /* Background gets reset when border is set; defaults from Firefox. */
-    background: linear-gradient(#f6f5f4, #edebe9);
-    border: .5px outset #e9e9e9;         /* More or less the same as the Firefox border. */
-    border-radius: 3px;
-    border-top-color: #ccc;
-    border-left-color: #ccc;
-}
 
-select {
-    background-color: inherit;           /* No need for just selects to be grey. */
-}
 
-input:not(.link):focus,
-button:not(.link):focus,
-textarea:focus,
-select:focus {                         /* Firefox removes this once you start styling */
-    outline: 1px solid #00f;
-    box-shadow: 0 0 .2em #00f;
-    color: #000;                         /* Increase contrast a bit. */
-    cursor: pointer;                     /* Clearer that you can click this. */
-}
 
-button:not(.link):hover,               /* Bit darker on hover. */
-input[type="submit"]:not(.link):hover {
-    background-color: #f0f0f0;
-    background: linear-gradient(#f0f0f0, #d0cecc);
+/*BLOCK ELEMENTS*/
+img {
+    max-width: 100%;
 }
-button:not(.link):active,              /* Reverse when active/clicking. */
-input[type="submit"]:not(.link):active {
-    background-color: #d0cecc;
-    background: linear-gradient(#d0cecc, #f0f0f0);
-    border-style: inset;
-}
-
-form > strong, fieldset > strong {     /* Header. */
-    display: inline-block;
-    margin-top: .5em;
-}
-
-form span {
-    margin-left: .2em;                   /* Help text or error; so it doesn't sit flush with the input. */
-}
-
-fieldset {
-    border: 1px solid /*bordercolor*/#aaa; /* More modern-looking border instead of inset or 2px. */
-}
-
-/* VERTICAL FORM */
-
-/* TODO: optgroup? */
-/* https://github.com/twbs/bootstrap/blob/master/dist/css/bootstrap.css */
-.vertical input[type="text"],
-.vertical input[type="search"],
-.vertical input[type="tel"],
-.vertical input[type="url"],
-.vertical input[type="email"],
-.vertical input[type="password"],
-.vertical input[type="date"],
-.vertical input[type="month"],
-.vertical input[type="week"],
-.vertical input[type="time"],
-.vertical input[type="datetime-local"],
-.vertical input[type="range"],
-.vertical input[type="number"],
-.vertical textarea,
-.vertical select {
-    display: block;                      /* One input per line. */
-    min-width: 20rem;                    /* Roughly half the page. */
-}
-
-.vertical input[type="number"] {
-    min-width: 10rem;                    /* Numbers don't need to be so wide. */
-    width: 10rem;
-}
-
-.vertical label {
-    display: block;                      /* One label per line. */
-    margin-top: .5em;                    /* Clear from the previous input. */
-}
-
-/* HORIZONTAL FORM */
-form.horizontal {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-form.horizontal label {
-    width: 30%;
-}
-
-form.horizontal > div {
-    width: 65%;
-    margin-bottom: 1em;
-}
-
-form.horizontal input[type=submit],
-form.horizontal button[type=submit] {
-    margin-left: 35%;                    /* Align submit buttons with inputs. */
-}
-
-form.horizontal span {                 /* Help text, put below the input. */
-    display: block;
-    margin-left: .2em;
-}
-/* PERMALINK MARKERS */
-
-/* Style permalink markers in headers. h2-h6 headers. The HTML is assumed to
- * look like:
- *
- *     <h2 id="hello">Hello, CSS! <a href="#hello"></a></h1>
- *
- * Note the space between the </a> and text matters, otherwise it will look bad
- * in text browsers.
- */
-h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
-    font-size: .7em;                     /* Doesn't need to be so large. */
-    line-height: 0;                      /* Don't affect line-height of header. */
-    color: #999;                         /* Use subdued colour, don't need to stand out too much. */
-}
-
-h1 a:after, h2 a:after, h3 a:after, h4 a:after, h5 a:after, h6 a:after {
-    content: "¶";                        /* So it won't get copy/pasted. */
-    /* Alternative:
-  content: "🔗";
-  content: "§";
-  content: "[link]";
-   */
-}
-
-/* Alternative: put it before the element, in the page margin. Not done for h1
- * as that's centre-aligned by default, so it looks weird. */
-/*
-h2, h3, h4, h5, h6 {
-  position: relative;
-}
-h2 a, h3 a, h4 a, h5 a, h6 a {
-  position: absolute;
-  left: -1em;
-  font-size: .8em;
-  line-height: 1.6em;
-}
-*/
-/* POSTSCRIPT */
-
-/* A "postscript" is useful for adding things after the main text, such as a
- * footnotes section, feedback section, etc.
- *
- * It doesn't need to be at the end of the document, and also fits well at the
- * end of a chapter.
- */
-.postscript {
-    margin-top: 3em;                     /* Clear a bit from regular content. */
-    border-top: 1px solid /*bordercolor*/#aaa; /* Border to separate. */
-    font-size: .9em;                     /* Slightly smaller text. */
-    position: relative;                  /* So we can place the header. */
-
-}
-.postscript + .postscript {
-    margin-top: 2em;                     /* Less margin for subsequent footnotes. */
-}
-
-.postscript > strong {
-    font-style: normal;                  /* Override the italics. */
-    position: absolute;                  /* Move to the to align with the border. */
-    top: -1em;
-    left: 1em;
-    background-color: /*bgcolor*/#fff;   /* Add background colour and padding to hide the border. */
-    padding: 0 .5em;
-}
-
-.postscript > p {
-    margin: 1em 2em                      /* Make margin same as list. */
-}
-
-/* Make the border take up the page padding if the screen is wide enough. */
-@media (min-width: /*bodywidth*/54rem) {
-    .postscript {
-        margin-left: /*padx*/-4em;           /* Put the div in the margin too, so the border is wider. */
-        width: calc(100% + /*padx*/8em);
-        padding: 0 /*padx*/4em;              /* Add page margin. */
-    }
-
-    .postscript > strong {
-        left: /*padx*/6em;
-    }
-}
-
-.org-right {
-    text-align: right;
-}
-.org-center {
-    text-align: center;
-}
-.org-left {
-    text-align: left;
-}
-

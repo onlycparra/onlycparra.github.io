@@ -4,6 +4,7 @@
 #+LANGUAGE: en
 #+OPTIONS: html-style:nil
 #+OPTIONS: ^:nil f:not-nil num:nil
+#+options: :htmlized-source t
 #+OPTIONS: toc:2
 #+OPTIONS: creator:nil
 #+OPTIONS: email:non-nil

@@ -1,7 +1,24 @@
 #+HTML_DOCTYPE: html5
-#+OPTIONS: toc:nil num:nil html-postamble:nil ^:nil
+#+OPTIONS: toc:nil num:nil ^:nil
 #+OPTIONS: html-style:nil
 
-#+HTML: <nav class="nav">
+#+HTML: <nav id="navbar">
 - [[file:../../index.org][Back to Home]]
 #+HTML: </nav>
+
+#+BEGIN_EXPORT HTML
+<script type="text/javascript">
+window.onscroll = function() {myFunction()};
+
+var navbar = document.getElementById("navbar");
+var sticky = navbar.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
+  }
+}
+</script>
+#+END_EXPORT

@@ -1,12 +1,15 @@
 #+setupfile: __config/config.org
 #+TITLE: Claudio Parra
+#+options: toc:nil
 #+DESCRIPTION: personal blog, computer science, programming
 
+#+HTML: <nav id="navbar"></nav>
 * About myself and this Blog
 Welcome to my Blog! this is the first entry of my blog, so far I am not sure about what to share in here, or how is this going to work, but I will just start with the things I am working on now.
 
 * Professional
-- [[file:2022/code_training/training.org][Leetcode Training]]
+- [[file:2022/code_training/75days.org][Leetcode: 75 Days Program]]
+- [[file:2022/code_training/100q.org][Leetcode: Top 100 Liked Questions]]
 
 * Research
 - [[file:2022/perf/perf.org][Measure raw perf events programatically in Ryzen 3960X]]
