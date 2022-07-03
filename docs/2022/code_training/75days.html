@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-06-30 Thu 19:33 -->
+<!-- 2022-07-03 Sun 00:07 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>75 Days Program</title>
+<title>75 Days Coding Program</title>
 <meta name="generator" content="Org mode">
 <meta name="author" content="Claudio Parra">
 <link rel="stylesheet" type="text/css" href="/assets/style.css">
@@ -56,7 +56,7 @@
 </head>
 <body>
 <div id="content">
-<h1 class="title">75 Days Program</h1>
+<h1 class="title">75 Days Coding Program</h1>
 <nav id="navbar">
 <ul class="org-ul">
 <li><a href="../../../index.html">Back to Home</a></li>
@@ -77,17 +77,14 @@ function myFunction() {
   }
 }
 </script>
-<p>
-<a href="https://leetcode.com/study-plan/leetcode-75/">PART 1</a>
-</p>
 
-<div id="outline-container-orgf0c514c" class="outline-2">
-<h2 id="orgf0c514c">Day 1</h2>
-<div class="outline-text-2" id="text-orgf0c514c">
+<div id="outline-container-org053b7eb" class="outline-2">
+<h2 id="org053b7eb">Day 4</h2>
+<div class="outline-text-2" id="text-org053b7eb">
 </div>
-<div id="outline-container-org360ab9e" class="outline-3">
-<h3 id="org360ab9e"><span class="todo TODO">TODO</span> 1480. Running Sum of 1d Array&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
-<div class="outline-text-3" id="text-org360ab9e">
+<div id="outline-container-orgd615756" class="outline-3">
+<h3 id="orgd615756"><span class="todo TODO">TODO</span> 142. Linked List Cycle II&#xa0;&#xa0;&#xa0;<span class="tag"><span class="medium">medium</span></span></h3>
+<div class="outline-text-3" id="text-orgd615756">
 <table class="bench">
 
 
@@ -117,20 +114,26 @@ function myFunction() {
 </tbody>
 </table>
 <ul class="org-ul">
-<li><a href="https://leetcode.com/problems/running-sum-of-1d-array/">https://leetcode.com/problems/running-sum-of-1d-array/</a></li>
-<li>Notes</li>
+<li><a href="https://leetcode.com/problems/linked-list-cycle-ii">https://leetcode.com/problems/linked-list-cycle-ii</a></li>
 <li>Notes</li>
 </ul>
 <div class="org-src-container">
-<pre class="src src-python"><span class="linenr">1: </span><span class="org-keyword">class</span> <span class="org-type">Solution</span>:
-<span class="linenr">2: </span>    <span class="org-keyword">def</span> <span class="org-function-name">runningSum</span>(<span class="org-keyword">self</span>, nums: List[<span class="org-builtin">int</span>]) -&gt; List[<span class="org-builtin">int</span>]:
+<pre class="src src-python"><span class="linenr">1: </span><span class="org-comment-delimiter"># </span><span class="org-comment">Definition for singly-linked list.</span>
+<span class="linenr">2: </span><span class="org-comment-delimiter"># </span><span class="org-comment">class ListNode:</span>
+<span class="linenr">3: </span><span class="org-comment-delimiter">#     </span><span class="org-comment">def __init__(self, x):</span>
+<span class="linenr">4: </span><span class="org-comment-delimiter">#         </span><span class="org-comment">self.val = x</span>
+<span class="linenr">5: </span><span class="org-comment-delimiter">#         </span><span class="org-comment">self.next = None</span>
+<span class="linenr">6: </span>
+<span class="linenr">7: </span><span class="org-keyword">class</span> <span class="org-type">Solution</span>:
+<span class="linenr">8: </span>    <span class="org-keyword">def</span> <span class="org-function-name">detectCycle</span>(<span class="org-keyword">self</span>, head: Optional[ListNode]) -&gt; Optional[ListNode]:
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-orgf8de48c" class="outline-3">
-<h3 id="orgf8de48c"><span class="todo TODO">TODO</span> 724. Find Pivot Index&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
-<div class="outline-text-3" id="text-orgf8de48c">
+
+<div id="outline-container-org86ca536" class="outline-3">
+<h3 id="org86ca536"><span class="todo CURRENT">CURRENT</span> 876. Middle of the Linked List&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
+<div class="outline-text-3" id="text-org86ca536">
 <table class="bench">
 
 
@@ -156,12 +159,402 @@ function myFunction() {
 <td class="org-left">\(O()\)</td>
 <td class="org-right">MB</td>
 <td class="org-right">%</td>
+</tr>
+</tbody>
+</table>
+<ul class="org-ul">
+<li><a href="https://leetcode.com/problems/middle-of-the-linked-list">https://leetcode.com/problems/middle-of-the-linked-list</a></li>
+<li>Notes</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-python"><span class="linenr">1: </span><span class="org-comment-delimiter"># </span><span class="org-comment">Definition for singly-linked list.</span>
+<span class="linenr">2: </span><span class="org-comment-delimiter"># </span><span class="org-comment">class ListNode:</span>
+<span class="linenr">3: </span><span class="org-comment-delimiter">#     </span><span class="org-comment">def __init__(self, val=0, next=None):</span>
+<span class="linenr">4: </span><span class="org-comment-delimiter">#         </span><span class="org-comment">self.val = val</span>
+<span class="linenr">5: </span><span class="org-comment-delimiter">#         </span><span class="org-comment">self.next = next</span>
+<span class="linenr">6: </span><span class="org-keyword">class</span> <span class="org-type">Solution</span>:
+<span class="linenr">7: </span>    <span class="org-keyword">def</span> <span class="org-function-name">middleNode</span>(<span class="org-keyword">self</span>, head: Optional[ListNode]) -&gt; Optional[ListNode]:
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org6835f45" class="outline-2">
+<h2 id="org6835f45">Day 3</h2>
+<div class="outline-text-2" id="text-org6835f45">
+</div>
+<div id="outline-container-org77dbc1c" class="outline-3">
+<h3 id="org77dbc1c"><span class="done DONE">DONE</span> 206. Reverse Linked List&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
+<div class="outline-text-3" id="text-org77dbc1c">
+<table class="bench">
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-right">
+
+<col  class="org-right">
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><b>Runtime</b></td>
+<td class="org-left">\(O(n)\)</td>
+<td class="org-right">43ms</td>
+<td class="org-right">80%</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Memory</b></td>
+<td class="org-left">\(O(1)\)</td>
+<td class="org-right">15MB</td>
+<td class="org-right">94%</td>
+</tr>
+</tbody>
+</table>
+<ul class="org-ul">
+<li><a href="https://leetcode.com/problems/reverse-linked-list">https://leetcode.com/problems/reverse-linked-list</a></li>
+<li>Point the next node with <code>tmp_nxt</code></li>
+<li>Make the current node <code>head</code> point the current <code>tail</code>.</li>
+<li>Now the current node is the beginning of he <code>tail</code>.</li>
+<li>Move the pointer <code>head</code> to point to the saved next in <code>tmp_nxt</code>.</li>
+<li>Repeat.</li>
+<li>At the end, when there is no <code>head.next</code>, the <code>head</code> needs <a href="https://www.youtube.com/watch?v=A2VpR8HahKc">one more time</a> to point to the current <code>tail</code>, and we are done.</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-python"><span class="linenr"> 1: </span><span class="org-comment-delimiter"># </span><span class="org-comment">Definition for singly-linked list.</span>
+<span class="linenr"> 2: </span><span class="org-comment-delimiter"># </span><span class="org-comment">class ListNode:</span>
+<span class="linenr"> 3: </span><span class="org-comment-delimiter">#     </span><span class="org-comment">def __init__(self, val=0, next=None):</span>
+<span class="linenr"> 4: </span><span class="org-comment-delimiter">#         </span><span class="org-comment">self.val = val</span>
+<span class="linenr"> 5: </span><span class="org-comment-delimiter">#         </span><span class="org-comment">self.next = next</span>
+<span class="linenr"> 6: </span><span class="org-keyword">class</span> <span class="org-type">Solution</span>:
+<span class="linenr"> 7: </span>    <span class="org-keyword">def</span> <span class="org-function-name">reverseList</span>(<span class="org-keyword">self</span>, head: Optional[ListNode]) -&gt; Optional[ListNode]:
+<span class="linenr"> 8: </span>        <span class="org-keyword">if</span> <span class="org-keyword">not</span> head:
+<span class="linenr"> 9: </span>            <span class="org-keyword">return</span> head
+<span class="linenr">10: </span>        <span class="org-variable-name">tail</span> = <span class="org-constant">None</span>
+<span class="linenr">11: </span>        <span class="org-keyword">while</span> head.<span class="org-builtin">next</span>: <span class="org-comment-delimiter">#</span><span class="org-comment">to check</span>
+<span class="linenr">12: </span>            <span class="org-variable-name">tmp_nxt</span> = head.<span class="org-builtin">next</span>
+<span class="linenr">13: </span>            head.<span class="org-builtin">next</span> = tail
+<span class="linenr">14: </span>            <span class="org-variable-name">tail</span> = head
+<span class="linenr">15: </span>            <span class="org-variable-name">head</span> = tmp_nxt
+<span class="linenr">16: </span>        head.<span class="org-builtin">next</span> = tail
+<span class="linenr">17: </span>        <span class="org-keyword">return</span> head
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org45ef80d" class="outline-3">
+<h3 id="org45ef80d"><span class="done DONE">DONE</span> 21. Merge Two Sorted Lists&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
+<div class="outline-text-3" id="text-org45ef80d">
+<table class="bench">
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-right">
+
+<col  class="org-right">
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><b>Runtime</b></td>
+<td class="org-left">\(O(n)\)</td>
+<td class="org-right">67ms</td>
+<td class="org-right">28%</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Memory</b></td>
+<td class="org-left">\(O(1)\)</td>
+<td class="org-right">13.9MB</td>
+<td class="org-right">32%</td>
+</tr>
+</tbody>
+</table>
+<ul class="org-ul">
+<li><a href="https://leetcode.com/problems/merge-two-sorted-lists">https://leetcode.com/problems/merge-two-sorted-lists</a></li>
+<li>I like more my other approach in <a href="100q.html#MissingReference">Top 100 Liked Questions (Q3)</a>, it is faster.</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-python"><span class="linenr"> 1: </span><span class="org-comment-delimiter"># </span><span class="org-comment">Definition for singly-linked list.</span>
+<span class="linenr"> 2: </span><span class="org-comment-delimiter"># </span><span class="org-comment">class ListNode:</span>
+<span class="linenr"> 3: </span><span class="org-comment-delimiter">#     </span><span class="org-comment">def __init__(self, val=0, next=None):</span>
+<span class="linenr"> 4: </span><span class="org-comment-delimiter">#         </span><span class="org-comment">self.val = val</span>
+<span class="linenr"> 5: </span><span class="org-comment-delimiter">#         </span><span class="org-comment">self.next = next</span>
+<span class="linenr"> 6: </span><span class="org-keyword">class</span> <span class="org-type">Solution</span>:
+<span class="linenr"> 7: </span>    <span class="org-keyword">def</span> <span class="org-function-name">mergeTwoLists</span>(<span class="org-keyword">self</span>, list1: Optional[ListNode], \
+<span class="linenr"> 8: </span>                      list2: Optional[ListNode]) \
+<span class="linenr"> 9: </span>                      -&gt; Optional[ListNode]:
+<span class="linenr">10: </span>        <span class="org-keyword">if</span> <span class="org-keyword">not</span> list1:
+<span class="linenr">11: </span>            <span class="org-keyword">return</span> list2
+<span class="linenr">12: </span>        <span class="org-keyword">if</span> <span class="org-keyword">not</span> list2:
+<span class="linenr">13: </span>            <span class="org-keyword">return</span> list1
+<span class="linenr">14: </span>
+<span class="linenr">15: </span>        <span class="org-variable-name">dummy</span> = <span class="org-variable-name">head</span> = ListNode()
+<span class="linenr">16: </span>
+<span class="linenr">17: </span>        <span class="org-keyword">while</span> list1 <span class="org-keyword">and</span> list2:
+<span class="linenr">18: </span>            <span class="org-keyword">if</span> list1.val &lt; list2.val:
+<span class="linenr">19: </span>                head.<span class="org-builtin">next</span> = list1
+<span class="linenr">20: </span>                <span class="org-variable-name">list1</span> = list1.<span class="org-builtin">next</span>
+<span class="linenr">21: </span>            <span class="org-keyword">else</span>:
+<span class="linenr">22: </span>                head.<span class="org-builtin">next</span> = list2
+<span class="linenr">23: </span>                <span class="org-variable-name">list2</span> = list2.<span class="org-builtin">next</span>
+<span class="linenr">24: </span>            <span class="org-variable-name">head</span> = head.<span class="org-builtin">next</span>
+<span class="linenr">25: </span>
+<span class="linenr">26: </span>        <span class="org-keyword">if</span> list1:
+<span class="linenr">27: </span>            head.<span class="org-builtin">next</span> = list1
+<span class="linenr">28: </span>        <span class="org-keyword">elif</span> list2:
+<span class="linenr">29: </span>            head.<span class="org-builtin">next</span> = list2
+<span class="linenr">30: </span>
+<span class="linenr">31: </span>        <span class="org-keyword">return</span> dummy.<span class="org-builtin">next</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org859937d" class="outline-2">
+<h2 id="org859937d">Day 2</h2>
+<div class="outline-text-2" id="text-org859937d">
+</div>
+<div id="outline-container-orgef79c2f" class="outline-3">
+<h3 id="orgef79c2f"><span class="done DONE">DONE</span> 392. Is Subsequence&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
+<div class="outline-text-3" id="text-orgef79c2f">
+<table class="bench">
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-right">
+
+<col  class="org-right">
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><b>Runtime</b></td>
+<td class="org-left">\(O(n)\)</td>
+<td class="org-right">57ms</td>
+<td class="org-right">37%</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Memory</b></td>
+<td class="org-left">\(O(1)\)</td>
+<td class="org-right">14MB</td>
+<td class="org-right">45%</td>
+</tr>
+</tbody>
+</table>
+<ul class="org-ul">
+<li><a href="https://leetcode.com/problems/is-subsequence/">https://leetcode.com/problems/is-subsequence/</a></li>
+<li>One from <code>s</code> it is taken one character at the time.</li>
+<li>It is searched in <code>t</code> starting from the beginning.</li>
+<li>If it is found, we move to the next character of <code>s</code>.</li>
+<li>The next search in <code>t</code> starts where it left off.</li>
+<li>If <code>t</code> is exhausted and there are still elements in <code>s</code>, then <code>s</code> was not a sub-sequence of <code>t</code>.</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-python"><span class="linenr"> 1: </span><span class="org-keyword">class</span> <span class="org-type">Solution</span>:
+<span class="linenr"> 2: </span>    <span class="org-keyword">def</span> <span class="org-function-name">isSubsequence</span>(<span class="org-keyword">self</span>, s: <span class="org-builtin">str</span>, t: <span class="org-builtin">str</span>) -&gt; <span class="org-builtin">bool</span>:
+<span class="linenr"> 3: </span>        <span class="org-keyword">if</span> <span class="org-builtin">len</span>(t) &lt; <span class="org-builtin">len</span>(s):
+<span class="linenr"> 4: </span>            <span class="org-keyword">return</span> <span class="org-constant">False</span>
+<span class="linenr"> 5: </span>        <span class="org-variable-name">t_index</span> = 0
+<span class="linenr"> 6: </span>        <span class="org-keyword">for</span> s_char <span class="org-keyword">in</span> s:
+<span class="linenr"> 7: </span>            <span class="org-keyword">if</span> <span class="org-builtin">len</span>(t) &lt;= t_index:
+<span class="linenr"> 8: </span>                <span class="org-keyword">return</span> <span class="org-constant">False</span>
+<span class="linenr"> 9: </span>            <span class="org-keyword">while</span> s_char != t[t_index]:
+<span class="linenr">10: </span>                <span class="org-variable-name">t_index</span> += 1
+<span class="linenr">11: </span>                <span class="org-keyword">if</span> <span class="org-builtin">len</span>(t) &lt;= t_index:
+<span class="linenr">12: </span>                    <span class="org-keyword">return</span> <span class="org-constant">False</span>
+<span class="linenr">13: </span>            <span class="org-variable-name">t_index</span> += 1
+<span class="linenr">14: </span>        <span class="org-keyword">return</span> <span class="org-constant">True</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org8898f09" class="outline-3">
+<h3 id="org8898f09"><span class="done DONE">DONE</span> 205. Isomorphic Strings&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
+<div class="outline-text-3" id="text-org8898f09">
+<table class="bench">
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-right">
+
+<col  class="org-right">
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><b>Runtime</b></td>
+<td class="org-left">\(O(n)\)</td>
+<td class="org-right">68ms</td>
+<td class="org-right">44%</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Memory</b></td>
+<td class="org-left">\(O(1)\)</td>
+<td class="org-right">14.2MB</td>
+<td class="org-right">44%</td>
+</tr>
+</tbody>
+</table>
+<ul class="org-ul">
+<li><a href="https://leetcode.com/problems/isomorphic-strings/">https://leetcode.com/problems/isomorphic-strings/</a></li>
+<li>It is a bijective function, each character must have one and only one correspondence in the other set.</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-python"><span class="linenr"> 1: </span><span class="org-keyword">class</span> <span class="org-type">Solution</span>:
+<span class="linenr"> 2: </span>    <span class="org-keyword">def</span> <span class="org-function-name">isIsomorphic</span>(<span class="org-keyword">self</span>, s: <span class="org-builtin">str</span>, t: <span class="org-builtin">str</span>) -&gt; <span class="org-builtin">bool</span>:
+<span class="linenr"> 3: </span>        <span class="org-keyword">if</span> <span class="org-builtin">len</span>(s) != <span class="org-builtin">len</span>(t):
+<span class="linenr"> 4: </span>            <span class="org-keyword">return</span> <span class="org-constant">False</span>
+<span class="linenr"> 5: </span>        <span class="org-comment-delimiter"># </span><span class="org-comment">two dictionaries to translate in both directions</span>
+<span class="linenr"> 6: </span>        <span class="org-variable-name">trans_one</span>={}
+<span class="linenr"> 7: </span>        <span class="org-variable-name">trans_two</span>={}
+<span class="linenr"> 8: </span>        <span class="org-keyword">for</span> sc,tc <span class="org-keyword">in</span> <span class="org-builtin">zip</span>(s,t):
+<span class="linenr"> 9: </span>            <span class="org-comment-delimiter"># </span><span class="org-comment">retrive the definitions of both</span>
+<span class="linenr">10: </span>            <span class="org-variable-name">ab</span> = trans_one[sc] <span class="org-keyword">if</span> sc <span class="org-keyword">in</span> trans_one <span class="org-keyword">else</span> <span class="org-constant">None</span>
+<span class="linenr">11: </span>            <span class="org-variable-name">ba</span> = trans_two[tc] <span class="org-keyword">if</span> tc <span class="org-keyword">in</span> trans_two <span class="org-keyword">else</span> <span class="org-constant">None</span>
+<span class="linenr">12: </span>            <span class="org-comment-delimiter"># </span><span class="org-comment">if both exist, they must be reciprocal</span>
+<span class="linenr">13: </span>            <span class="org-keyword">if</span> ab <span class="org-keyword">and</span> ba:
+<span class="linenr">14: </span>                <span class="org-keyword">if</span> (ab != tc) <span class="org-keyword">or</span> (ba != sc):
+<span class="linenr">15: </span>                    <span class="org-keyword">return</span> <span class="org-constant">False</span>
+<span class="linenr">16: </span>                <span class="org-keyword">continue</span>
+<span class="linenr">17: </span>            <span class="org-comment-delimiter"># </span><span class="org-comment">if none of them exists, then add the definitions</span>
+<span class="linenr">18: </span>            <span class="org-keyword">if</span> <span class="org-keyword">not</span> (ab <span class="org-keyword">or</span> ba):
+<span class="linenr">19: </span>                <span class="org-variable-name">trans_one</span>[sc] = tc
+<span class="linenr">20: </span>                <span class="org-variable-name">trans_two</span>[tc] = sc
+<span class="linenr">21: </span>                <span class="org-keyword">continue</span>
+<span class="linenr">22: </span>            <span class="org-comment-delimiter"># </span><span class="org-comment">if only one exist, then the characters don't</span>
+<span class="linenr">23: </span>            <span class="org-comment-delimiter"># </span><span class="org-comment">correspond to each other</span>
+<span class="linenr">24: </span>            <span class="org-keyword">return</span> <span class="org-constant">False</span>
+<span class="linenr">25: </span>        <span class="org-keyword">return</span> <span class="org-constant">True</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb8e5864" class="outline-2">
+<h2 id="orgb8e5864">Day 1</h2>
+<div class="outline-text-2" id="text-orgb8e5864">
+</div>
+<div id="outline-container-org599c1c0" class="outline-3">
+<h3 id="org599c1c0"><span class="done DONE">DONE</span> 724. Find Pivot Index&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
+<div class="outline-text-3" id="text-org599c1c0">
+<table class="bench">
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-right">
+
+<col  class="org-right">
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><b>Runtime</b></td>
+<td class="org-left">\(O(n)\)</td>
+<td class="org-right">159ms</td>
+<td class="org-right">92%</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Memory</b></td>
+<td class="org-left">\(O(1)\)</td>
+<td class="org-right">15.2MB</td>
+<td class="org-right">93%</td>
 </tr>
 </tbody>
 </table>
 <ul class="org-ul">
 <li><a href="https://leetcode.com/problems/find-pivot-index/">https://leetcode.com/problems/find-pivot-index/</a></li>
+<li>First attempt was to solve through two indices coming from the extremes towards the center. Negative numbers gave me problems, and at the end, realized that this was <b>not</b> the way to solve it, as it is not possible to know what is the value/order of the numbers "towards the center of the list", then, you cannot decide which index should step inwards.</li>
+<li>By scanning from left to right, the first pivot will be the left-most.</li>
+<li>If <code>leftsum</code> is never equal to the other part of the list (<code>total-nums[i]-leftsum</code>), then we never found the balance, therefore, return -1.</li>
 </ul>
+<div class="org-src-container">
+<pre class="src src-python"><span class="linenr"> 1: </span><span class="org-keyword">from</span> typing <span class="org-keyword">import</span> List
+<span class="linenr"> 2: </span><span class="org-keyword">class</span> <span class="org-type">Solution</span>:
+<span class="linenr"> 3: </span>    <span class="org-keyword">def</span> <span class="org-function-name">pivotIndex</span>(<span class="org-keyword">self</span>, nums: List[<span class="org-builtin">int</span>]) -&gt; <span class="org-builtin">int</span>:
+<span class="linenr"> 4: </span>        <span class="org-variable-name">total</span> = <span class="org-builtin">sum</span>(nums)
+<span class="linenr"> 5: </span>        <span class="org-variable-name">leftsum</span> = 0
+<span class="linenr"> 6: </span>        <span class="org-keyword">for</span> i <span class="org-keyword">in</span> <span class="org-builtin">range</span>(<span class="org-builtin">len</span>(nums)):
+<span class="linenr"> 7: </span>            <span class="org-keyword">if</span> leftsum == total - nums[i] - leftsum:
+<span class="linenr"> 8: </span>                <span class="org-keyword">return</span> i
+<span class="linenr"> 9: </span>            <span class="org-keyword">else</span>:
+<span class="linenr">10: </span>                <span class="org-variable-name">leftsum</span> += nums[i]
+<span class="linenr">11: </span>        <span class="org-keyword">return</span> -1
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4bdb0e7" class="outline-3">
+<h3 id="org4bdb0e7"><span class="done DONE">DONE</span> 1480. Running Sum of 1d Array&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
+<div class="outline-text-3" id="text-org4bdb0e7">
+<table class="bench">
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-right">
+
+<col  class="org-right">
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><b>Runtime</b></td>
+<td class="org-left">\(O(n)\)</td>
+<td class="org-right">51ms</td>
+<td class="org-right">73%</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Memory</b></td>
+<td class="org-left">\(O(n)\)</td>
+<td class="org-right">14.2MB</td>
+<td class="org-right">26%</td>
+</tr>
+</tbody>
+</table>
+<ul class="org-ul">
+<li><a href="https://leetcode.com/problems/running-sum-of-1d-array/">https://leetcode.com/problems/running-sum-of-1d-array/</a></li>
+<li>No much to say.</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-python"><span class="linenr"> 1: </span><span class="org-keyword">from</span> typing <span class="org-keyword">import</span> List
+<span class="linenr"> 2: </span><span class="org-keyword">class</span> <span class="org-type">Solution</span>:
+<span class="linenr"> 3: </span>    <span class="org-keyword">def</span> <span class="org-function-name">runningSum</span>(<span class="org-keyword">self</span>, nums: List[<span class="org-builtin">int</span>]) -&gt; List[<span class="org-builtin">int</span>]:
+<span class="linenr"> 4: </span>        <span class="org-variable-name">answer</span> = []
+<span class="linenr"> 5: </span>        <span class="org-keyword">if</span> <span class="org-keyword">not</span> nums:
+<span class="linenr"> 6: </span>            <span class="org-keyword">raise</span> <span class="org-type">Exception</span>(<span class="org-string">"nums is null or empty"</span>)
+<span class="linenr"> 7: </span>
+<span class="linenr"> 8: </span>        answer.append(nums[0])
+<span class="linenr"> 9: </span>
+<span class="linenr">10: </span>        <span class="org-keyword">for</span> i <span class="org-keyword">in</span> <span class="org-builtin">range</span>(1,<span class="org-builtin">len</span>(nums)):
+<span class="linenr">11: </span>            answer.append(nums[i]+answer[i-1])
+<span class="linenr">12: </span>
+<span class="linenr">13: </span>        <span class="org-keyword">return</span> answer
+</pre>
+</div>
 </div>
 </div>
 </div>
@@ -169,7 +562,7 @@ function myFunction() {
 <div id="postamble" class="status">
 <p class="author">Author: Claudio Parra</p>
 <p class="email">Email: <a href="mailto:onlycparra@hotmail.com">onlycparra@hotmail.com</a></p>
-<p class="date">Created: 2022-06-30 Thu 19:33</p>
+<p class="date">Created: 2022-07-03 Sun 00:07</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
