@@ -3,7 +3,7 @@ html {
     --page-margin: 5rem;
     --src-width: auto;
     
-    --col-body-bg: #e1e1e1;
+    --col-body-bg: #dfdfdf;
     --col-page-bg: #f8f8f8;
     --col-page-bg2: #ccc;
     --col-page-bg3: #eee;
@@ -43,16 +43,14 @@ body {
     line-height: 1.6rem;
 }
 #content, #postamble {
-    width: var(--page-width);
+    width: min(var(--page-width),96vw);
     margin: 0 auto;
     box-sizing: border-box;
     padding: 0;
 }
 #content {
     flex-grow: 1;
-    background: var(--col-page-bg);
     color: var(--col-page-text);
-    padding-bottom: 6rem;
 }
 #postamble {
     flex-grow: 0;
@@ -66,10 +64,6 @@ body {
 #postamble a {
     color: var(--col-dark-a);
     text-decoration: none;
-}
-#content>*, #postamble>* {
-    margin-left: var(--page-margin);
-    margin-right: var(--page-margin);
 }
 
 
@@ -107,7 +101,8 @@ body {
 #navbar.sticky {
     position: sticky;
     top: 0;
-    margin-inline: 0;
+    height: 2.5rem;
+    box-shadow: 0px 3px 3px -1px #0008;
 }
 
 
@@ -118,28 +113,29 @@ body {
     text-align: center;
     font-size: 3rem;
     line-height: 3rem;
+    background: var(--col-page-bg);
+    padding: 2rem;
+    margin: 0;
 }
 
 h2, h3, h4 {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: end;
 }
 h2 {
-    margin-top: 6rem;
     margin-bottom: 0;
     padding-bottom: 0.2rem;
     font-size: 2.25rem;
     border-bottom: solid 3px var(--col-accent);
 }
 .outline-2:first-of-type > h2 {
-    margin: ;
     margin-top: 2rem;
 }
 h3 {
-    margin-top: 4rem;
+    margin-top: 3rem;
     margin-bottom: 0;
     padding-bottom: 0;
     font-size: 1.75rem;
@@ -151,6 +147,7 @@ h4 {
     margin-bottom: 0;
     padding-bottom: 0;
     font-size: 1.25rem;
+    color: var(--col-info);
 }
 h2 *, h3 * {
     height: 100%;
@@ -172,8 +169,6 @@ h3 * {
     padding: 0;
     padding-inline: 0.3rem;
     height: auto;
-    flex-grow: 100;
-    text-align: end;
 }
 .TODO {
     color: var(--col-warn);
@@ -194,8 +189,6 @@ h2>.tag, h3>.tag {
     margin: 0;
     padding: 0;
     padding-inline: 0.3rem;
-    flex-grow: 1;
-    text-align: end;
 }
 .tag > span {
     margin: 0;
@@ -229,8 +222,8 @@ h2>a, h3>a {
     padding: 0;
     padding-inline: 0.3rem;
     height: auto;
-    flex-grow: 10000;
-    text-align: start;
+    flex-grow: 1;
+    text-align: end;
 }
 
 /* alignment within tables */
@@ -263,7 +256,7 @@ a {
     font-family: mono;
     font-size: 0.8rem;
     line-height: 1rem;
-    max-height: 25rem;
+    max-height: 20rem;
     overflow: scroll;
     max-width: var(--src-width);
     margin: auto;
@@ -278,6 +271,15 @@ code {
 
 
 /*BLOCK ELEMENTS*/
+.outline-2 {
+  background: var(--col-page-bg);
+  margin-block: 1.5rem;
+  padding-inline: min(2.5rem,5vw);
+  padding-top: 3rem;
+  box-shadow: 1px 1px 5px -1px #0006;
+  padding-bottom: 4rem;
+}
+
 img {
     max-width: 100%;
 }
@@ -286,19 +288,20 @@ table.bench {
     width: 100%;
     border-collapse: collapse;
     border: 1px var(--col-page-bg2);
-    border-style: none solid solid solid;
+    border-style: none none solid none;
     background: var(--col-page-bg3);
+    font-size: 0.8rem;
 }
 table.bench td {
     padding: 0.05rem 0.5rem;
-    width: 3rem;
+    width: 2.4rem;
     
 }
 table.bench>tbody>tr {
     display: flex;
     flex-wrap: wrap;
 }
-table.bench>tbody>tr>td:last-child, table.bench>tbody>tr>td:nth-child(4) {
+table.bench>tbody>tr>td:nth-child(4), table.bench>tbody>tr>td:last-child {
     border-right: solid 1px var(--col-page-bg2);
 }
 table.bench>tbody>tr>td:nth-child(4) {
@@ -306,7 +309,7 @@ table.bench>tbody>tr>td:nth-child(4) {
 }
 table.bench>tbody>tr>td:first-child, table.bench>tbody>tr>td:nth-child(5) {
     border-left: solid 1px var(--col-page-bg2);
-    width: 4rem;
+    width: 3.2rem;
 }
 
 
@@ -324,19 +327,14 @@ table.bench>tbody>tr>td:first-child, table.bench>tbody>tr>td:nth-child(5) {
 /*in small screens do...*/
 @media screen and (max-width: 110ch) { /*var(--page-width)*/
     #content, #postamble {
-        max-width: 100vw;
-    }
-    #content>*, #postamble>* {
-        margin-left: 2.5rem;
-        margin-right: 2.5rem;
+        width: 100vw;
     }
 }
 
 /*in even smaller screens do...*/
-@media screen and (max-width: 66ch) {
-    #content>*, #postamble>* {
-        margin-left: 1rem;
-        margin-right: 1rem;
+@media screen and (max-width: 68ch) {
+    #content, #postamble {
+        width: 100%;
     }
     table.bench td {
         padding: 0 0.2rem;
@@ -346,5 +344,14 @@ table.bench>tbody>tr>td:first-child, table.bench>tbody>tr>td:nth-child(5) {
         padding: 0.4rem;
         font-size: 0.7rem;
         line-height: 0.8rem;
+    }
+    h3 {
+        font-size: 1.25rem;
+    }
+    h4 {
+        font-size: 1rem;
+    }
+    .org-ul {
+        margin-left: 0.5rem;
     }
 }
