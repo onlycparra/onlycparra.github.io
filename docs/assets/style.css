@@ -7,6 +7,7 @@ html {
     --col-page-bg: #f8f8f8;
     --col-page-bg2: #ccc;
     --col-page-bg3: #eee;
+    --col-page-bg4: #e2e2e2;
     --col-page-text: #222;
     --col-page-text-dim: #aaa;
 
@@ -294,12 +295,17 @@ table.bench {
 }
 table.bench td {
     padding: 0.05rem 0.5rem;
-    width: 2.4rem;
+    width: fit-content;
     
 }
 table.bench>tbody>tr {
     display: flex;
     flex-wrap: wrap;
+}
+
+table.bench>tbody>tr>td:nth-child(2),
+table.bench>tbody>tr>td:nth-child(6) {
+    background: var(--col-page-bg4);
 }
 table.bench>tbody>tr>td:nth-child(4), table.bench>tbody>tr>td:last-child {
     border-right: solid 1px var(--col-page-bg2);
@@ -309,7 +315,6 @@ table.bench>tbody>tr>td:nth-child(4) {
 }
 table.bench>tbody>tr>td:first-child, table.bench>tbody>tr>td:nth-child(5) {
     border-left: solid 1px var(--col-page-bg2);
-    width: 3.2rem;
 }
 
 

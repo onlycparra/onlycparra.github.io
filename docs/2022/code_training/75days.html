@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-07-05 Tue 16:31 -->
+<!-- 2022-07-05 Tue 21:20 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>75 Days Coding Program</title>
@@ -77,13 +77,13 @@ function myFunction() {
   }
 }
 </script>
-<div id="outline-container-org7591871" class="outline-2">
-<h2 id="org7591871">Day 6</h2>
-<div class="outline-text-2" id="text-org7591871">
+<div id="outline-container-org9459266" class="outline-2">
+<h2 id="org9459266">Day 6</h2>
+<div class="outline-text-2" id="text-org9459266">
 </div>
-<div id="outline-container-orgda8d6a3" class="outline-3">
-<h3 id="orgda8d6a3"><span class="todo TODO">TODO</span> 102. Binary Tree Level Order Traversal <a href="https://leetcode.com/problems/binary-tree-level-order-traversal/">(leetcode)</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="medium">medium</span></span></h3>
-<div class="outline-text-3" id="text-orgda8d6a3">
+<div id="outline-container-orgc177dba" class="outline-3">
+<h3 id="orgc177dba"><span class="todo TODO">TODO</span> 102. Binary Tree Level Order Traversal <a href="https://leetcode.com/problems/binary-tree-level-order-traversal/">(leetcode)</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="medium">medium</span></span></h3>
+<div class="outline-text-3" id="text-orgc177dba">
 <ul class="org-ul">
 <li>Notes</li>
 </ul>
@@ -127,9 +127,9 @@ function myFunction() {
 </div>
 </div>
 
-<div id="outline-container-orgd12fa63" class="outline-3">
-<h3 id="orgd12fa63"><span class="todo TODO">TODO</span> 589. N-ary Tree Preorder Traversal <a href="https://leetcode.com/problems/n-ary-tree-preorder-traversal/">(leetcode)</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
-<div class="outline-text-3" id="text-orgd12fa63">
+<div id="outline-container-org060a30d" class="outline-3">
+<h3 id="org060a30d"><span class="todo CURRENT">CURRENT</span> 589. N-ary Tree Preorder Traversal <a href="https://leetcode.com/problems/n-ary-tree-preorder-traversal/">(leetcode)</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
+<div class="outline-text-3" id="text-org060a30d">
 <ul class="org-ul">
 <li>Notes</li>
 </ul>
@@ -174,18 +174,46 @@ function myFunction() {
 </div>
 </div>
 
-<div id="outline-container-orga119359" class="outline-2">
-<h2 id="orga119359">Day 5</h2>
-<div class="outline-text-2" id="text-orga119359">
+<div id="outline-container-org8c7c9ee" class="outline-2">
+<h2 id="org8c7c9ee">Day 5</h2>
+<div class="outline-text-2" id="text-org8c7c9ee">
 </div>
-<div id="outline-container-orge8d351c" class="outline-3">
-<h3 id="orge8d351c"><span class="todo TODO">TODO</span> 409. Longest Palindrome <a href="https://leetcode.com/problems/longest-palindrome/">(leetcode)</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
-<div class="outline-text-3" id="text-orge8d351c">
+<div id="outline-container-org37bf5f0" class="outline-3">
+<h3 id="org37bf5f0"><span class="done DONE">DONE</span> 409. Longest Palindrome <a href="https://leetcode.com/problems/longest-palindrome/">(leetcode)</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
+<div class="outline-text-3" id="text-org37bf5f0">
+<p>
+There are at least two approaches: One with exec \(O(n)\) and mem \(O(n)\). And another with exec: \(O(n\log{n})\) and mem \(O(1)\).
+</p>
+</div>
+
+<div id="outline-container-org957bcc5" class="outline-4">
+<h4 id="org957bcc5">Solution 1</h4>
+<div class="outline-text-4" id="text-org957bcc5">
 <ul class="org-ul">
-<li>Notes</li>
+<li>This approach uses a set data structure to collect pairs of characters that can be added to the palindrome.</li>
+<li>If there are also un-paired characters, then put one extra in the center of the palindrome.</li>
 </ul>
 <div class="org-src-container">
-<pre class="src src-python"><span class="linenr">1: </span>
+<pre class="src src-python"><span class="linenr"> 1: </span><span class="org-keyword">class</span> <span class="org-type">Solution</span>:
+<span class="linenr"> 2: </span>    <span class="org-keyword">def</span> <span class="org-function-name">longestPalindrome</span>(<span class="org-keyword">self</span>, s: <span class="org-builtin">str</span>) -&gt; <span class="org-builtin">int</span>:
+<span class="linenr"> 3: </span>        <span class="org-variable-name">chars</span> = <span class="org-builtin">set</span>(())
+<span class="linenr"> 4: </span>        <span class="org-variable-name">pal_lenght</span> = 0
+<span class="linenr"> 5: </span>
+<span class="linenr"> 6: </span>        <span class="org-comment-delimiter"># </span><span class="org-comment">form pairs of characters to add at each side</span>
+<span class="linenr"> 7: </span>        <span class="org-comment-delimiter"># </span><span class="org-comment">of the palindrome</span>
+<span class="linenr"> 8: </span>        <span class="org-keyword">for</span> c <span class="org-keyword">in</span> s:
+<span class="linenr"> 9: </span>            <span class="org-keyword">if</span> c <span class="org-keyword">in</span> chars:
+<span class="linenr">10: </span>                chars.remove(c)
+<span class="linenr">11: </span>                <span class="org-variable-name">pal_lenght</span> += 2
+<span class="linenr">12: </span>            <span class="org-keyword">else</span>:
+<span class="linenr">13: </span>                chars.add(c)
+<span class="linenr">14: </span>
+<span class="linenr">15: </span>        <span class="org-comment-delimiter"># </span><span class="org-comment">if there is some un-paired character to put</span>
+<span class="linenr">16: </span>        <span class="org-comment-delimiter"># </span><span class="org-comment">in the center</span>
+<span class="linenr">17: </span>        <span class="org-keyword">if</span> 0 &lt; <span class="org-builtin">len</span>(chars):
+<span class="linenr">18: </span>            <span class="org-variable-name">pal_lenght</span> += 1
+<span class="linenr">19: </span>
+<span class="linenr">20: </span>        <span class="org-keyword">return</span> pal_lenght
 </pre>
 </div>
 <table class="bench">
@@ -211,27 +239,56 @@ function myFunction() {
 <tbody>
 <tr>
 <td class="org-left"><b>Runtime</b></td>
-<td class="org-left">\(O()\)</td>
-<td class="org-right">ms</td>
-<td class="org-right">%</td>
+<td class="org-left">\(O(n)\)</td>
+<td class="org-right">59ms</td>
+<td class="org-right">29%</td>
 <td class="org-left"><b>Memory</b></td>
-<td class="org-left">\(O()\)</td>
-<td class="org-right">MB</td>
-<td class="org-right">%</td>
+<td class="org-left">\(O(n)\)</td>
+<td class="org-right">14MB</td>
+<td class="org-right">22%</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 
-<div id="outline-container-orgb6aa2b0" class="outline-3">
-<h3 id="orgb6aa2b0"><span class="todo CURRENT">CURRENT</span> 121. Best Time to Buy and Sell Stock <a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock/">(leetcode)</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
-<div class="outline-text-3" id="text-orgb6aa2b0">
+<div id="outline-container-org25583ad" class="outline-4">
+<h4 id="org25583ad">Solution 2</h4>
+<div class="outline-text-4" id="text-org25583ad">
 <ul class="org-ul">
-<li>Notes</li>
+<li>The second approach could sort the characters in place (but python does not have an in-place sorter for characters in a string. Strings are immutable, and I am to lazy to implement it myself, so for the sake of the example, I'll just sort out-of-place), and then scans the resulting array in a linear fashion to count the pairs of characters.</li>
+<li>Again, if there is at least one lonely character, then put it in the middle of the palindrome.</li>
 </ul>
 <div class="org-src-container">
-<pre class="src src-python"><span class="linenr">1: </span>
+<pre class="src src-python"><span class="linenr"> 1: </span><span class="org-keyword">class</span> <span class="org-type">Solution</span>:
+<span class="linenr"> 2: </span>    <span class="org-keyword">def</span> <span class="org-function-name">longestPalindrome</span>(<span class="org-keyword">self</span>, s: <span class="org-builtin">str</span>) -&gt; <span class="org-builtin">int</span>:
+<span class="linenr"> 3: </span>        <span class="org-comment-delimiter"># </span><span class="org-comment">s.sort() # nope</span>
+<span class="linenr"> 4: </span>        <span class="org-variable-name">s</span> = <span class="org-builtin">sorted</span>(s)
+<span class="linenr"> 5: </span>        <span class="org-keyword">if</span> <span class="org-builtin">len</span>(s) == 1:
+<span class="linenr"> 6: </span>            <span class="org-keyword">return</span> 1
+<span class="linenr"> 7: </span>        <span class="org-variable-name">i</span> = 0
+<span class="linenr"> 8: </span>        <span class="org-variable-name">un_paired</span> = 0
+<span class="linenr"> 9: </span>        <span class="org-variable-name">pal_length</span> = 0
+<span class="linenr">10: </span>
+<span class="linenr">11: </span>        <span class="org-comment-delimiter"># </span><span class="org-comment">compare adjacent characters</span>
+<span class="linenr">12: </span>        <span class="org-keyword">while</span> i+1 &lt; <span class="org-builtin">len</span>(s):
+<span class="linenr">13: </span>            <span class="org-keyword">if</span> s[i] == s[i+1]:
+<span class="linenr">14: </span>                <span class="org-variable-name">pal_lenth</span> += 2
+<span class="linenr">15: </span>                <span class="org-variable-name">i</span> += 2
+<span class="linenr">16: </span>            <span class="org-keyword">else</span>:
+<span class="linenr">17: </span>                <span class="org-variable-name">un_paired</span> += 1
+<span class="linenr">18: </span>                <span class="org-variable-name">i</span> += 1
+<span class="linenr">19: </span>
+<span class="linenr">20: </span>        <span class="org-comment-delimiter"># </span><span class="org-comment">if the set had an odd number of elements</span>
+<span class="linenr">21: </span>        <span class="org-keyword">if</span> i &lt; <span class="org-builtin">len</span>(s):
+<span class="linenr">22: </span>            <span class="org-variable-name">un_paired</span> += 1
+<span class="linenr">23: </span>
+<span class="linenr">24: </span>        <span class="org-comment-delimiter"># </span><span class="org-comment">if any un_paired, put it at the center of</span>
+<span class="linenr">25: </span>        <span class="org-comment-delimiter"># </span><span class="org-comment">the palindrome.</span>
+<span class="linenr">26: </span>        <span class="org-keyword">if</span> un_paired:
+<span class="linenr">27: </span>            <span class="org-variable-name">pal_length</span> += 1
+<span class="linenr">28: </span>
+<span class="linenr">29: </span>        <span class="org-keyword">return</span> pal_length
 </pre>
 </div>
 <table class="bench">
@@ -257,33 +314,106 @@ function myFunction() {
 <tbody>
 <tr>
 <td class="org-left"><b>Runtime</b></td>
-<td class="org-left">\(O()\)</td>
-<td class="org-right">ms</td>
-<td class="org-right">%</td>
+<td class="org-left">\(O(n\log{n})\)</td>
+<td class="org-right">51ms</td>
+<td class="org-right">49%</td>
 <td class="org-left"><b>Memory</b></td>
-<td class="org-left">\(O()\)</td>
-<td class="org-right">MB</td>
-<td class="org-right">%</td>
+<td class="org-left">\(O(1)\)</td>
+<td class="org-right">14MB</td>
+<td class="org-right">98%</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 </div>
-<div id="outline-container-org4a1e4a3" class="outline-2">
-<h2 id="org4a1e4a3">Day 4</h2>
-<div class="outline-text-2" id="text-org4a1e4a3">
+
+<div id="outline-container-org733547b" class="outline-3">
+<h3 id="org733547b"><span class="done DONE">DONE</span> 121. Best Time to Buy and Sell Stock <a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock/">(leetcode)</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
+<div class="outline-text-3" id="text-org733547b">
+<ul class="org-ul">
+<li>We start with two indices of the first two days of the array <code>prices</code>.</li>
+<li>Then, as long as the "sale day" is within the <code>prices</code>, then compute the potential profit or loss.</li>
+<li>If there is some profit, then check if that is greater than our "so-far" best profit, and update accordingly.</li>
+<li><p>
+If there is actually loss, that means that this supposedly selling date is better as a buying day. It is safe to move <code>buy_time</code> forward towards <code>sell_time</code>, because:
+</p>
+<ul class="org-ul">
+<li>If there was any profit in the future, it is better to buy now because the price is lower.</li>
+<li>If there was any better deal in the past, then at some point we must have seen positive profit, and therefore, must have updated max_prof. So the best profit so far is saved.</li>
+</ul>
+<ul class="org-ul">
+<li>Finally, <code>sell_time</code> moves one day forward, and the cycle repeats.</li>
+</ul></li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-python"><span class="linenr"> 1: </span><span class="org-keyword">class</span> <span class="org-type">Solution</span>:
+<span class="linenr"> 2: </span>    <span class="org-keyword">def</span> <span class="org-function-name">maxProfit</span>(<span class="org-keyword">self</span>, prices: List[<span class="org-builtin">int</span>]) -&gt; <span class="org-builtin">int</span>:
+<span class="linenr"> 3: </span>        <span class="org-variable-name">buy_time</span> = 0
+<span class="linenr"> 4: </span>        <span class="org-variable-name">sell_time</span> = 1
+<span class="linenr"> 5: </span>        <span class="org-variable-name">max_profit</span> = 0
+<span class="linenr"> 6: </span>
+<span class="linenr"> 7: </span>        <span class="org-keyword">while</span> sell_time &lt; <span class="org-builtin">len</span>(prices):
+<span class="linenr"> 8: </span>            <span class="org-variable-name">prof_loss</span> = prices[sell_time] - prices[buy_time]
+<span class="linenr"> 9: </span>            <span class="org-keyword">if</span> 0 &lt; prof_loss:
+<span class="linenr">10: </span>                <span class="org-variable-name">max_profit</span> = <span class="org-builtin">max</span>(max_profit, prof_loss)
+<span class="linenr">11: </span>            <span class="org-keyword">else</span>:
+<span class="linenr">12: </span>                <span class="org-variable-name">buy_time</span> = sell_time
+<span class="linenr">13: </span>            <span class="org-variable-name">sell_time</span> += 1
+<span class="linenr">14: </span>
+<span class="linenr">15: </span>        <span class="org-keyword">return</span> max_profit
+</pre>
 </div>
-<div id="outline-container-org30fd1c4" class="outline-3">
-<h3 id="org30fd1c4"><span class="done DONE">DONE</span> 142. Linked List Cycle II <a href="https://leetcode.com/problems/linked-list-cycle-ii">(leetcode)</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="medium">medium</span></span></h3>
-<div class="outline-text-3" id="text-org30fd1c4">
+<table class="bench">
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-right">
+
+<col  class="org-right">
+
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-right">
+
+<col  class="org-right">
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><b>Runtime</b></td>
+<td class="org-left">\(O(n)\)</td>
+<td class="org-right">1270ms</td>
+<td class="org-right">73%</td>
+<td class="org-left"><b>Memory</b></td>
+<td class="org-left">\(O(1)\)</td>
+<td class="org-right">25MB</td>
+<td class="org-right">86%</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="outline-container-orge240c6e" class="outline-2">
+<h2 id="orge240c6e">Day 4</h2>
+<div class="outline-text-2" id="text-orge240c6e">
+</div>
+<div id="outline-container-org9ac919a" class="outline-3">
+<h3 id="org9ac919a"><span class="done DONE">DONE</span> 142. Linked List Cycle II <a href="https://leetcode.com/problems/linked-list-cycle-ii">(leetcode)</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="medium">medium</span></span></h3>
+<div class="outline-text-3" id="text-org9ac919a">
 <p>
 This problem has at least two solutions: with extra \(O(n)\) memory, and without extra memory \(O(1)\).
 </p>
 </div>
-<div id="outline-container-org8d6a321" class="outline-4">
-<h4 id="org8d6a321">Solution 1</h4>
-<div class="outline-text-4" id="text-org8d6a321">
+<div id="outline-container-org92f9c6f" class="outline-4">
+<h4 id="org92f9c6f">Solution 1</h4>
+<div class="outline-text-4" id="text-org92f9c6f">
 <ul class="org-ul">
 <li>The first one uses a hash-table to store the pointers of the visited nodes, every time you arrive to a new node, you check it in the table. If you find it, then you were there before. You found the cycle.</li>
 </ul>
@@ -343,9 +473,9 @@ This problem has at least two solutions: with extra \(O(n)\) memory, and without
 </div>
 </div>
 
-<div id="outline-container-org2b5ce3d" class="outline-4">
-<h4 id="org2b5ce3d">Solution 2</h4>
-<div class="outline-text-4" id="text-org2b5ce3d">
+<div id="outline-container-org648e040" class="outline-4">
+<h4 id="org648e040">Solution 2</h4>
+<div class="outline-text-4" id="text-org648e040">
 <ul class="org-ul">
 <li>The other approach is known as "Floyd's algorithm for cycle detection". There is a nice explanation on why it works <a href="https://youtu.be/9YTjXqqJEFE?t=431">in this video</a>.</li>
 <li>It is also known as "the hare and turtle" algorithm. You have two pointers traversing the list. They both start at the beginning. The turtle advances one node at the time, but the hare 2 at the time.</li>
@@ -420,9 +550,9 @@ This problem has at least two solutions: with extra \(O(n)\) memory, and without
 </div>
 </div>
 
-<div id="outline-container-org6f98d61" class="outline-3">
-<h3 id="org6f98d61"><span class="done DONE">DONE</span> 876. Middle of the Linked List <a href="https://leetcode.com/problems/middle-of-the-linked-list">(leetcode)</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
-<div class="outline-text-3" id="text-org6f98d61">
+<div id="outline-container-orge3d5567" class="outline-3">
+<h3 id="orge3d5567"><span class="done DONE">DONE</span> 876. Middle of the Linked List <a href="https://leetcode.com/problems/middle-of-the-linked-list">(leetcode)</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
+<div class="outline-text-3" id="text-orge3d5567">
 <ul class="org-ul">
 <li>Make pointers <code>tip</code> and <code>mid</code> run across the linked list. But make <code>mid</code> run at half speed. At the end, <code>mid</code> will be in the center.</li>
 </ul>
@@ -481,13 +611,13 @@ This problem has at least two solutions: with extra \(O(n)\) memory, and without
 </div>
 </div>
 
-<div id="outline-container-org933ea43" class="outline-2">
-<h2 id="org933ea43">Day 3</h2>
-<div class="outline-text-2" id="text-org933ea43">
+<div id="outline-container-org99dbf2c" class="outline-2">
+<h2 id="org99dbf2c">Day 3</h2>
+<div class="outline-text-2" id="text-org99dbf2c">
 </div>
-<div id="outline-container-org47f5e7b" class="outline-3">
-<h3 id="org47f5e7b"><span class="done DONE">DONE</span> 206. Reverse Linked List <a href="https://leetcode.com/problems/reverse-linked-list">(leetcode)</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
-<div class="outline-text-3" id="text-org47f5e7b">
+<div id="outline-container-org658f565" class="outline-3">
+<h3 id="org658f565"><span class="done DONE">DONE</span> 206. Reverse Linked List <a href="https://leetcode.com/problems/reverse-linked-list">(leetcode)</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
+<div class="outline-text-3" id="text-org658f565">
 <ul class="org-ul">
 <li>Point the next node with <code>tmp_nxt</code></li>
 <li>Make the current node <code>head</code> point the current <code>tail</code>.</li>
@@ -552,9 +682,9 @@ This problem has at least two solutions: with extra \(O(n)\) memory, and without
 </div>
 </div>
 
-<div id="outline-container-org5cfd3e3" class="outline-3">
-<h3 id="org5cfd3e3"><span class="done DONE">DONE</span> 21. Merge Two Sorted Lists <a href="https://leetcode.com/problems/merge-two-sorted-lists">(leetcode)</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
-<div class="outline-text-3" id="text-org5cfd3e3">
+<div id="outline-container-org1ac7383" class="outline-3">
+<h3 id="org1ac7383"><span class="done DONE">DONE</span> 21. Merge Two Sorted Lists <a href="https://leetcode.com/problems/merge-two-sorted-lists">(leetcode)</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
+<div class="outline-text-3" id="text-org1ac7383">
 <ul class="org-ul">
 <li>I like more my other approach in <a href="100q.html#MissingReference">Top 100 Liked Questions (Q3)</a>, it is faster.</li>
 </ul>
@@ -628,13 +758,13 @@ This problem has at least two solutions: with extra \(O(n)\) memory, and without
 </div>
 </div>
 </div>
-<div id="outline-container-org7682c32" class="outline-2">
-<h2 id="org7682c32">Day 2</h2>
-<div class="outline-text-2" id="text-org7682c32">
+<div id="outline-container-org5c6b4e1" class="outline-2">
+<h2 id="org5c6b4e1">Day 2</h2>
+<div class="outline-text-2" id="text-org5c6b4e1">
 </div>
-<div id="outline-container-orgf1fc600" class="outline-3">
-<h3 id="orgf1fc600"><span class="done DONE">DONE</span> 392. Is Subsequence <a href="https://leetcode.com/problems/is-subsequence/">(leetcode)</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
-<div class="outline-text-3" id="text-orgf1fc600">
+<div id="outline-container-orgc5d9009" class="outline-3">
+<h3 id="orgc5d9009"><span class="done DONE">DONE</span> 392. Is Subsequence <a href="https://leetcode.com/problems/is-subsequence/">(leetcode)</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
+<div class="outline-text-3" id="text-orgc5d9009">
 <ul class="org-ul">
 <li>One from <code>s</code> it is taken one character at the time.</li>
 <li>It is searched in <code>t</code> starting from the beginning.</li>
@@ -695,9 +825,9 @@ This problem has at least two solutions: with extra \(O(n)\) memory, and without
 </div>
 </div>
 
-<div id="outline-container-orgb1b9a59" class="outline-3">
-<h3 id="orgb1b9a59"><span class="done DONE">DONE</span> 205. Isomorphic Strings <a href="https://leetcode.com/problems/isomorphic-strings/">(leetcode)</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
-<div class="outline-text-3" id="text-orgb1b9a59">
+<div id="outline-container-orgd35d8f2" class="outline-3">
+<h3 id="orgd35d8f2"><span class="done DONE">DONE</span> 205. Isomorphic Strings <a href="https://leetcode.com/problems/isomorphic-strings/">(leetcode)</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
+<div class="outline-text-3" id="text-orgd35d8f2">
 <ul class="org-ul">
 <li>It is a bijective function, each character must have one and only one correspondence in the other set.</li>
 </ul>
@@ -766,13 +896,13 @@ This problem has at least two solutions: with extra \(O(n)\) memory, and without
 </div>
 </div>
 
-<div id="outline-container-orgd460c26" class="outline-2">
-<h2 id="orgd460c26">Day 1</h2>
-<div class="outline-text-2" id="text-orgd460c26">
+<div id="outline-container-org9ab0b98" class="outline-2">
+<h2 id="org9ab0b98">Day 1</h2>
+<div class="outline-text-2" id="text-org9ab0b98">
 </div>
-<div id="outline-container-orgbe906d8" class="outline-3">
-<h3 id="orgbe906d8"><span class="done DONE">DONE</span> 724. Find Pivot Index <a href="https://leetcode.com/problems/find-pivot-index/">(leetcode)</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
-<div class="outline-text-3" id="text-orgbe906d8">
+<div id="outline-container-org9e95ed8" class="outline-3">
+<h3 id="org9e95ed8"><span class="done DONE">DONE</span> 724. Find Pivot Index <a href="https://leetcode.com/problems/find-pivot-index/">(leetcode)</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
+<div class="outline-text-3" id="text-org9e95ed8">
 <ul class="org-ul">
 <li>First attempt was to solve through two indices coming from the extremes towards the center. Negative numbers gave me problems, and at the end, realized that this was <b>not</b> the way to solve it, as it is not possible to know what is the value/order of the numbers "towards the center of the list", then, you cannot decide which index should step inwards.</li>
 <li>By scanning from left to right, the first pivot will be the left-most.</li>
@@ -828,9 +958,9 @@ This problem has at least two solutions: with extra \(O(n)\) memory, and without
 </div>
 </div>
 
-<div id="outline-container-org512d740" class="outline-3">
-<h3 id="org512d740"><span class="done DONE">DONE</span> 1480. Running Sum of 1d Array <a href="https://leetcode.com/problems/running-sum-of-1d-array/">(leetcode)</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
-<div class="outline-text-3" id="text-org512d740">
+<div id="outline-container-orgaddfb6d" class="outline-3">
+<h3 id="orgaddfb6d"><span class="done DONE">DONE</span> 1480. Running Sum of 1d Array <a href="https://leetcode.com/problems/running-sum-of-1d-array/">(leetcode)</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
+<div class="outline-text-3" id="text-orgaddfb6d">
 <ul class="org-ul">
 <li>No much to say.</li>
 </ul>
@@ -890,7 +1020,7 @@ This problem has at least two solutions: with extra \(O(n)\) memory, and without
 <div id="postamble" class="status">
 <p class="author">Author: Claudio Parra</p>
 <p class="email">Email: <a href="mailto:onlycparra@hotmail.com">onlycparra@hotmail.com</a></p>
-<p class="date">Created: 2022-07-05 Tue 16:31</p>
+<p class="date">Created: 2022-07-05 Tue 21:20</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
