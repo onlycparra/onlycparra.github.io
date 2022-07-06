@@ -1,11 +1,12 @@
 html {
-    --page-width: 100ch;
+    --page-width: 110ch;
     --page-margin: 5rem;
-    --src-width: 80ch;
+    --src-width: auto;
     
     --col-body-bg: #e1e1e1;
     --col-page-bg: #f8f8f8;
     --col-page-bg2: #ccc;
+    --col-page-bg3: #eee;
     --col-page-text: #222;
     --col-page-text-dim: #aaa;
 
@@ -26,6 +27,8 @@ html {
     --col-warn-light: #fffab8;
     --col-ok: darkgreen;
     --col-ok-light: #d2f7d0;
+    --col-info: #148;
+    --col-info-light: #cef;
 }
 body {
     display: flex;
@@ -69,41 +72,25 @@ body {
     margin-right: var(--page-margin);
 }
 
-@media screen and (max-width: 100ch) { /*var(--page-width)*/
-    #content, #postamble {
-        max-width: 100vw;
-    }
-    #content>*, #postamble>* {
-        margin-left: 2.5rem;
-        margin-right: 2.5rem;
-    }
-}
-
-@media screen and (max-width: 66ch) {
-    #content>*, #postamble>* {
-        margin-left: 1rem;
-        margin-right: 1rem;
-    }
-}
 
 /*NAVEGATION*/
 #navbar {
     z-index: 10;
+    margen-inline: 2.5rem;
     background: var(--col-accent);
-    margin-left: 0;
-    margin-right: 0;
     height: 1.6rem;
+    transition: all 0.15s ease-in-out;
 }
 #navbar>.org-ul {
     display: flex;
+    flex-direction: row;
+    height: 100%;
+    align-items: center;
     justify-content: flex-end;
-    margin-inline: 0;
-    margin-block: 0;
+    margin: 0;
 }
 #navbar>ul>li {
     list-style: none;
-    padding-top: 0;
-    padding-bottom: 0;
 }
 #navbar>ul>li>a {
     display: inline-block;
@@ -117,10 +104,10 @@ body {
     background: var(--col-page-bg);
     font-weight: bold;
 }
-.sticky {
-    position: fixed;
+#navbar.sticky {
+    position: sticky;
     top: 0;
-    width: var(--page-width);
+    margin-inline: 0;
 }
 
 
@@ -133,21 +120,37 @@ body {
     line-height: 3rem;
 }
 
-h2, h3 {
+h2, h3, h4 {
     display: flex;
     flex-direction: row;
-    align-content: baseline;
-    justify-content: left;
-    padding-bottom: 0.2rem;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: end;
 }
 h2 {
-    margin-top: 4rem;
-    font-size: 2rem;
-    border-bottom: solid 2px var(--col-accent);
+    margin-top: 6rem;
+    margin-bottom: 0;
+    padding-bottom: 0.2rem;
+    font-size: 2.25rem;
+    border-bottom: solid 3px var(--col-accent);
+}
+.outline-2:first-of-type > h2 {
+    margin: ;
+    margin-top: 2rem;
 }
 h3 {
-    margin-top: 2rem;
+    margin-top: 4rem;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    font-size: 1.75rem;
+    color: var(--col-info);
     border-bottom: solid 1px var(--col-page-text-dim);
+}
+h4 {
+    margin-top: 2rem;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    font-size: 1.25rem;
 }
 h2 *, h3 * {
     height: 100%;
@@ -161,11 +164,16 @@ h2 * {
 }
 h3 * {
     font-size: 0.9rem;
+    margin-inline: 0;
 }
 .todo, .done {
     order: 2;
-    text-align: right;
-    flex-grow: 1;
+    margin: 0;
+    padding: 0;
+    padding-inline: 0.3rem;
+    height: auto;
+    flex-grow: 100;
+    text-align: end;
 }
 .TODO {
     color: var(--col-warn);
@@ -177,14 +185,21 @@ h3 * {
 }
 .DONE {
     color: var(--col-ok);
-    opacity: 0.3;
+    opacity: 0.5;
 }
 
 /* difficulties */
-h2 .tag, h3 .tag {
+h2>.tag, h3>.tag {
+    order: 3;
     margin: 0;
     padding: 0;
-    order: 3;
+    padding-inline: 0.3rem;
+    flex-grow: 1;
+    text-align: end;
+}
+.tag > span {
+    margin: 0;
+    padding: ;
 }
 .easy, .medium, .hard {
     margin-right: 0;
@@ -207,7 +222,17 @@ h2 .tag, h3 .tag {
     border-color:  var(--col-ok);
     background: var(--col-ok-light);
 }
-    
+
+/*link to leetcode*/
+h2>a, h3>a {
+    margin: 0;
+    padding: 0;
+    padding-inline: 0.3rem;
+    height: auto;
+    flex-grow: 10000;
+    text-align: start;
+}
+
 /* alignment within tables */
 .org-left {
     text-align: left;
@@ -234,6 +259,7 @@ a {
     padding: 0.5rem;
     background: var(--col-src-bg);
     color: var(--col-src-text);
+    border: solid 1px var(--col-page-bg2);
     font-family: mono;
     font-size: 0.8rem;
     line-height: 1rem;
@@ -257,15 +283,68 @@ img {
 }
 
 table.bench {
-    margin-left: 2rem;
+    width: 100%;
     border-collapse: collapse;
-    border: solid 1px var(--col-page-bg2);
+    border: 1px var(--col-page-bg2);
+    border-style: none solid solid solid;
+    background: var(--col-page-bg3);
 }
 table.bench td {
-    padding: 0.05rem 1rem;
+    padding: 0.05rem 0.5rem;
+    width: 3rem;
+    
+}
+table.bench>tbody>tr {
+    display: flex;
+    flex-wrap: wrap;
+}
+table.bench>tbody>tr>td:last-child, table.bench>tbody>tr>td:nth-child(4) {
+    border-right: solid 1px var(--col-page-bg2);
+}
+table.bench>tbody>tr>td:nth-child(4) {
+    margin-right: auto;
+}
+table.bench>tbody>tr>td:first-child, table.bench>tbody>tr>td:nth-child(5) {
+    border-left: solid 1px var(--col-page-bg2);
+    width: 4rem;
 }
 
+
 .org-ul {
+    margin-top: 0.25rem;
     margin-left: 2rem;
     padding-left: 0;
+}
+
+
+
+
+
+
+/*in small screens do...*/
+@media screen and (max-width: 110ch) { /*var(--page-width)*/
+    #content, #postamble {
+        max-width: 100vw;
+    }
+    #content>*, #postamble>* {
+        margin-left: 2.5rem;
+        margin-right: 2.5rem;
+    }
+}
+
+/*in even smaller screens do...*/
+@media screen and (max-width: 66ch) {
+    #content>*, #postamble>* {
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+    table.bench td {
+        padding: 0 0.2rem;
+        font-size: 0.8rem;
+    }
+    .src {
+        padding: 0.4rem;
+        font-size: 0.7rem;
+        line-height: 0.8rem;
+    }
 }
