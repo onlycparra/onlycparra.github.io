@@ -72,26 +72,30 @@ body {
 
 /*NAVEGATION*/
 #navbar {
-    z-index: 10;
-    margen-inline: 2.5rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
     background: var(--col-accent);
-    height: 1.6rem;
+    height: 1.8rem;
     transition: all 0.15s ease-in-out;
 }
 #navbar>.org-ul {
     display: flex;
     flex-direction: row;
-    height: 100%;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-evenly;
     margin: 0;
 }
 #navbar>ul>li {
     list-style: none;
+    padding: 0;
+    margin: 0;
 }
 #navbar>ul>li>a {
     display: inline-block;
-    height: 100%;
     padding-inline: 1rem;
     color: var(--col-dark-text);
     font-weight: bold;
@@ -103,6 +107,7 @@ body {
 }
 #navbar.sticky {
     position: sticky;
+    z-index: 10;
     top: 0;
     height: 2.5rem;
     box-shadow: 0px 3px 3px -1px #0008;
@@ -120,6 +125,13 @@ body {
     padding: 2rem;
     margin: 0;
 }
+#small-title {
+    color: var(--col-page-bg);
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-inline: 1.5rem;
+    display: inline-block;
+}
 
 h2, h3, h4 {
     display: flex;
@@ -132,6 +144,7 @@ h2 {
     margin-bottom: 0;
     padding-bottom: 0.2rem;
     font-size: 2.25rem;
+    line-height: 2.25rem;
     border-bottom: solid 3px var(--col-accent);
 }
 .outline-2:first-of-type > h2 {
