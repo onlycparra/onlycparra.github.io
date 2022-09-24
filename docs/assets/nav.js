@@ -6,7 +6,7 @@ function remove_gohome_in_homepage() {
 function sticky_nav() {
     if (window.pageYOffset >= sticky_threshold) {
         navbar.classList.add("sticky");
-        small_title.innerText = document.querySelector(".title").innerText;
+        small_title.innerText = document.querySelector(".title").innerText.replace(/(.*)\n(.*)/,'$1')
     } else {
         navbar.classList.remove("sticky");
         small_title.innerText = "";

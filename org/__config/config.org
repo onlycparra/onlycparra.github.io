@@ -8,5 +8,5 @@
 #+OPTIONS: toc:nil
 #+OPTIONS: creator:nil
 #+OPTIONS: email:non-nil
-#+AUTHOR: Claudio Parra
-#+EMAIL: onlycparra@hotmail.com
+#+AUTHOR: Claudio A. Parra
+#+EMAIL: onlycparra at gm*il d0t c*m

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-07-06 Wed 22:59 -->
+<!-- 2022-09-24 Sat 02:19 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>75 Days Coding Program</title>
 <meta name="generator" content="Org mode">
-<meta name="author" content="Claudio Parra">
+<meta name="author" content="Claudio A. Parra">
 <meta name="description" content="coding interview, leetcode"
 >
 <link rel="stylesheet" type="text/css" href="/assets/style.css">
@@ -67,13 +67,22 @@
 </nav>
 
 <script src="/assets/nav.js"></script>
-<div id="outline-container-org9d6703a" class="outline-2">
-<h2 id="org9d6703a">Day 7</h2>
-<div class="outline-text-2" id="text-org9d6703a">
+<div id="outline-container-org3546959" class="outline-2">
+<h2 id="org3546959">Note:</h2>
+<div class="outline-text-2" id="text-org3546959">
+<p>
+After a long pause, I restarted this program in hardcore mode: <a href="10q-each-day.html">Ten Questions each day</a>.
+</p>
 </div>
-<div id="outline-container-org06049d8" class="outline-3">
-<h3 id="org06049d8"><span class="done DONE">DONE</span> 704. Binary Search  <a href="https://leetcode.com/problems/binary-search/">leetcode</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
-<div class="outline-text-3" id="text-org06049d8">
+</div>
+
+<div id="outline-container-org992523e" class="outline-2">
+<h2 id="org992523e">Day 7</h2>
+<div class="outline-text-2" id="text-org992523e">
+</div>
+<div id="outline-container-org618cbd9" class="outline-3">
+<h3 id="org618cbd9"><span class="done DONE">DONE</span> 704. Binary Search  <a href="https://leetcode.com/problems/binary-search/">leetcode</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
+<div class="outline-text-3" id="text-org618cbd9">
 <ul class="org-ul">
 <li>If the list has no elements, it returns early.</li>
 <li>If it has one element, then the <code>while</code> loop is not executed.</li>
@@ -135,9 +144,9 @@
 </div>
 </div>
 
-<div id="outline-container-org0773531" class="outline-3">
-<h3 id="org0773531"><span class="done DONE">DONE</span> 278. First Bad Version <a href="https://leetcode.com/problems/first-bad-version/">leetcode</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
-<div class="outline-text-3" id="text-org0773531">
+<div id="outline-container-orgdf5fb7e" class="outline-3">
+<h3 id="orgdf5fb7e"><span class="done DONE">DONE</span> 278. First Bad Version <a href="https://leetcode.com/problems/first-bad-version/">leetcode</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
+<div class="outline-text-3" id="text-orgdf5fb7e">
 <ul class="org-ul">
 <li>Because we want to return the <b>first</b> bad version, remember, at the end of the loop, to ask <code>isBadVersion(first)</code> before asking for <code>isBadVersion(last)</code>.</li>
 </ul>
@@ -197,13 +206,13 @@
 </div>
 </div>
 </div>
-<div id="outline-container-orged06778" class="outline-2">
-<h2 id="orged06778">Day 6</h2>
-<div class="outline-text-2" id="text-orged06778">
+<div id="outline-container-org8514659" class="outline-2">
+<h2 id="org8514659">Day 6</h2>
+<div class="outline-text-2" id="text-org8514659">
 </div>
-<div id="outline-container-org9e39076" class="outline-3">
-<h3 id="org9e39076"><span class="done DONE">DONE</span> 589. N-ary Tree Preorder Traversal <a href="https://leetcode.com/problems/n-ary-tree-preorder-traversal/">leetcode</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
-<div class="outline-text-3" id="text-org9e39076">
+<div id="outline-container-org1bc0e84" class="outline-3">
+<h3 id="org1bc0e84"><span class="done DONE">DONE</span> 589. N-ary Tree Preorder Traversal <a href="https://leetcode.com/problems/n-ary-tree-preorder-traversal/">leetcode</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
+<div class="outline-text-3" id="text-org1bc0e84">
 <ul class="org-ul">
 <li><p>
 Note that in python, a non-defined list (<code>None</code>) evaluates to false in a boolean context. Also a <b>defined</b> list with zero elements. I originally wrote:
@@ -278,9 +287,9 @@ prelist.append(root.val)
 </div>
 </div>
 
-<div id="outline-container-org2bef3f5" class="outline-3">
-<h3 id="org2bef3f5"><span class="done DONE">DONE</span> 102. Binary Tree Level Order Traversal <a href="https://leetcode.com/problems/binary-tree-level-order-traversal/">leetcode</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="medium">medium</span></span></h3>
-<div class="outline-text-3" id="text-org2bef3f5">
+<div id="outline-container-orgb16722b" class="outline-3">
+<h3 id="orgb16722b"><span class="done DONE">DONE</span> 102. Binary Tree Level Order Traversal <a href="https://leetcode.com/problems/binary-tree-level-order-traversal/">leetcode</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="medium">medium</span></span></h3>
+<div class="outline-text-3" id="text-orgb16722b">
 <ul class="org-ul">
 <li>Here I am using two queues: <code>this_level</code>, and <code>next_level</code>.</li>
 <li>The idea is simple: you pick one element at the time in this level, and put its children in the queue for the next level.</li>
@@ -360,13 +369,13 @@ prelist.append(root.val)
 </div>
 </div>
 
-<div id="outline-container-org8fbe1f5" class="outline-2">
-<h2 id="org8fbe1f5">Day 5</h2>
-<div class="outline-text-2" id="text-org8fbe1f5">
+<div id="outline-container-orgbb76187" class="outline-2">
+<h2 id="orgbb76187">Day 5</h2>
+<div class="outline-text-2" id="text-orgbb76187">
 </div>
-<div id="outline-container-org1edd08e" class="outline-3">
-<h3 id="org1edd08e"><span class="done DONE">DONE</span> 121. Best Time to Buy and Sell Stock <a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock/">leetcode</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
-<div class="outline-text-3" id="text-org1edd08e">
+<div id="outline-container-orgf889a23" class="outline-3">
+<h3 id="orgf889a23"><span class="done DONE">DONE</span> 121. Best Time to Buy and Sell Stock <a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock/">leetcode</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
+<div class="outline-text-3" id="text-orgf889a23">
 <ul class="org-ul">
 <li>We start with two indices of the first two days of the array <code>prices</code>.</li>
 <li>Then, as long as the "sale day" is within the <code>prices</code>, then compute the potential profit or loss.</li>
@@ -435,17 +444,17 @@ If there is actually loss, that means that this supposedly selling date is bette
 </table>
 </div>
 </div>
-<div id="outline-container-orga06b837" class="outline-3">
-<h3 id="orga06b837"><span class="done DONE">DONE</span> 409. Longest Palindrome <a href="https://leetcode.com/problems/longest-palindrome/">leetcode</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
-<div class="outline-text-3" id="text-orga06b837">
+<div id="outline-container-orga1f128f" class="outline-3">
+<h3 id="orga1f128f"><span class="done DONE">DONE</span> 409. Longest Palindrome <a href="https://leetcode.com/problems/longest-palindrome/">leetcode</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
+<div class="outline-text-3" id="text-orga1f128f">
 <p>
 There are at least two approaches: One with exec \(O(n)\) and mem \(O(n)\). And another with exec: \(O(n\log{n})\) and mem \(O(1)\).
 </p>
 </div>
 
-<div id="outline-container-orgbe37908" class="outline-4">
-<h4 id="orgbe37908">Solution 1</h4>
-<div class="outline-text-4" id="text-orgbe37908">
+<div id="outline-container-org3de3a6f" class="outline-4">
+<h4 id="org3de3a6f">Solution 1</h4>
+<div class="outline-text-4" id="text-org3de3a6f">
 <ul class="org-ul">
 <li>This approach uses a set data structure to collect pairs of characters that can be added to the palindrome.</li>
 <li>If there are also un-paired characters, then put one extra in the center of the palindrome.</li>
@@ -509,9 +518,9 @@ There are at least two approaches: One with exec \(O(n)\) and mem \(O(n)\). And 
 </div>
 </div>
 
-<div id="outline-container-org60d9863" class="outline-4">
-<h4 id="org60d9863">Solution 2</h4>
-<div class="outline-text-4" id="text-org60d9863">
+<div id="outline-container-org117e1c2" class="outline-4">
+<h4 id="org117e1c2">Solution 2</h4>
+<div class="outline-text-4" id="text-org117e1c2">
 <ul class="org-ul">
 <li>The second approach could sort the characters in place (but python does not have an in-place sorter for characters in a string. Strings are immutable, and I am to lazy to implement it myself, so for the sake of the example, I'll just sort out-of-place), and then scans the resulting array in a linear fashion to count the pairs of characters.</li>
 <li>Again, if there is at least one lonely character, then put it in the middle of the palindrome.</li>
@@ -586,13 +595,13 @@ There are at least two approaches: One with exec \(O(n)\) and mem \(O(n)\). And 
 </div>
 </div>
 
-<div id="outline-container-orgd327784" class="outline-2">
-<h2 id="orgd327784">Day 4</h2>
-<div class="outline-text-2" id="text-orgd327784">
+<div id="outline-container-orgdeec626" class="outline-2">
+<h2 id="orgdeec626">Day 4</h2>
+<div class="outline-text-2" id="text-orgdeec626">
 </div>
-<div id="outline-container-org4d70e28" class="outline-3">
-<h3 id="org4d70e28"><span class="done DONE">DONE</span> 876. Middle of the Linked List <a href="https://leetcode.com/problems/middle-of-the-linked-list">leetcode</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
-<div class="outline-text-3" id="text-org4d70e28">
+<div id="outline-container-orgf37400d" class="outline-3">
+<h3 id="orgf37400d"><span class="done DONE">DONE</span> 876. Middle of the Linked List <a href="https://leetcode.com/problems/middle-of-the-linked-list">leetcode</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
+<div class="outline-text-3" id="text-orgf37400d">
 <ul class="org-ul">
 <li>Make pointers <code>tip</code> and <code>mid</code> run across the linked list. But make <code>mid</code> run at half speed. At the end, <code>mid</code> will be in the center.</li>
 </ul>
@@ -650,16 +659,16 @@ There are at least two approaches: One with exec \(O(n)\) and mem \(O(n)\). And 
 </div>
 </div>
 
-<div id="outline-container-orgf6974e4" class="outline-3">
-<h3 id="orgf6974e4"><span class="done DONE">DONE</span> 142. Linked List Cycle II <a href="https://leetcode.com/problems/linked-list-cycle-ii">leetcode</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="medium">medium</span></span></h3>
-<div class="outline-text-3" id="text-orgf6974e4">
+<div id="outline-container-org20b3178" class="outline-3">
+<h3 id="org20b3178"><span class="done DONE">DONE</span> 142. Linked List Cycle II <a href="https://leetcode.com/problems/linked-list-cycle-ii">leetcode</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="medium">medium</span></span></h3>
+<div class="outline-text-3" id="text-org20b3178">
 <p>
 This problem has at least two solutions: with extra \(O(n)\) memory, and without extra memory \(O(1)\).
 </p>
 </div>
-<div id="outline-container-orgf69c7e6" class="outline-4">
-<h4 id="orgf69c7e6">Solution 1</h4>
-<div class="outline-text-4" id="text-orgf69c7e6">
+<div id="outline-container-org2efc6b9" class="outline-4">
+<h4 id="org2efc6b9">Solution 1</h4>
+<div class="outline-text-4" id="text-org2efc6b9">
 <ul class="org-ul">
 <li>The first one uses a hash-table to store the pointers of the visited nodes, every time you arrive to a new node, you check it in the table. If you find it, then you were there before. You found the cycle.</li>
 </ul>
@@ -719,9 +728,9 @@ This problem has at least two solutions: with extra \(O(n)\) memory, and without
 </div>
 </div>
 
-<div id="outline-container-org803a663" class="outline-4">
-<h4 id="org803a663">Solution 2</h4>
-<div class="outline-text-4" id="text-org803a663">
+<div id="outline-container-org5b9c42d" class="outline-4">
+<h4 id="org5b9c42d">Solution 2</h4>
+<div class="outline-text-4" id="text-org5b9c42d">
 <ul class="org-ul">
 <li>The other approach is known as "Floyd's algorithm for cycle detection". There is a nice explanation on why it works <a href="https://youtu.be/9YTjXqqJEFE?t=431">in this video</a>.</li>
 <li>It is also known as "the hare and turtle" algorithm. You have two pointers traversing the list. They both start at the beginning. The turtle advances one node at the time, but the hare 2 at the time.</li>
@@ -797,15 +806,15 @@ This problem has at least two solutions: with extra \(O(n)\) memory, and without
 </div>
 </div>
 
-<div id="outline-container-org71774e8" class="outline-2">
-<h2 id="org71774e8">Day 3</h2>
-<div class="outline-text-2" id="text-org71774e8">
+<div id="outline-container-orgde40a15" class="outline-2">
+<h2 id="orgde40a15">Day 3</h2>
+<div class="outline-text-2" id="text-orgde40a15">
 </div>
-<div id="outline-container-org4d683eb" class="outline-3">
-<h3 id="org4d683eb"><span class="done DONE">DONE</span> 21. Merge Two Sorted Lists <a href="https://leetcode.com/problems/merge-two-sorted-lists">leetcode</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
-<div class="outline-text-3" id="text-org4d683eb">
+<div id="outline-container-org8040136" class="outline-3">
+<h3 id="org8040136"><span class="done DONE">DONE</span> 21. Merge Two Sorted Lists <a href="https://leetcode.com/problems/merge-two-sorted-lists">leetcode</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
+<div class="outline-text-3" id="text-org8040136">
 <ul class="org-ul">
-<li>I like more my other approach in <a href="100q.html#MissingReference">Top 100 Liked Questions (Q3)</a>, it is faster.</li>
+<li>I like more my other approach in <a href="100q.html#MissingReference">Top 100 liked questions (03)</a>, it is faster.</li>
 </ul>
 <div class="org-src-container">
 <pre class="src src-python"><span class="linenr"> 1: </span><span class="org-comment-delimiter"># </span><span class="org-comment">Definition for singly-linked list.</span>
@@ -876,9 +885,9 @@ This problem has at least two solutions: with extra \(O(n)\) memory, and without
 </table>
 </div>
 </div>
-<div id="outline-container-orga299051" class="outline-3">
-<h3 id="orga299051"><span class="done DONE">DONE</span> 206. Reverse Linked List <a href="https://leetcode.com/problems/reverse-linked-list">leetcode</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
-<div class="outline-text-3" id="text-orga299051">
+<div id="outline-container-orge5b179e" class="outline-3">
+<h3 id="orge5b179e"><span class="done DONE">DONE</span> 206. Reverse Linked List <a href="https://leetcode.com/problems/reverse-linked-list">leetcode</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
+<div class="outline-text-3" id="text-orge5b179e">
 <ul class="org-ul">
 <li>Point the next node with <code>tmp_nxt</code></li>
 <li>Make the current node <code>head</code> point the current <code>tail</code>.</li>
@@ -944,13 +953,13 @@ This problem has at least two solutions: with extra \(O(n)\) memory, and without
 </div>
 </div>
 
-<div id="outline-container-org71eb3ce" class="outline-2">
-<h2 id="org71eb3ce">Day 2</h2>
-<div class="outline-text-2" id="text-org71eb3ce">
+<div id="outline-container-org98fc8fd" class="outline-2">
+<h2 id="org98fc8fd">Day 2</h2>
+<div class="outline-text-2" id="text-org98fc8fd">
 </div>
-<div id="outline-container-org68b1be5" class="outline-3">
-<h3 id="org68b1be5"><span class="done DONE">DONE</span> 205. Isomorphic Strings <a href="https://leetcode.com/problems/isomorphic-strings/">leetcode</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
-<div class="outline-text-3" id="text-org68b1be5">
+<div id="outline-container-org10f5089" class="outline-3">
+<h3 id="org10f5089"><span class="done DONE">DONE</span> 205. Isomorphic Strings <a href="https://leetcode.com/problems/isomorphic-strings/">leetcode</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
+<div class="outline-text-3" id="text-org10f5089">
 <ul class="org-ul">
 <li>It is a bijective function, each character must have one and only one correspondence in the other set.</li>
 </ul>
@@ -1018,9 +1027,9 @@ This problem has at least two solutions: with extra \(O(n)\) memory, and without
 </div>
 </div>
 
-<div id="outline-container-org0e8ef5d" class="outline-3">
-<h3 id="org0e8ef5d"><span class="done DONE">DONE</span> 392. Is Subsequence <a href="https://leetcode.com/problems/is-subsequence/">leetcode</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
-<div class="outline-text-3" id="text-org0e8ef5d">
+<div id="outline-container-org7444830" class="outline-3">
+<h3 id="org7444830"><span class="done DONE">DONE</span> 392. Is Subsequence <a href="https://leetcode.com/problems/is-subsequence/">leetcode</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
+<div class="outline-text-3" id="text-org7444830">
 <ul class="org-ul">
 <li>One from <code>s</code> it is taken one character at the time.</li>
 <li>It is searched in <code>t</code> starting from the beginning.</li>
@@ -1082,13 +1091,13 @@ This problem has at least two solutions: with extra \(O(n)\) memory, and without
 </div>
 </div>
 
-<div id="outline-container-org0b2a938" class="outline-2">
-<h2 id="org0b2a938">Day 1</h2>
-<div class="outline-text-2" id="text-org0b2a938">
+<div id="outline-container-orge30a9a2" class="outline-2">
+<h2 id="orge30a9a2">Day 1</h2>
+<div class="outline-text-2" id="text-orge30a9a2">
 </div>
-<div id="outline-container-org299af6e" class="outline-3">
-<h3 id="org299af6e"><span class="done DONE">DONE</span> 1480. Running Sum of 1d Array <a href="https://leetcode.com/problems/running-sum-of-1d-array/">leetcode</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
-<div class="outline-text-3" id="text-org299af6e">
+<div id="outline-container-orga36aa99" class="outline-3">
+<h3 id="orga36aa99"><span class="done DONE">DONE</span> 1480. Running Sum of 1d Array <a href="https://leetcode.com/problems/running-sum-of-1d-array/">leetcode</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
+<div class="outline-text-3" id="text-orga36aa99">
 <ul class="org-ul">
 <li>No much to say.</li>
 </ul>
@@ -1144,9 +1153,9 @@ This problem has at least two solutions: with extra \(O(n)\) memory, and without
 </div>
 </div>
 
-<div id="outline-container-org4504ee4" class="outline-3">
-<h3 id="org4504ee4"><span class="done DONE">DONE</span> 724. Find Pivot Index <a href="https://leetcode.com/problems/find-pivot-index/">leetcode</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
-<div class="outline-text-3" id="text-org4504ee4">
+<div id="outline-container-org9283af0" class="outline-3">
+<h3 id="org9283af0"><span class="done DONE">DONE</span> 724. Find Pivot Index <a href="https://leetcode.com/problems/find-pivot-index/">leetcode</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
+<div class="outline-text-3" id="text-org9283af0">
 <ul class="org-ul">
 <li>First attempt was to solve through two indices coming from the extremes towards the center. Negative numbers gave me problems, and at the end, realized that this was <b>not</b> the way to solve it, as it is not possible to know what is the value/order of the numbers "towards the center of the list", then, you cannot decide which index should step inwards.</li>
 <li>By scanning from left to right, the first pivot will be the left-most.</li>
@@ -1204,9 +1213,9 @@ This problem has at least two solutions: with extra \(O(n)\) memory, and without
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="author">Author: Claudio Parra</p>
-<p class="email">Email: <a href="mailto:onlycparra@hotmail.com">onlycparra@hotmail.com</a></p>
-<p class="date">Created: 2022-07-06 Wed 22:59</p>
+<p class="author">Author: Claudio A. Parra</p>
+<p class="email">Email: <a href="mailto:onlycparra at gm*il d0t c*m">onlycparra at gm*il d0t c*m</a></p>
+<p class="date">Created: 2022-09-24 Sat 02:19</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

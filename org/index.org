@@ -1,15 +1,17 @@
 #+setupfile: __config/config.org
-#+TITLE: Claudio Parra
+#+TITLE: Claudio A. Parra
+#+SUBTITLE: 1% better every day
 #+DESCRIPTION: personal blog, computer science, programming, homepage
 #+include: __config/nav.org
-* About myself and this Blog
-Welcome to my Blog! this is the first entry of my blog, so far I am not sure about what to share in here, or how is this going to work, but I will just start with the things I am working on now.
+* About me
+Ph.D. student in Computer Science living in California. My areas of interest include Algorithmic and Architectural Execution Paradigm Alignment; Cache Hierarchy; Cache Friendliness; In-Place Memory Permutation; Applications of the Beautiful Perfect Shuffle permutation.
 
 * Professional
 - [[file:2022/code_training/75days.org][Leetcode: 75 Days Coding Program]]
 - [[file:2022/code_training/100q.org][Leetcode: Top 100 Liked Questions]]
+- [[file:2022/code_training/10q-each-day.org][Leetcode: 10 questions each day!]]
 
-* Research
+* COMMENT Research
 - [[file:2022/perf/perf.org][Measure raw perf events programatically in Ryzen 3960X]]
 
 * Personal
