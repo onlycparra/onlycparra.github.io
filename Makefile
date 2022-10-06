@@ -57,10 +57,11 @@ $(PUBLIC)/%: $(ORG)/%
 
 clean:
 	rm -f $(BUILD_LOG)
-	rm -rf $(PUBLIC)
 	@echo "removing page files '$(ORG)/**.html'"
 	@rm -f $(PAGES)
 
+clean-all: clean
+	rm -rf $(PUBLIC)
 show-log:
 	@tail -n 30 $(BUILD_LOG)
 
