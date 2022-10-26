@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2022-10-26 Wed 02:37 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Seven Questions Each Day!</title>
+<meta name="generator" content="Org mode">
+<meta name="author" content="Claudio A. Parra">
+<meta name="description" content="coding interview, leetcode"
+>
+<link rel="stylesheet" type="text/css" href="/assets/style.css">
+<link rel="stylesheet" type="text/css" href="/assets/htmlize-python.css">
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Seven Questions Each Day!</h1>
+<nav id="navbar">
+<span id="small-title"></span>
+<ul id="nav_list" class="org-ul">
+<li><a href="../../../index.html">Back to Home</a></li>
+</ul>
+</nav>
+
+<script src="/assets/nav.js"></script>
+
+<div class="outline-2"><div class="outline-text-2"><p>
+<p>
+This is an attempt to compress the <a href="75days.html">75 Days Coding Program</a> of Leetcode in just 21 days. To get that done, I should do 7 problems every day!!
+</p>
+</p></div></div>
+
+<div id="outline-container-org51ceedb" class="outline-2">
+<h2 id="org51ceedb">Day 0: Get your lazy ass started!</h2>
+<div class="outline-text-2" id="text-org51ceedb">
+</div>
+<div id="outline-container-orgf20e27b" class="outline-3">
+<h3 id="orgf20e27b"><span class="done DONE">DONE</span> 1. (1480) Running Sum of 1d Array <a href="https://leetcode.com/problems/running-sum-of-1d-array/">leetcode</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
+<div class="outline-text-3" id="text-orgf20e27b">
+<ul class="org-ul">
+<li>Easy warm-up, carry the sum in a variable <code>last_sum</code>, and in every iteration, put its current value in the array to return.</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-python"><span class="linenr">1: </span><span class="org-keyword">class</span> <span class="org-type">Solution</span>:
+<span class="linenr">2: </span>    <span class="org-keyword">def</span> <span class="org-function-name">runningSum</span>(<span class="org-keyword">self</span>, nums: List[<span class="org-builtin">int</span>]) -&gt; List[<span class="org-builtin">int</span>]:
+<span class="linenr">3: </span>        <span class="org-variable-name">rsum</span> = []
+<span class="linenr">4: </span>        <span class="org-variable-name">last_sum</span> = 0
+<span class="linenr">5: </span>        <span class="org-keyword">for</span> x <span class="org-keyword">in</span> nums:
+<span class="linenr">6: </span>            <span class="org-variable-name">last_sum</span> += x
+<span class="linenr">7: </span>            rsum.append(last_sum)
+<span class="linenr">8: </span>        <span class="org-keyword">return</span> rsum
+</pre>
+</div>
+<table class="bench">
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-right">
+
+<col  class="org-right">
+
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-right">
+
+<col  class="org-right">
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><b>Runtime</b></td>
+<td class="org-left">\(O(n)\)</td>
+<td class="org-right">84ms</td>
+<td class="org-right">34%</td>
+<td class="org-left"><b>Memory</b></td>
+<td class="org-left">\(O(n)\)</td>
+<td class="org-right">14.2MB</td>
+<td class="org-right">28%</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Claudio A. Parra</p>
+<p class="email">Email: <a href="mailto:onlycparra at gm*il d0t c*m">onlycparra at gm*il d0t c*m</a></p>
+<p class="date">Created: 2022-10-26 Wed 02:37</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

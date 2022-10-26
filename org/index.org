@@ -7,9 +7,11 @@
 Ph.D. student in Computer Science living in California. My areas of interest include Algorithmic and Architectural Execution Paradigm Alignment; Cache Hierarchy; Cache Friendliness; In-Place Memory Permutation; Applications of the Beautiful Perfect Shuffle permutation.
 
 * Professional
+#+begin_comment
 - [[file:2022/code_training/75days.org][Leetcode: 75 Days Coding Program]]
 - [[file:2022/code_training/100q.org][Leetcode: Top 100 Liked Questions]]
-- [[file:2022/code_training/10q-each-day.org][Leetcode: 10 questions each day!]]
+#+end_comment
+- [[file:2022/code_training/7q-each-day.org][Leetcode: 7 Questions each day!]]
 
 * COMMENT Research
 - [[file:2022/perf/perf.org][Measure raw perf events programatically in Ryzen 3960X]]
