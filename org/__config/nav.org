@@ -1,6 +1,7 @@
 #+HTML_DOCTYPE: html5
 #+OPTIONS: toc:nil num:nil ^:nil
 #+OPTIONS: html-style:nil
+#+html_head_extra: <script src="/assets/ext_links.js" defer></script>
 
 #+HTML: <nav id="navbar">
 #+HTML: <span id="small-title"></span>

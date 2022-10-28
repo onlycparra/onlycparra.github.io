@@ -5,7 +5,7 @@ html {
     
     --col-body-bg: #dfdfdf;
     --col-page-bg: #f8f8f8;
-    --col-page-bg2: #ccc;
+    --col-page-bg2: #d8d8d8;
     --col-page-bg3: #eee;
     --col-page-bg4: #e2e2e2;
     --col-page-text: #222;
@@ -208,7 +208,7 @@ h3 * {
 }
 .DONE {
     color: var(--col-ok);
-    opacity: 0.1;
+    opacity: 0.3;
 }
 
 /* difficulties */
@@ -336,11 +336,17 @@ li .src {
     margin-block: 0;
 }
 code {
-    background: var(--col-page-bg2);
-    padding: 0.1rem 0.2rem;
+    background: var(--col-src-bg);
     font-weight: bold;
+    padding: 0.1rem 0.1rem 0;
+    font-size: 0.9rem;
+    border: solid 1px #d7cbb0;
+    border-radius: 0.2rem;
+    font-family: mono;    
 }
-
+del {
+    text-decoration: line-through #b005 2px;
+}
 
 
 
