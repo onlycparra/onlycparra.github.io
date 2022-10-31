@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-10-27 Thu 19:17 -->
+<!-- 2022-10-31 Mon 02:00 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Seven Questions Each Day!</title>
@@ -75,13 +75,13 @@ This is an attempt to compress the <a href="75days.html">75 Days Coding Program<
 </p>
 </p></div></div>
 
-<div id="outline-container-orgf00b806" class="outline-2">
-<h2 id="orgf00b806">Day 1: Let's go!</h2>
-<div class="outline-text-2" id="text-orgf00b806">
+<div id="outline-container-org875730a" class="outline-2">
+<h2 id="org875730a">Day 1: Let's go!</h2>
+<div class="outline-text-2" id="text-org875730a">
 </div>
-<div id="outline-container-org8bfb137" class="outline-3">
-<h3 id="org8bfb137"><span class="todo TODO">TODO</span> 7. (142) Linked List Cycle II <a href="https://leetcode.com/problems/linked-list-cycle-ii">leetcode</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="medium">medium</span></span></h3>
-<div class="outline-text-3" id="text-org8bfb137">
+<div id="outline-container-org22263b4" class="outline-3">
+<h3 id="org22263b4"><span class="todo TODO">TODO</span> 7. (142) Linked List Cycle II <a href="https://leetcode.com/problems/linked-list-cycle-ii">leetcode</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="medium">medium</span></span></h3>
+<div class="outline-text-3" id="text-org22263b4">
 <ul class="org-ul">
 <li>&#x2026;</li>
 </ul>
@@ -125,9 +125,9 @@ This is an attempt to compress the <a href="75days.html">75 Days Coding Program<
 </div>
 </div>
 
-<div id="outline-container-org26ae8fa" class="outline-3">
-<h3 id="org26ae8fa"><span class="todo TODO">TODO</span> 6. (876) Middle of the Linked List <a href="https://leetcode.com/problems/middle-of-the-linked-list">leetcode</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
-<div class="outline-text-3" id="text-org26ae8fa">
+<div id="outline-container-org49d5676" class="outline-3">
+<h3 id="org49d5676"><span class="todo TODO">TODO</span> 6. (876) Middle of the Linked List <a href="https://leetcode.com/problems/middle-of-the-linked-list">leetcode</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
+<div class="outline-text-3" id="text-org49d5676">
 <ul class="org-ul">
 <li>&#x2026;</li>
 </ul>
@@ -171,9 +171,9 @@ This is an attempt to compress the <a href="75days.html">75 Days Coding Program<
 </div>
 </div>
 
-<div id="outline-container-org68ca9c2" class="outline-3">
-<h3 id="org68ca9c2"><span class="todo TODO">TODO</span> 5. (206) Reverse Linked List <a href="https://leetcode.com/problems/reverse-linked-list">leetcode</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
-<div class="outline-text-3" id="text-org68ca9c2">
+<div id="outline-container-org4a25f9b" class="outline-3">
+<h3 id="org4a25f9b"><span class="todo CURRENT">CURRENT</span> 5. (206) Reverse Linked List <a href="https://leetcode.com/problems/reverse-linked-list">leetcode</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
+<div class="outline-text-3" id="text-org4a25f9b">
 <ul class="org-ul">
 <li>&#x2026;</li>
 </ul>
@@ -217,14 +217,78 @@ This is an attempt to compress the <a href="75days.html">75 Days Coding Program<
 </div>
 </div>
 
-<div id="outline-container-org4b1c5a0" class="outline-3">
-<h3 id="org4b1c5a0"><span class="todo CURRENT">CURRENT</span> 4. (21) Merge Two Sorted Lists <a href="https://leetcode.com/problems/merge-two-sorted-lists">leetcode</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
-<div class="outline-text-3" id="text-org4b1c5a0">
-<ul class="org-ul">
-<li>&#x2026;</li>
-</ul>
+<div id="outline-container-org3fc4cf8" class="outline-3">
+<h3 id="org3fc4cf8"><span class="done DONE">DONE</span> 4. (21) Merge Two Sorted Lists <a href="https://leetcode.com/problems/merge-two-sorted-lists">leetcode</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
+<div class="outline-text-3" id="text-org3fc4cf8">
+<ol class="org-ol">
+<li>Out of the two lists <code>list1</code> and <code>list2</code>, we put the one that starts smallest in <code>list_runner</code>, and the other in <code>list_insert</code>.</li>
+<li>We walk through <code>list_runner</code> and stop when the pointer is on
+the last element smaller or equal than the one on <code>list_insert</code>.</li>
+<li>We create an <code>after_cut</code> pointer to the next one in <code>list_runner</code>, and insert the whole <code>list_insert</code> at <code>list_runner.next</code>.</li>
+<li>Now we use <code>list_insert</code> as the new <code>list_runner</code>, and <code>after_cut</code> as the new <code>list_insert</code>.</li>
+<li>We repeat the steps from <b>2.</b></li>
+<li>Considerations and corner-cases:
+<ol class="org-ol">
+<li>If one of the lists is empty, then the work is trivial: the other list is the solution.</li>
+<li>If we walk to the very end of <code>list_runner</code> (as in step <b>2.</b>), whatever is reminder from <code>list_insert</code>, is appended at the end of <code>list_runner</code></li>
+</ol></li>
+</ol>
+
 <div class="org-src-container">
-<pre class="src src-python"><span class="linenr">1: </span>
+<pre class="src src-python"><span class="linenr"> 1: </span><span class="org-comment-delimiter"># </span><span class="org-comment">Definition for singly-linked list.</span>
+<span class="linenr"> 2: </span><span class="org-comment-delimiter"># </span><span class="org-comment">class ListNode:</span>
+<span class="linenr"> 3: </span><span class="org-comment-delimiter">#     </span><span class="org-comment">def __init__(self, val=0, next=None):</span>
+<span class="linenr"> 4: </span><span class="org-comment-delimiter">#         </span><span class="org-comment">self.val = val</span>
+<span class="linenr"> 5: </span><span class="org-comment-delimiter">#         </span><span class="org-comment">self.next = next</span>
+<span class="linenr"> 6: </span><span class="org-keyword">class</span> <span class="org-type">Solution</span>:
+<span class="linenr"> 7: </span>    <span class="org-keyword">def</span> <span class="org-function-name">mergeTwoLists</span>(<span class="org-keyword">self</span>,
+<span class="linenr"> 8: </span>                      list1: Optional[ListNode], \
+<span class="linenr"> 9: </span>                      list2: Optional[ListNode]) \
+<span class="linenr">10: </span>                      -&gt; Optional[ListNode]:
+<span class="linenr">11: </span>        <span class="org-keyword">if</span> list1 == <span class="org-constant">None</span>:
+<span class="linenr">12: </span>            <span class="org-keyword">return</span> list2
+<span class="linenr">13: </span>        <span class="org-keyword">if</span> list2 == <span class="org-constant">None</span>:
+<span class="linenr">14: </span>            <span class="org-keyword">return</span> list1
+<span class="linenr">15: </span>
+<span class="linenr">16: </span>        <span class="org-comment-delimiter"># </span><span class="org-comment">let list1 be the one with the smallest (or equal) starting</span>
+<span class="linenr">17: </span>        <span class="org-comment-delimiter"># </span><span class="org-comment">value out of the two lists.</span>
+<span class="linenr">18: </span>        <span class="org-variable-name">list_runner</span>,<span class="org-variable-name">list_insert</span> = (list1,list2) \
+<span class="linenr">19: </span>            <span class="org-keyword">if</span> list1.val &lt; list2.val \
+<span class="linenr">20: </span>               <span class="org-keyword">else</span> (list2,list1)
+<span class="linenr">21: </span>        <span class="org-variable-name">ans</span> = list_runner
+<span class="linenr">22: </span>
+<span class="linenr">23: </span>        <span class="org-comment-delimiter"># </span><span class="org-comment">breaks when there is nothing else to insert in list_runner.</span>
+<span class="linenr">24: </span>        <span class="org-keyword">while</span> list_insert != <span class="org-constant">None</span>:
+<span class="linenr">25: </span>            <span class="org-comment-delimiter"># </span><span class="org-comment">list_runner points to its furthest element smaller or equal</span>
+<span class="linenr">26: </span>            <span class="org-comment-delimiter"># </span><span class="org-comment">than value at list_insert. After this while loop, list_runner</span>
+<span class="linenr">27: </span>            <span class="org-comment-delimiter"># </span><span class="org-comment">is at the end of its contiguous segment. Between</span>
+<span class="linenr">28: </span>            <span class="org-comment-delimiter"># </span><span class="org-comment">list_runner and list_runner.next, a portion of list_insert</span>
+<span class="linenr">29: </span>            <span class="org-comment-delimiter"># </span><span class="org-comment">will be inserted.</span>
+<span class="linenr">30: </span>            <span class="org-keyword">while</span> list_runner.<span class="org-builtin">next</span> != <span class="org-constant">None</span> <span class="org-keyword">and</span> \
+<span class="linenr">31: </span>                  list_runner.<span class="org-builtin">next</span>.val &lt;= list_insert.val:
+<span class="linenr">32: </span>                <span class="org-variable-name">list_runner</span> = list_runner.<span class="org-builtin">next</span>
+<span class="linenr">33: </span>
+<span class="linenr">34: </span>            <span class="org-comment-delimiter"># </span><span class="org-comment">means that we reached the end of list_runner and still the</span>
+<span class="linenr">35: </span>            <span class="org-comment-delimiter"># </span><span class="org-comment">last element was smaller or equal than the current in</span>
+<span class="linenr">36: </span>            <span class="org-comment-delimiter"># </span><span class="org-comment">list_insert. Therefore, we just append the whole list_insert</span>
+<span class="linenr">37: </span>            <span class="org-comment-delimiter"># </span><span class="org-comment">at the end of list_runner.</span>
+<span class="linenr">38: </span>            <span class="org-keyword">if</span> list_runner.<span class="org-builtin">next</span> == <span class="org-constant">None</span>:
+<span class="linenr">39: </span>                list_runner.<span class="org-builtin">next</span> = list_insert
+<span class="linenr">40: </span>                <span class="org-keyword">break</span>
+<span class="linenr">41: </span>
+<span class="linenr">42: </span>            <span class="org-comment-delimiter"># </span><span class="org-comment">&#8213;&#8213;&#8213;&#8213;&#8213;&#8213;&#8213;&#8213;lr&#8213;&#8213;lrac&#8213;&#8213;&#8213;&#8213;&#8213;</span>
+<span class="linenr">43: </span>            <span class="org-comment-delimiter"># </span><span class="org-comment">li&#8213;&#8213;&#8213;&#8213;&#8213;&#8213;&#8213;</span>
+<span class="linenr">44: </span>            <span class="org-variable-name">list_runner_after_cut</span> = list_runner.<span class="org-builtin">next</span>
+<span class="linenr">45: </span>
+<span class="linenr">46: </span>            <span class="org-comment-delimiter"># </span><span class="org-comment">&#8213;&#8213;&#8213;&#8213;&#8213;&#8213;&#8213;&#8213;lr&#9488; lrac&#8213;&#8213;&#8213;&#8213;&#8213;</span>
+<span class="linenr">47: </span>            <span class="org-comment-delimiter">#           </span><span class="org-comment">&#9492;&#8213;li&#8213;&#8213;&#8213;&#8213;&#8213;&#8213;&#8213;</span>
+<span class="linenr">48: </span>            list_runner.<span class="org-builtin">next</span> = list_insert
+<span class="linenr">49: </span>
+<span class="linenr">50: </span>            <span class="org-comment-delimiter"># </span><span class="org-comment">&#8213;&#8213;&#8213;&#8213;&#8213;&#8213;&#8213;&#8213;&#8213;&#8213;&#9488; li&#8213;&#8213;&#8213;&#8213;&#8213;&#8213;&#8213;</span>
+<span class="linenr">51: </span>            <span class="org-comment-delimiter">#           </span><span class="org-comment">&#9492;&#8213;lr&#8213;&#8213;&#8213;&#8213;&#8213;&#8213;&#8213;</span>
+<span class="linenr">52: </span>            <span class="org-variable-name">list_runner</span>,<span class="org-variable-name">list_insert</span> = list_insert,list_runner_after_cut
+<span class="linenr">53: </span>
+<span class="linenr">54: </span>        <span class="org-keyword">return</span> ans
 </pre>
 </div>
 <table class="bench">
@@ -250,22 +314,22 @@ This is an attempt to compress the <a href="75days.html">75 Days Coding Program<
 <tbody>
 <tr>
 <td class="org-left"><b>Runtime</b></td>
-<td class="org-left">\(O()\)</td>
-<td class="org-right">ms</td>
-<td class="org-right">%</td>
+<td class="org-left">\(O(n)\)</td>
+<td class="org-right">71ms</td>
+<td class="org-right">53%</td>
 <td class="org-left"><b>Memory</b></td>
-<td class="org-left">\(O()\)</td>
-<td class="org-right">MB</td>
-<td class="org-right">%</td>
+<td class="org-left">\(O(1)\)</td>
+<td class="org-right">13.9MB</td>
+<td class="org-right">80%</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 
-<div id="outline-container-org7ce54ec" class="outline-3">
-<h3 id="org7ce54ec"><span class="done DONE">DONE</span> 3. (392) Is Sub-sequence <a href="https://leetcode.com/problems/is-subsequence/">leetcode</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
-<div class="outline-text-3" id="text-org7ce54ec">
+<div id="outline-container-orged8cc48" class="outline-3">
+<h3 id="orged8cc48"><span class="done DONE">DONE</span> 3. (392) Is Sub-sequence <a href="https://leetcode.com/problems/is-subsequence/">leetcode</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
+<div class="outline-text-3" id="text-orged8cc48">
 <ul class="org-ul">
 <li><del>Here I am thinking that if many sub-sequences <code>s</code> are going to be searched in the same <code>t</code> then it may be a good idea to make a dictionary with "the first occurrence of each character of <code>t</code>", then, each subsequent search would be just checking that the indices obtained from the dictionary go in ascending order&#x2026; hold on&#x2026; This does not handle repetitions. Scratch that.</del></li>
 <li>I will grab the first char of the sub-sequence candidate <code>s</code>, and start traversing <code>t</code>. If I find my character, then I grab the next one in <code>s</code>, and keep searching starting from the very next one in <code>t</code>.</li>
@@ -335,9 +399,9 @@ This is an attempt to compress the <a href="75days.html">75 Days Coding Program<
 </div>
 </div>
 
-<div id="outline-container-org06e7c83" class="outline-3">
-<h3 id="org06e7c83"><span class="done DONE">DONE</span> 2. (205) Isomorphic Strings <a href="https://leetcode.com/problems/isomorphic-strings/">leetcode</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
-<div class="outline-text-3" id="text-org06e7c83">
+<div id="outline-container-orgf5e8e1c" class="outline-3">
+<h3 id="orgf5e8e1c"><span class="done DONE">DONE</span> 2. (205) Isomorphic Strings <a href="https://leetcode.com/problems/isomorphic-strings/">leetcode</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
+<div class="outline-text-3" id="text-orgf5e8e1c">
 <ul class="org-ul">
 <li>Here I am using a "bilingual" dictionary (<code>forward_dict</code> for \(s \rightarrow t\), and <code>backward_dict</code> for \(t \rightarrow s\).</li>
 <li>The idea is that if a character <code>si</code> maps to <code>ti</code> in <code>forward_dict</code>, then <code>backward_dict</code> must have a mapping from <code>ti</code> to <code>si</code>, and vice versa.</li>
@@ -406,9 +470,9 @@ This is an attempt to compress the <a href="75days.html">75 Days Coding Program<
 </div>
 </div>
 
-<div id="outline-container-org69fd879" class="outline-3">
-<h3 id="org69fd879"><span class="done DONE">DONE</span> 1. (724) Find Pivot Index <a href="https://leetcode.com/problems/find-pivot-index/">leetcode</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
-<div class="outline-text-3" id="text-org69fd879">
+<div id="outline-container-org60bdc5b" class="outline-3">
+<h3 id="org60bdc5b"><span class="done DONE">DONE</span> 1. (724) Find Pivot Index <a href="https://leetcode.com/problems/find-pivot-index/">leetcode</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
+<div class="outline-text-3" id="text-org60bdc5b">
 <ul class="org-ul">
 <li>An idea that leads to \(O(n)\) is to add-up everything in a variable <code>total</code>, so we know what is the total sum of the whole array <code>nums</code>.</li>
 <li>Then, go back to the beginning and traverse one by one and carrying a <code>left_sum</code> initialized in 0 .</li>
@@ -467,13 +531,13 @@ This is an attempt to compress the <a href="75days.html">75 Days Coding Program<
 </div>
 </div>
 
-<div id="outline-container-orgdbce415" class="outline-2">
-<h2 id="orgdbce415">Day 0: Get your lazy ass started!</h2>
-<div class="outline-text-2" id="text-orgdbce415">
+<div id="outline-container-orgdf72c17" class="outline-2">
+<h2 id="orgdf72c17">Day 0: Get your lazy ass started!</h2>
+<div class="outline-text-2" id="text-orgdf72c17">
 </div>
-<div id="outline-container-org472f1e0" class="outline-3">
-<h3 id="org472f1e0"><span class="done DONE">DONE</span> 1. (1480) Running Sum of 1d Array <a href="https://leetcode.com/problems/running-sum-of-1d-array/">leetcode</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
-<div class="outline-text-3" id="text-org472f1e0">
+<div id="outline-container-orgef3b419" class="outline-3">
+<h3 id="orgef3b419"><span class="done DONE">DONE</span> 1. (1480) Running Sum of 1d Array <a href="https://leetcode.com/problems/running-sum-of-1d-array/">leetcode</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
+<div class="outline-text-3" id="text-orgef3b419">
 <ul class="org-ul">
 <li>Easy warm-up, carry the sum in a variable <code>last_sum</code>, and in every iteration, put its current value in the array to return.</li>
 </ul>
@@ -528,7 +592,7 @@ This is an attempt to compress the <a href="75days.html">75 Days Coding Program<
 <div id="postamble" class="status">
 <p class="author">Author: Claudio A. Parra</p>
 <p class="email">Email: <a href="mailto:onlycparra at gm*il d0t c*m">onlycparra at gm*il d0t c*m</a></p>
-<p class="date">Created: 2022-10-27 Thu 19:17</p>
+<p class="date">Created: 2022-10-31 Mon 02:00</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
