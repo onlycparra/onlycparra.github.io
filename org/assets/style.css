@@ -24,11 +24,11 @@ html {
     --col-src-bg: #fff5d7;
     --col-src-text: #000;
 
-    --col-error: #820000;
+    --col-error: #ac0000;
     --col-error-light: #ffe1e1;
-    --col-warn: #844502;
+    --col-warn: #b08c00;
     --col-warn-light: #fffab8;
-    --col-ok: darkgreen;
+    --col-ok: #009700;
     --col-ok-light: #d2f7d0;
     --col-info: #148;
     --col-info-light: #cef;
@@ -200,15 +200,12 @@ h3 * {
 }
 .TODO {
     color: var(--col-warn);
-    opacity: 0.7;
 }
 .CURRENT {
     color: var(--col-error);
-    opacity: 1;
 }
 .DONE {
     color: var(--col-ok);
-    opacity: 0.3;
 }
 
 /* difficulties */
