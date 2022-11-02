@@ -24,7 +24,7 @@ SHELL := /bin/bash
 ERROR_COLOR := \033[31m
 RESET_COLOR := \033[39m
 
-.PHONY: all everything clean-log clean echo show-log
+.PHONY: all everything clean-log clean echo show-log watch
 
 all: clean-log
 	@(\
@@ -41,6 +41,9 @@ all: clean-log
 	)
 
 build-all: $(PAGES) $(DEST_ASSETS)
+
+watch: clean-log
+	find -L $(ORG) -name  '*.org' -or -name '*.css' -or -name '*.js' | entr -pc make
 
 %.html: %.org
 	@echo  "$<  --->  $(patsubst $(ORG)/%,$(PUBLIC)/%,$@)"
