@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-11-03 Thu 02:35 -->
+<!-- 2022-11-03 Thu 19:44 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Seven Questions Each Day!</title>
@@ -69,19 +69,13 @@
 
 <script src="/assets/nav.js"></script>
 
-<div class="outline-2"><div class="outline-text-2"><p>
-<p>
-This is an attempt to compress the <a href="75days.html">75 Days Coding Program</a> of Leetcode in just 21 days. To get that done, I should do 7 problems every day!!
-</p>
-</p></div></div>
-
-<div id="outline-container-org4572bee" class="outline-2">
-<h2 id="org4572bee">Day 2</h2>
-<div class="outline-text-2" id="text-org4572bee">
+<div id="outline-container-org400d3ce" class="outline-2">
+<h2 id="org400d3ce">Day 2: Breaking Inertia</h2>
+<div class="outline-text-2" id="text-org400d3ce">
 </div>
-<div id="outline-container-org83e3369" class="outline-3">
-<h3 id="org83e3369"><span class="done DONE">DONE</span> 7. Validate Binary Search Tree <a href="https://leetcode.com/problems/validate-binary-search-tree/">leetcode 98</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="medium">medium</span></span></h3>
-<div class="outline-text-3" id="text-org83e3369">
+<div id="outline-container-org867734a" class="outline-3">
+<h3 id="org867734a"><span class="done DONE">DONE</span> 7. Validate Binary Search Tree <a href="https://leetcode.com/problems/validate-binary-search-tree/">leetcode 98</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="medium">medium</span></span></h3>
+<div class="outline-text-3" id="text-org867734a">
 <ul class="org-ul">
 <li>The approach is recursive. The general idea is that each tree returns its own range to its parent. However, if the tree is not a valid Binary Search Tree (BST), then it will return <code>None</code>, instead.</li>
 <li>The base case is a terminal tree (leaf node): This is by definition a valid search tree, and its range is just its own value as minimum and maximum.</li>
@@ -146,38 +140,49 @@ This is an attempt to compress the <a href="75days.html">75 Days Coding Program<
 <col  class="org-left">
 
 <col  class="org-left">
-
-<col  class="org-right">
-
-<col  class="org-right">
 </colgroup>
 <tbody>
 <tr>
 <td class="org-left"><b>Runtime</b></td>
 <td class="org-left">\(O(n)\)</td>
-<td class="org-right">80ms</td>
-<td class="org-right">67%</td>
 </tr>
 
 <tr>
 <td class="org-left"><b>Memory</b></td>
 <td class="org-left">\(O(n)\): due to the exec. stack</td>
-<td class="org-right">17MB</td>
-<td class="org-right">14%</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 
-<div id="outline-container-orgee6c24d" class="outline-3">
-<h3 id="orgee6c24d"><span class="todo TODO">TODO</span> 6. First Bad Version <a href="https://leetcode.com/problems/first-bad-version/">leetcode 278</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
-<div class="outline-text-3" id="text-orgee6c24d">
+<div id="outline-container-orgf63115e" class="outline-3">
+<h3 id="orgf63115e"><span class="done DONE">DONE</span> 6. First Bad Version <a href="https://leetcode.com/problems/first-bad-version/">leetcode 278</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
+<div class="outline-text-3" id="text-orgf63115e">
 <ul class="org-ul">
-<li>&#x2026;</li>
+<li>Pretty much a binary search. The only difference with the previous problem is that if you get a "hit", that only means that you <b>could</b> have found what you were looking for (the first bad version), or you are testing some far point after the first occurrence. So there is no early <code>return</code> within the loop.</li>
+<li>Another thing, after the <code>while</code> loop, we prefer to return <code>early</code>, if this is bad. Otherwise, the only option is <code>late</code></li>
 </ul>
 <div class="org-src-container">
-<pre class="src src-python"><span class="linenr">1: </span>
+<pre class="src src-python"><span class="linenr"> 1: </span><span class="org-comment-delimiter"># </span><span class="org-comment">The isBadVersion API is already defined for you.</span>
+<span class="linenr"> 2: </span><span class="org-comment-delimiter"># </span><span class="org-comment">def isBadVersion(version: int) -&gt; bool:</span>
+<span class="linenr"> 3: </span>
+<span class="linenr"> 4: </span><span class="org-keyword">class</span> <span class="org-type">Solution</span>:
+<span class="linenr"> 5: </span>    <span class="org-keyword">def</span> <span class="org-function-name">firstBadVersion</span>(<span class="org-keyword">self</span>, n: <span class="org-builtin">int</span>) -&gt; <span class="org-builtin">int</span>:
+<span class="linenr"> 6: </span>        <span class="org-comment-delimiter"># </span><span class="org-comment">cut halves by checking querying the center</span>
+<span class="linenr"> 7: </span>        <span class="org-variable-name">early</span>, <span class="org-variable-name">late</span> = 1, n
+<span class="linenr"> 8: </span>        <span class="org-keyword">while</span> early+1 &lt; late:
+<span class="linenr"> 9: </span>            <span class="org-variable-name">mid</span> = early + (late-early)//2
+<span class="linenr">10: </span>            <span class="org-keyword">if</span> isBadVersion(mid)
+<span class="linenr">11: </span>                <span class="org-variable-name">late</span> = mid
+<span class="linenr">12: </span>            <span class="org-keyword">else</span>:
+<span class="linenr">13: </span>                <span class="org-variable-name">early</span> = mid
+<span class="linenr">14: </span>
+<span class="linenr">15: </span>        <span class="org-comment-delimiter"># </span><span class="org-comment">check edges</span>
+<span class="linenr">16: </span>        <span class="org-keyword">if</span> isBadVersion(early):
+<span class="linenr">17: </span>            <span class="org-keyword">return</span> early
+<span class="linenr">18: </span>        <span class="org-keyword">else</span>:
+<span class="linenr">19: </span>            <span class="org-keyword">return</span> late
 </pre>
 </div>
 <table class="bench">
@@ -187,38 +192,65 @@ This is an attempt to compress the <a href="75days.html">75 Days Coding Program<
 <col  class="org-left">
 
 <col  class="org-left">
-
-<col  class="org-right">
-
-<col  class="org-right">
 </colgroup>
 <tbody>
 <tr>
 <td class="org-left"><b>Runtime</b></td>
-<td class="org-left">\(O()\)</td>
-<td class="org-right">ms</td>
-<td class="org-right">%</td>
+<td class="org-left">\(O(\log{n})\)</td>
 </tr>
 
 <tr>
 <td class="org-left"><b>Memory</b></td>
-<td class="org-left">\(O()\)</td>
-<td class="org-right">MB</td>
-<td class="org-right">%</td>
+<td class="org-left">\(O(1)\)</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 
-<div id="outline-container-org68e4f4e" class="outline-3">
-<h3 id="org68e4f4e"><span class="todo TODO">TODO</span> 5. Binary Search  <a href="https://leetcode.com/problems/binary-search/">leetcode 704</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
-<div class="outline-text-3" id="text-org68e4f4e">
+<div id="outline-container-orge01a292" class="outline-3">
+<h3 id="orge01a292"><span class="done DONE">DONE</span> 5. Binary Search  <a href="https://leetcode.com/problems/binary-search/">leetcode 704</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
+<div class="outline-text-3" id="text-orge01a292">
+<p>
+The devil is in the details. This one is easy, but attention must be put in some corner cases, like:
+</p>
 <ul class="org-ul">
-<li>&#x2026;</li>
+<li>What if the list is empty (the statement actually guarantees that it will not, though).</li>
+<li>What if the value is in some edge (index <code>0</code> or index <code>len(nums)-1</code>).</li>
+<li>Can the code generate indices out of bounds?</li>
+<li>In python this is not a problem, but in other language (cough cough C) you could incur in an an integer overflow while computing <code>mid</code>. If the array is very very large, then computing <code>(l+r) // 2</code>, in particular <code>l+r</code>, may overflow the size of the integer type, getting esoteric results or lovely <code>Segmentation Fault</code> messages.</li>
 </ul>
+
+<p>
+Here, <code>l</code> and <code>r</code> are setup in such a way that they always have at least one other element in between, and, if they indeed enter the <code>while</code> loop, they never go out of boundaries.
+</p>
+
+<p>
+The consequence of the above is that <code>l</code>, <code>m</code>, and <code>r</code>, are always in total order (<code>l &lt; mid &lt; r</code>). That is why the final check after the <code>while</code> loop makes sense.
+</p>
 <div class="org-src-container">
-<pre class="src src-python"><span class="linenr">1: </span>
+<pre class="src src-python"><span class="linenr"> 1: </span><span class="org-keyword">class</span> <span class="org-type">Solution</span>:
+<span class="linenr"> 2: </span>    <span class="org-keyword">def</span> <span class="org-function-name">search</span>(<span class="org-keyword">self</span>, nums: List[<span class="org-builtin">int</span>], target: <span class="org-builtin">int</span>) -&gt; <span class="org-builtin">int</span>:
+<span class="linenr"> 3: </span>        <span class="org-keyword">if</span> nums == <span class="org-constant">None</span> <span class="org-keyword">or</span> <span class="org-builtin">len</span>(nums) == 0:
+<span class="linenr"> 4: </span>            <span class="org-keyword">return</span> -1
+<span class="linenr"> 5: </span>
+<span class="linenr"> 6: </span>        <span class="org-comment-delimiter"># </span><span class="org-comment">check internals by partitioning</span>
+<span class="linenr"> 7: </span>        <span class="org-variable-name">l</span>, <span class="org-variable-name">r</span> = 0, <span class="org-builtin">len</span>(nums) - 1
+<span class="linenr"> 8: </span>        <span class="org-keyword">while</span> l + 1 &lt; r:
+<span class="linenr"> 9: </span>            <span class="org-variable-name">mid</span> = l + (r-l)//2
+<span class="linenr">10: </span>            <span class="org-keyword">if</span> target == nums[mid]:
+<span class="linenr">11: </span>                <span class="org-keyword">return</span> mid
+<span class="linenr">12: </span>            <span class="org-keyword">elif</span> target &lt; nums[mid]:
+<span class="linenr">13: </span>                <span class="org-variable-name">r</span> = mid
+<span class="linenr">14: </span>            <span class="org-keyword">else</span>: <span class="org-comment-delimiter"># </span><span class="org-comment">target &gt; nums[mid]:</span>
+<span class="linenr">15: </span>                <span class="org-variable-name">l</span> = mid
+<span class="linenr">16: </span>
+<span class="linenr">17: </span>        <span class="org-comment-delimiter"># </span><span class="org-comment">check edges</span>
+<span class="linenr">18: </span>        <span class="org-keyword">if</span> target == nums[l]:
+<span class="linenr">19: </span>            <span class="org-keyword">return</span> l
+<span class="linenr">20: </span>        <span class="org-keyword">if</span> target == nums[r]:
+<span class="linenr">21: </span>            <span class="org-keyword">return</span> r
+<span class="linenr">22: </span>        <span class="org-keyword">return</span> -1
 </pre>
 </div>
 <table class="bench">
@@ -228,38 +260,99 @@ This is an attempt to compress the <a href="75days.html">75 Days Coding Program<
 <col  class="org-left">
 
 <col  class="org-left">
-
-<col  class="org-right">
-
-<col  class="org-right">
 </colgroup>
 <tbody>
 <tr>
 <td class="org-left"><b>Runtime</b></td>
-<td class="org-left">\(O()\)</td>
-<td class="org-right">ms</td>
-<td class="org-right">%</td>
+<td class="org-left">\(O(\log{n})\)</td>
 </tr>
 
 <tr>
 <td class="org-left"><b>Memory</b></td>
-<td class="org-left">\(O()\)</td>
-<td class="org-right">MB</td>
-<td class="org-right">%</td>
+<td class="org-left">\(O(1)\)</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 
-<div id="outline-container-orgbaedb7f" class="outline-3">
-<h3 id="orgbaedb7f"><span class="todo CURRENT">CURRENT</span> 4. Binary Tree Level Order Traversal <a href="https://leetcode.com/problems/binary-tree-level-order-traversal/">leetcode 102</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="medium">medium</span></span></h3>
-<div class="outline-text-3" id="text-orgbaedb7f">
+<div id="outline-container-orgf63b7dc" class="outline-3">
+<h3 id="orgf63b7dc"><span class="done DONE">DONE</span> 4. Binary Tree Level Order Traversal <a href="https://leetcode.com/problems/binary-tree-level-order-traversal/">leetcode 102</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="medium">medium</span></span></h3>
+<div class="outline-text-3" id="text-orgf63b7dc">
+<p>
+This problem is very similar to the previous one, but it has two twists:
+</p>
+<ol class="org-ol">
+<li>We descend by levels instead of depth-first</li>
+<li>We return a "list of lists": one list per level of the tree.</li>
+</ol>
+
+<p>
+Let's agree in some names:
+</p>
 <ul class="org-ul">
-<li>&#x2026;</li>
+<li><b>uncles:</b> the nodes in a given level.</li>
+<li><b>children:</b> the descendants of a particular uncle.</li>
+<li><b>nephews:</b> all the nodes in the next level.</li>
 </ul>
+
+<p>
+To solve the first issue, we will <b>use a queue instead of a stack</b>. This changes the traversing direction because each uncle puts their own children <b>behind whatever there is in the queue already</b>. So no nephew is read from the queue until all uncles are read first.
+</p>
+
+<p>
+To solve the "one list per level" thing, we will, instead of using just one queue, we will use two: <code>uncles</code> and <code>nephews</code>.
+</p>
+<ol class="org-ol">
+<li>Read nodes from <code>uncles</code>.</li>
+<li>Append the uncle's value in a list <code>level_vals</code>.</li>
+<li>Enqueue this uncle's children to <code>nephews</code>.</li>
+<li>Repeat from <b>1.</b></li>
+</ol>
+
+<p>
+Once <code>uncles</code> becomes empty, that means that <code>level_vals</code> has the values of this level. So:
+</p>
+<ol class="org-ol">
+<li value="5">Append <code>level_vals</code> to the answer list.</li>
+<li>Assign a new empty list to the name "<code>level_vals</code>".</li>
+<li>Swap the lists' names <code>uncles</code> and <code>nephews</code>, as the first one is empty, and the second one has a full generation of kids on it!</li>
+<li>Now start again from <b>1.</b></li>
+</ol>
+
+<p>
+We finish when, after swapping the names, <code>uncles</code> is empty.
+</p>
+
 <div class="org-src-container">
-<pre class="src src-python"><span class="linenr">1: </span>
+<pre class="src src-python"><span class="linenr"> 1: </span><span class="org-comment-delimiter"># </span><span class="org-comment">Definition for a binary tree node.</span>
+<span class="linenr"> 2: </span><span class="org-comment-delimiter"># </span><span class="org-comment">class TreeNode:</span>
+<span class="linenr"> 3: </span><span class="org-comment-delimiter">#     </span><span class="org-comment">def __init__(self, val=0, left=None, right=None):</span>
+<span class="linenr"> 4: </span><span class="org-comment-delimiter">#         </span><span class="org-comment">self.val = val</span>
+<span class="linenr"> 5: </span><span class="org-comment-delimiter">#         </span><span class="org-comment">self.left = left</span>
+<span class="linenr"> 6: </span><span class="org-comment-delimiter">#         </span><span class="org-comment">self.right = right</span>
+<span class="linenr"> 7: </span><span class="org-keyword">class</span> <span class="org-type">Solution</span>:
+<span class="linenr"> 8: </span>    <span class="org-keyword">def</span> <span class="org-function-name">levelOrder</span>(<span class="org-keyword">self</span>, root: Optional[TreeNode]) -&gt; List[List[<span class="org-builtin">int</span>]]:
+<span class="linenr"> 9: </span>        <span class="org-keyword">if</span> root == <span class="org-constant">None</span>:
+<span class="linenr">10: </span>            <span class="org-keyword">return</span> []
+<span class="linenr">11: </span>        <span class="org-variable-name">uncles</span> = [root]
+<span class="linenr">12: </span>        <span class="org-variable-name">answer</span> = []
+<span class="linenr">13: </span>        <span class="org-keyword">while</span> <span class="org-builtin">len</span>(uncles) &gt; 0:
+<span class="linenr">14: </span>            <span class="org-variable-name">nephews</span> = []
+<span class="linenr">15: </span>            <span class="org-variable-name">level_vals</span> = []
+<span class="linenr">16: </span>
+<span class="linenr">17: </span>            <span class="org-comment-delimiter"># </span><span class="org-comment">passing through one generation.</span>
+<span class="linenr">18: </span>            <span class="org-keyword">while</span> <span class="org-builtin">len</span>(uncles) &gt; 0:
+<span class="linenr">19: </span>                <span class="org-variable-name">dady</span> = uncles.pop(0)
+<span class="linenr">20: </span>                level_vals.append(dady.val)
+<span class="linenr">21: </span>                <span class="org-keyword">if</span> dady.left != <span class="org-constant">None</span>:
+<span class="linenr">22: </span>                    nephews.append(dady.left)
+<span class="linenr">23: </span>                <span class="org-keyword">if</span> dady.right != <span class="org-constant">None</span>:
+<span class="linenr">24: </span>                    nephews.append(dady.right)
+<span class="linenr">25: </span>            answer.append(level_vals)
+<span class="linenr">26: </span>            <span class="org-variable-name">uncles</span>, <span class="org-variable-name">nephews</span> = nephews, uncles
+<span class="linenr">27: </span>
+<span class="linenr">28: </span>        <span class="org-keyword">return</span> answer
 </pre>
 </div>
 <table class="bench">
@@ -269,37 +362,29 @@ This is an attempt to compress the <a href="75days.html">75 Days Coding Program<
 <col  class="org-left">
 
 <col  class="org-left">
-
-<col  class="org-right">
-
-<col  class="org-right">
 </colgroup>
 <tbody>
 <tr>
 <td class="org-left"><b>Runtime</b></td>
-<td class="org-left">\(O()\)</td>
-<td class="org-right">ms</td>
-<td class="org-right">%</td>
+<td class="org-left">\(O(n)\)</td>
 </tr>
 
 <tr>
 <td class="org-left"><b>Memory</b></td>
-<td class="org-left">\(O()\)</td>
-<td class="org-right">MB</td>
-<td class="org-right">%</td>
+<td class="org-left">\(O(n)\)</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 
-<div id="outline-container-org9a03fce" class="outline-3">
-<h3 id="org9a03fce"><span class="done DONE">DONE</span> 3. N-ary Tree Pre-order Traversal <a href="https://leetcode.com/problems/n-ary-tree-preorder-traversal/">leetcode 589</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
-<div class="outline-text-3" id="text-org9a03fce">
+<div id="outline-container-orga442e9e" class="outline-3">
+<h3 id="orga442e9e"><span class="done DONE">DONE</span> 3. N-ary Tree Pre-order Traversal <a href="https://leetcode.com/problems/n-ary-tree-preorder-traversal/">leetcode 589</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
+<div class="outline-text-3" id="text-orga442e9e">
 </div>
-<div id="outline-container-orgdd9df98" class="outline-4">
-<h4 id="orgdd9df98">Recursive Solution</h4>
-<div class="outline-text-4" id="text-orgdd9df98">
+<div id="outline-container-org84614bd" class="outline-4">
+<h4 id="org84614bd">Recursive Solution</h4>
+<div class="outline-text-4" id="text-org84614bd">
 <ul class="org-ul">
 <li>The recursive approach is not difficult to obtain, however, there are some little interesting aspects.</li>
 <li>I could have just used <code>preorder()</code> as a recursive function, but I defined a new one called <code>preorder_rec()</code>, this is because of the return value: If I used the original function, then each level will have to collect the work of their children and extend their own result with the bits obtained from the children.</li>
@@ -335,36 +420,28 @@ This is an attempt to compress the <a href="75days.html">75 Days Coding Program<
 
 
 <colgroup>
-<col  class="org-right">
-
 <col  class="org-left">
 
-<col  class="org-right">
-
-<col  class="org-right">
+<col  class="org-left">
 </colgroup>
 <tbody>
 <tr>
-<td class="org-right">Runtime</td>
+<td class="org-left">Runtime</td>
 <td class="org-left">\(O(n)\)</td>
-<td class="org-right">108ms</td>
-<td class="org-right">44%</td>
 </tr>
 
 <tr>
-<td class="org-right">Memory</td>
+<td class="org-left">Memory</td>
 <td class="org-left">\(O(n)\)</td>
-<td class="org-right">16MB</td>
-<td class="org-right">50%</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 
-<div id="outline-container-orgc97631c" class="outline-4">
-<h4 id="orgc97631c">Iterative Solution</h4>
-<div class="outline-text-4" id="text-orgc97631c">
+<div id="outline-container-orgc3180a7" class="outline-4">
+<h4 id="orgc3180a7">Iterative Solution</h4>
+<div class="outline-text-4" id="text-orgc3180a7">
 <ul class="org-ul">
 <li>A stack is created to store nodes. The first to put is the root.</li>
 <li>This is the algorithm:
@@ -408,24 +485,16 @@ This is an attempt to compress the <a href="75days.html">75 Days Coding Program<
 <col  class="org-left">
 
 <col  class="org-left">
-
-<col  class="org-right">
-
-<col  class="org-right">
 </colgroup>
 <tbody>
 <tr>
 <td class="org-left"><b>Runtime</b></td>
 <td class="org-left">\(O(n)\)</td>
-<td class="org-right">117ms</td>
-<td class="org-right">26%</td>
 </tr>
 
 <tr>
 <td class="org-left"><b>Memory</b></td>
 <td class="org-left">\(O(n)\)</td>
-<td class="org-right">16MB</td>
-<td class="org-right">82%</td>
 </tr>
 </tbody>
 </table>
@@ -433,9 +502,9 @@ This is an attempt to compress the <a href="75days.html">75 Days Coding Program<
 </div>
 </div>
 
-<div id="outline-container-org8b43a0c" class="outline-3">
-<h3 id="org8b43a0c"><span class="done DONE">DONE</span> 2. Longest Palindrome <a href="https://leetcode.com/problems/longest-palindrome/">leetcode 409</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
-<div class="outline-text-3" id="text-org8b43a0c">
+<div id="outline-container-orgbe81025" class="outline-3">
+<h3 id="orgbe81025"><span class="done DONE">DONE</span> 2. Longest Palindrome <a href="https://leetcode.com/problems/longest-palindrome/">leetcode 409</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
+<div class="outline-text-3" id="text-orgbe81025">
 <ul class="org-ul">
 <li>Just count the pairs found (I use a set for that).</li>
 <li>If the character has not been seen before, add it. If it is in the set, (it has been seen before), then increment the <code>pairs_found</code> counter, and remove the character from the set.</li>
@@ -465,33 +534,25 @@ This is an attempt to compress the <a href="75days.html">75 Days Coding Program<
 <col  class="org-left">
 
 <col  class="org-left">
-
-<col  class="org-right">
-
-<col  class="org-right">
 </colgroup>
 <tbody>
 <tr>
 <td class="org-left"><b>Runtime</b></td>
 <td class="org-left">\(O(n)\)</td>
-<td class="org-right">67ms</td>
-<td class="org-right">36%</td>
 </tr>
 
 <tr>
 <td class="org-left"><b>Memory</b></td>
 <td class="org-left">\(O(n)\)</td>
-<td class="org-right">13.7MB</td>
-<td class="org-right">98%</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 
-<div id="outline-container-orgcba1e04" class="outline-3">
-<h3 id="orgcba1e04"><span class="done DONE">DONE</span> 1. Best Time to Buy and Sell Stock <a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock/">leetcode 121</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
-<div class="outline-text-3" id="text-orgcba1e04">
+<div id="outline-container-org4105aa6" class="outline-3">
+<h3 id="org4105aa6"><span class="done DONE">DONE</span> 1. Best Time to Buy and Sell Stock <a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock/">leetcode 121</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
+<div class="outline-text-3" id="text-org4105aa6">
 <ul class="org-ul">
 <li>This is greedy: the idea is to traverse the array and keep track of the smallest price <b>so far</b>, and to check what would the profit be if I sell the stock <b>today</b>.</li>
 <li>More precisely, we initialize the variables <code>best_buy</code> and <code>best_profit</code> with their worst possible values.</li>
@@ -523,24 +584,16 @@ This is an attempt to compress the <a href="75days.html">75 Days Coding Program<
 <col  class="org-left">
 
 <col  class="org-left">
-
-<col  class="org-right">
-
-<col  class="org-right">
 </colgroup>
 <tbody>
 <tr>
 <td class="org-left"><b>Runtime</b></td>
 <td class="org-left">\(O(n)\)</td>
-<td class="org-right">2227ms</td>
-<td class="org-right">60%</td>
 </tr>
 
 <tr>
 <td class="org-left"><b>Memory</b></td>
 <td class="org-left">\(O(1)\)</td>
-<td class="org-right">25MB</td>
-<td class="org-right">38%</td>
 </tr>
 </tbody>
 </table>
@@ -548,13 +601,13 @@ This is an attempt to compress the <a href="75days.html">75 Days Coding Program<
 </div>
 </div>
 
-<div id="outline-container-orgd5f21d2" class="outline-2">
-<h2 id="orgd5f21d2">Day 1: Let's go!</h2>
-<div class="outline-text-2" id="text-orgd5f21d2">
+<div id="outline-container-org7ff9171" class="outline-2">
+<h2 id="org7ff9171">Day 1: Let's go!</h2>
+<div class="outline-text-2" id="text-org7ff9171">
 </div>
-<div id="outline-container-orgeeae915" class="outline-3">
-<h3 id="orgeeae915"><span class="done DONE">DONE</span> 7. Linked List Cycle II <a href="https://leetcode.com/problems/linked-list-cycle-ii">leetcode 142</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="medium">medium</span></span></h3>
-<div class="outline-text-3" id="text-orgeeae915">
+<div id="outline-container-org24e504c" class="outline-3">
+<h3 id="org24e504c"><span class="done DONE">DONE</span> 7. Linked List Cycle II <a href="https://leetcode.com/problems/linked-list-cycle-ii">leetcode 142</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="medium">medium</span></span></h3>
+<div class="outline-text-3" id="text-org24e504c">
 <ul class="org-ul">
 <li>This Problem uses <a href="https://youcademy.org/floyds-tortise-hare-algorithm/">Floyd's "Tortise and Hare"</a> Cycle finding algorithm.</li>
 <li>Basically, we put two pointers "slow" and "fast" at the <b>same</b> location: <code>head</code>.</li>
@@ -608,33 +661,25 @@ This is an attempt to compress the <a href="75days.html">75 Days Coding Program<
 <col  class="org-left">
 
 <col  class="org-left">
-
-<col  class="org-right">
-
-<col  class="org-right">
 </colgroup>
 <tbody>
 <tr>
 <td class="org-left"><b>Runtime</b></td>
 <td class="org-left">\(O(n)\)</td>
-<td class="org-right">58ms</td>
-<td class="org-right">88%</td>
 </tr>
 
 <tr>
 <td class="org-left"><b>Memory</b></td>
 <td class="org-left">\(O(1)\)</td>
-<td class="org-right">17MB</td>
-<td class="org-right">62%</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 
-<div id="outline-container-orge2d6ba8" class="outline-3">
-<h3 id="orge2d6ba8"><span class="done DONE">DONE</span> 6. Middle of the Linked List <a href="https://leetcode.com/problems/middle-of-the-linked-list">leetcode 876</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
-<div class="outline-text-3" id="text-orge2d6ba8">
+<div id="outline-container-org0a73da8" class="outline-3">
+<h3 id="org0a73da8"><span class="done DONE">DONE</span> 6. Middle of the Linked List <a href="https://leetcode.com/problems/middle-of-the-linked-list">leetcode 876</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
+<div class="outline-text-3" id="text-org0a73da8">
 <ul class="org-ul">
 <li>In a while loop, I make two pointers run through the list.</li>
 <li><code>fast_ptr</code> moves to the next in every loop, and <code>slow_ptr</code> does it only in odd loops (first loop is odd).</li>
@@ -668,33 +713,25 @@ This is an attempt to compress the <a href="75days.html">75 Days Coding Program<
 <col  class="org-left">
 
 <col  class="org-left">
-
-<col  class="org-right">
-
-<col  class="org-right">
 </colgroup>
 <tbody>
 <tr>
 <td class="org-left"><b>Runtime</b></td>
 <td class="org-left">\(O(n)\)</td>
-<td class="org-right">65ms</td>
-<td class="org-right">19%</td>
 </tr>
 
 <tr>
 <td class="org-left"><b>Memory</b></td>
 <td class="org-left">\(O(1)\)</td>
-<td class="org-right">14MB</td>
-<td class="org-right">55%</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 
-<div id="outline-container-orgd89616b" class="outline-3">
-<h3 id="orgd89616b"><span class="done DONE">DONE</span> 5. Reverse Linked List <a href="https://leetcode.com/problems/reverse-linked-list">leetcode 206</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
-<div class="outline-text-3" id="text-orgd89616b">
+<div id="outline-container-orga87fa95" class="outline-3">
+<h3 id="orga87fa95"><span class="done DONE">DONE</span> 5. Reverse Linked List <a href="https://leetcode.com/problems/reverse-linked-list">leetcode 206</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
+<div class="outline-text-3" id="text-orga87fa95">
 <ul class="org-ul">
 <li>Let's think about the original list as something like this: <code>a--&gt; b--&gt; ... m--&gt; n--&gt; ... --&gt; None</code>.</li>
 <li>This list will be divided in two partitions: The Original list (<code>orig_head</code>), and the New list (<code>new_list</code>). The Original will shrink removing one element at the time from its beginning. The New will grow adding one element at the time to its beginning.</li>
@@ -739,33 +776,25 @@ This is an attempt to compress the <a href="75days.html">75 Days Coding Program<
 <col  class="org-left">
 
 <col  class="org-left">
-
-<col  class="org-right">
-
-<col  class="org-right">
 </colgroup>
 <tbody>
 <tr>
 <td class="org-left"><b>Runtime</b></td>
 <td class="org-left">\(O(n)\)</td>
-<td class="org-right">79ms</td>
-<td class="org-right">22%</td>
 </tr>
 
 <tr>
 <td class="org-left"><b>Memory</b></td>
 <td class="org-left">\(O(1)\)</td>
-<td class="org-right">15.4MB</td>
-<td class="org-right">55%</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 
-<div id="outline-container-orge74cf6c" class="outline-3">
-<h3 id="orge74cf6c"><span class="done DONE">DONE</span> 4. Merge Two Sorted Lists <a href="https://leetcode.com/problems/merge-two-sorted-lists">leetcode 21</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
-<div class="outline-text-3" id="text-orge74cf6c">
+<div id="outline-container-org4b2963c" class="outline-3">
+<h3 id="org4b2963c"><span class="done DONE">DONE</span> 4. Merge Two Sorted Lists <a href="https://leetcode.com/problems/merge-two-sorted-lists">leetcode 21</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
+<div class="outline-text-3" id="text-org4b2963c">
 <ol class="org-ol">
 <li>Out of the two lists <code>list1</code> and <code>list2</code>, we put the one that starts smallest in <code>list_runner</code>, and the other in <code>list_insert</code>.</li>
 <li>We walk through <code>list_runner</code> and stop when the pointer is on
@@ -844,33 +873,25 @@ the last element smaller or equal than the one on <code>list_insert</code>.</li>
 <col  class="org-left">
 
 <col  class="org-left">
-
-<col  class="org-right">
-
-<col  class="org-right">
 </colgroup>
 <tbody>
 <tr>
 <td class="org-left"><b>Runtime</b></td>
 <td class="org-left">\(O(n)\)</td>
-<td class="org-right">71ms</td>
-<td class="org-right">53%</td>
 </tr>
 
 <tr>
 <td class="org-left"><b>Memory</b></td>
 <td class="org-left">\(O(1)\)</td>
-<td class="org-right">13.9MB</td>
-<td class="org-right">80%</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 
-<div id="outline-container-orgc867e6a" class="outline-3">
-<h3 id="orgc867e6a"><span class="done DONE">DONE</span> 3. Is Sub-sequence <a href="https://leetcode.com/problems/is-subsequence/">leetcode 392</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
-<div class="outline-text-3" id="text-orgc867e6a">
+<div id="outline-container-org87ba8cf" class="outline-3">
+<h3 id="org87ba8cf"><span class="done DONE">DONE</span> 3. Is Sub-sequence <a href="https://leetcode.com/problems/is-subsequence/">leetcode 392</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
+<div class="outline-text-3" id="text-org87ba8cf">
 <ul class="org-ul">
 <li><del>Here I am thinking that if many sub-sequences <code>s</code> are going to be searched in the same <code>t</code> then it may be a good idea to make a dictionary with "the first occurrence of each character of <code>t</code>", then, each subsequent search would be just checking that the indices obtained from the dictionary go in ascending order&#x2026; hold on&#x2026; This does not handle repetitions. Scratch that.</del></li>
 <li>I will grab the first char of the sub-sequence candidate <code>s</code>, and start traversing <code>t</code>. If I find my character, then I grab the next one in <code>s</code>, and keep searching starting from the very next one in <code>t</code>.</li>
@@ -911,33 +932,25 @@ the last element smaller or equal than the one on <code>list_insert</code>.</li>
 <col  class="org-left">
 
 <col  class="org-left">
-
-<col  class="org-right">
-
-<col  class="org-right">
 </colgroup>
 <tbody>
 <tr>
 <td class="org-left"><b>Runtime</b></td>
 <td class="org-left">\(O(n)\)</td>
-<td class="org-right">35ms</td>
-<td class="org-right">92%</td>
 </tr>
 
 <tr>
 <td class="org-left"><b>Memory</b></td>
 <td class="org-left">\(O(1)\)</td>
-<td class="org-right">13.9MB</td>
-<td class="org-right">82%</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 
-<div id="outline-container-org3afd36c" class="outline-3">
-<h3 id="org3afd36c"><span class="done DONE">DONE</span> 2. Isomorphic Strings <a href="https://leetcode.com/problems/isomorphic-strings/">leetcode 205</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
-<div class="outline-text-3" id="text-org3afd36c">
+<div id="outline-container-org86c4a64" class="outline-3">
+<h3 id="org86c4a64"><span class="done DONE">DONE</span> 2. Isomorphic Strings <a href="https://leetcode.com/problems/isomorphic-strings/">leetcode 205</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
+<div class="outline-text-3" id="text-org86c4a64">
 <ul class="org-ul">
 <li>Here I am using a "bilingual" dictionary (<code>forward_dict</code> for \(s \rightarrow t\), and <code>backward_dict</code> for \(t \rightarrow s\).</li>
 <li>The idea is that if a character <code>si</code> maps to <code>ti</code> in <code>forward_dict</code>, then <code>backward_dict</code> must have a mapping from <code>ti</code> to <code>si</code>, and vice versa.</li>
@@ -977,33 +990,25 @@ the last element smaller or equal than the one on <code>list_insert</code>.</li>
 <col  class="org-left">
 
 <col  class="org-left">
-
-<col  class="org-right">
-
-<col  class="org-right">
 </colgroup>
 <tbody>
 <tr>
 <td class="org-left"><b>Runtime</b></td>
 <td class="org-left">\(O(n)\)</td>
-<td class="org-right">83ms</td>
-<td class="org-right">47%</td>
 </tr>
 
 <tr>
 <td class="org-left"><b>Memory</b></td>
 <td class="org-left">\(O(n)\)</td>
-<td class="org-right">14.3MB</td>
-<td class="org-right">46%</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 
-<div id="outline-container-orgc952586" class="outline-3">
-<h3 id="orgc952586"><span class="done DONE">DONE</span> 1. Find Pivot Index <a href="https://leetcode.com/problems/find-pivot-index/">leetcode 724</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
-<div class="outline-text-3" id="text-orgc952586">
+<div id="outline-container-org59b6e25" class="outline-3">
+<h3 id="org59b6e25"><span class="done DONE">DONE</span> 1. Find Pivot Index <a href="https://leetcode.com/problems/find-pivot-index/">leetcode 724</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
+<div class="outline-text-3" id="text-org59b6e25">
 <ul class="org-ul">
 <li>An idea that leads to \(O(n)\) exec. time is to add-up everything in a variable <code>total</code>, so we know what is the total sum of the whole array <code>nums</code>.</li>
 <li>Then, go back to the beginning and traverse one by one and carrying a <code>left_sum</code> initialized in 0 .</li>
@@ -1032,24 +1037,16 @@ the last element smaller or equal than the one on <code>list_insert</code>.</li>
 <col  class="org-left">
 
 <col  class="org-left">
-
-<col  class="org-right">
-
-<col  class="org-right">
 </colgroup>
 <tbody>
 <tr>
 <td class="org-left"><b>Runtime</b></td>
 <td class="org-left">\(O(n)\)</td>
-<td class="org-right">396ms</td>
-<td class="org-right">27%</td>
 </tr>
 
 <tr>
 <td class="org-left"><b>Memory</b></td>
 <td class="org-left">\(O(1)\)</td>
-<td class="org-right">15.2MB</td>
-<td class="org-right">92%</td>
 </tr>
 </tbody>
 </table>
@@ -1057,13 +1054,13 @@ the last element smaller or equal than the one on <code>list_insert</code>.</li>
 </div>
 </div>
 
-<div id="outline-container-orgfc85b8d" class="outline-2">
-<h2 id="orgfc85b8d">Day 0: Get your lazy ass started!</h2>
-<div class="outline-text-2" id="text-orgfc85b8d">
+<div id="outline-container-org4332647" class="outline-2">
+<h2 id="org4332647">Day 0: Get your lazy ass started!</h2>
+<div class="outline-text-2" id="text-org4332647">
 </div>
-<div id="outline-container-org8367b54" class="outline-3">
-<h3 id="org8367b54"><span class="done DONE">DONE</span> 1. Running Sum of 1d Array <a href="https://leetcode.com/problems/running-sum-of-1d-array/">leetcode 1480</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
-<div class="outline-text-3" id="text-org8367b54">
+<div id="outline-container-org892197f" class="outline-3">
+<h3 id="org892197f"><span class="done DONE">DONE</span> 1. Running Sum of 1d Array <a href="https://leetcode.com/problems/running-sum-of-1d-array/">leetcode 1480</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="easy">easy</span></span></h3>
+<div class="outline-text-3" id="text-org892197f">
 <ul class="org-ul">
 <li>Easy warm-up, carry the sum in a variable <code>last_sum</code>, and in every iteration, put its current value in the array to return.</li>
 </ul>
@@ -1085,24 +1082,16 @@ the last element smaller or equal than the one on <code>list_insert</code>.</li>
 <col  class="org-left">
 
 <col  class="org-left">
-
-<col  class="org-right">
-
-<col  class="org-right">
 </colgroup>
 <tbody>
 <tr>
 <td class="org-left"><b>Runtime</b></td>
 <td class="org-left">\(O(n)\)</td>
-<td class="org-right">84ms</td>
-<td class="org-right">34%</td>
 </tr>
 
 <tr>
 <td class="org-left"><b>Memory</b></td>
 <td class="org-left">\(O(n)\)</td>
-<td class="org-right">14.2MB</td>
-<td class="org-right">28%</td>
 </tr>
 </tbody>
 </table>
@@ -1113,7 +1102,7 @@ the last element smaller or equal than the one on <code>list_insert</code>.</li>
 <div id="postamble" class="status">
 <p class="author">Author: Claudio A. Parra</p>
 <p class="email">Email: <a href="mailto:onlycparra at gm*il d0t c*m">onlycparra at gm*il d0t c*m</a></p>
-<p class="date">Created: 2022-11-03 Thu 02:35</p>
+<p class="date">Created: 2022-11-03 Thu 19:44</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

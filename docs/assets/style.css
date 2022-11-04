@@ -1,7 +1,9 @@
 html {
-    --page-width: 110ch;
+    --page-width: 68rem;
     --page-margin: 5rem;
-    --src-width: auto;
+    --src-width: 50rem;
+    --page-inline-padding: min(2.5rem,5vw);
+
     
     --col-body-bg: #dfdfdf;
     --col-page-bg: #f8f8f8;
@@ -22,6 +24,9 @@ html {
     --col-accent: #a40800;
 
     --col-src-bg: #fff5d7;
+    --col-src-linenr-fg: #b0ab96;
+    --col-src-linenr-bg: #f4f1e4;
+    
     --col-src-text: #000;
 
     --col-error: #ac0000;
@@ -308,33 +313,52 @@ a {
 
 
 /*SOURCE CODE*/
-.org-src-container::before, table.bench > tbody > tr::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: -1;
-    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-                rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-    /* box-shadow: blue 1px 1px 0px 0px, red 1px 1px 0px 0px; */
-}
-    
-
 .src {
-    padding: 0.5rem;
-    background: var(--col-src-bg);
+    /* padding: 0.5rem 0.5rem 0.8rem 0.2rem; */
     color: var(--col-src-text);
-    border: solid 1px var(--col-page-bg2);
-    font-family: monospace;
+    background: var(--col-src-bg);
+    border: none;
+    font-family:Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New, monospace;
     font-size: 0.8rem;
     line-height: 1rem;
-    max-height: 20rem;
-    overflow: scroll;
+    max-height: 28rem;
+    overflow: auto;
     max-width: var(--src-width);
-    margin: auto;
+    /* margin: auto; */
+    /* box-shadow: inset 1.8rem 0 var(--col-src-linenr-bg); */
+
+    
+  margin: 0 auto;
 }
+
+.src::before, .src::after{
+  content: "";
+  display: block;
+  height: 0.7rem;
+  background: var(--col-src-linenr-bg);
+  width: 1.4rem;
+}
+
+.src::after {
+    height: 1.5rem;
+}
+.src .linenr {
+    display: inline-block;
+    min-width: 1.4rem;
+    text-align: right;
+    color: var(--col-src-linenr-fg) !important;
+  background: var(--col-src-linenr-bg);
+  white-space: initial;
+  padding-top: 1px;
+}
+
+.org-src-container {
+  margin: auto calc(-1 * var(--page-inline-padding));
+  background: var(--col-src-linenr-bg);
+  border: 1px solid var(--col-page-bg2);
+  border-style: solid none none;
+}
+
 li .org-src-container {
     margin-top: -1rem;
     margin-bottom: 1rem;
@@ -351,7 +375,7 @@ code {
     font-size: 0.9rem;
     border: solid 1px #d7cbb0;
     border-radius: 0.2rem;
-    font-family: mono;    
+    font-family:Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New, monospace;   
 }
 del {
     text-decoration: line-through #b005 2px;
@@ -361,8 +385,6 @@ del {
 
 /*BLOCK ELEMENTS*/
 .outline-2 {
-    position: relative;
-    z-index: 0;
     background: var(--col-page-bg);
     margin-block: 1.5rem;
     padding-inline: min(2.5rem,5vw);
@@ -376,43 +398,62 @@ img {
 }
 
 table.bench {
-    width: 100%;
-    line-height: 0.8rem;
-    font-size: 0.8rem;
-    border-collapse: collapse;
+    display: block;
+    margin: 0 calc(-1 * var(--page-inline-padding));
+    margin-top: -1.3rem;
     border-style: none;
+    line-height: 0.8rem;
+    font-size: 0.6rem;
+    border-spacing: 0;
+    height: 1.5rem;
+
+}
+
+table.bench::after {
+  content: "";
+  display: block;
+  position: relative;
+  height: 4px;
+  background: var(--col-accent);
 }
 
 table.bench > tbody {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    max-width: var(--src-width);
+    margin: auto;
 }
 
+
+/* Complexity rows, in general */
 table.bench > tbody > tr {
-    background: var(--col-page-bg3);
-    border: solid 1px var(--col-body-bg);
-    border-style: none solid solid solid;
+    display: flex;
+    flex-direction: row;
+    background: var(--col-page-bg4);
 }
 
+
+
+/* Complexity cells */
 table.bench > tbody > tr > td {
-    padding: 0.05rem 0.5rem;
-    width: fit-content;
+    text-align: left;
     min-width: 2.5rem;
+    width: fit-content;
+    padding: 0.2rem 0.5rem;
 }
-
 table.bench > tbody > tr > td:first-child {
     font-weight: bold;
-    flex-grow: 1;
-    background: var(--col-page-bg);
-    font-size: 0.6rem;
+    color: var(--col-dark-text);
+    background: var(--col-accent);
 }
-
-.org-src-container, table.bench, table.bench > tbody > tr {
-  position: relative;
+table.bench > tbody > tr > td:last-child {
+  padding-left: 0.2rem;
+  padding-right: 0.7rem;
+  background: var(--col-page-bg4);
 }
-
 
 .org-ul {
     margin-top: 0.25rem;
@@ -439,13 +480,11 @@ table.bench > tbody > tr > td:first-child {
     }
     table.bench td {
         padding: 0 0.2rem;
-        font-size: 0.8rem;
     }
     .src {
-        padding: 0.4rem;
         font-size: 0.7rem;
-        line-height: 0.8rem;
     }
+
     h2, h3, h4 {
         flex-wrap: wrap;
     }

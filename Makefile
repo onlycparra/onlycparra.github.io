@@ -43,7 +43,7 @@ all: clean-log
 build-all: $(PAGES) $(DEST_ASSETS)
 
 watch: clean-log
-	find -L $(ORG) -name  '*.org' -or -name '*.css' -or -name '*.js' | entr -pc make
+	find -L $(ORG) -name  '*.org' -or -name '*.css' -or -name '*.js' | entr -pc make --no-print-directory
 
 %.html: %.org
 	@echo  "$<  --->  $(patsubst $(ORG)/%,$(PUBLIC)/%,$@)"
