@@ -218,7 +218,7 @@
       }
       #revealBtn {
           margin-top: 15px;
-          height: 5rem;
+          min-height: 5rem;
       }
 
       @keyframes buttonRainbow {
@@ -366,6 +366,7 @@
 
       const generateDefaultText = "aplicar magia navideña ❄️";
       const revealDefaultText = "mostrar resultados 🎊";
+      const suspenseText = "musica de suspenso 🥁🎶 ...";
       let names = [];
       let assignments = []; // array of arrays of strings
       let currentIndex = 0; // index of the NEXT person to reveal
@@ -499,7 +500,7 @@
               return;
           }
           const personName = names[currentIndex];
-          setButtonText(revealBtn, `🙊🙈 a <b>${personName}</b> le tocó...`);
+          setButtonText(revealBtn, `🙊🙈 a <br><b>${personName}</b><br>le tocó 👀 ...`);
           revealBtn.disabled = false;
       }
 
@@ -580,17 +581,12 @@
           const countdownInterval = setInterval(() => {
               secondsLeft--;
 
-              // When countdown hits 6, show the assignments
-              if (secondsLeft === 6) {
+              if (secondsLeft === 7) {
                   overlayAssignments.style.color = "var(--color-assignment)";
               }
-
-              // When countdown hits 2, hide the assignments
               if (secondsLeft === 2) {
                   overlayAssignments.style.color = "var(--transparent)";
               }
-
-              // Update the countdown text while secondsLeft >= 0
               if (secondsLeft >= 0) {
                   overlayCountdown.textContent = secondsLeft;
               }
@@ -627,7 +623,7 @@
           revealBtn.disabled = true;
           clearGenerateAnimationTimeouts();
           generateBtn.classList.remove("processing");
-          setButtonText(revealBtn, "musica de suspenso...");
+          setButtonText(revealBtn, suspenseText);
           setButtonText(generateBtn, generateDefaultText);
 
           try {
