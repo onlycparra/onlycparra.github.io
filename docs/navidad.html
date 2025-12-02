@@ -14,6 +14,8 @@
           --card-bg: #fbeec7;
           --red-bg: #860303;
           --green-bg: #035309;
+          --transparent: #FFF0;
+          --color-assignment: #FF0;
       }
 
       * {
@@ -147,21 +149,49 @@
           cursor: pointer;
           color: #fff;
           background: var(--red);
-          box-shadow: 0 4px 0 rgba(0, 0, 0, 0.25);
+          box-shadow: 0 8px 0 rgba(0, 0, 0, 0.25);
           text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
           flex-shrink: 0;
           min-height: 44px;
           transition:
               background 300ms ease,
               color 300ms ease,
-              box-shadow 300ms ease,
+              box-shadow 100ms ease,
               transform 80ms ease,
               filter 300ms ease;
       }
+      .btn-label {
+          display: inline-block;
+          transition: opacity 200ms ease, transform 200ms ease;
+      }
+
+      #generateBtn>.btn-label.is-fading-out {
+          opacity: 0;
+          transform: translateX(-20px);
+      }
+      #generateBtn>.btn-label.no-transition {
+          transition: none;
+      }
+      #generateBtn>.btn-label.is-pre-fade-in {
+          opacity: 0;
+          transform: translateX(20px);   /* start off to the right */
+      }
+      #revealBtn>.btn-label.is-fading-out {
+          opacity: 0;
+      }
+      #revealBtn>.btn-label.no-transition {
+          transition: none;
+      }
+      #revealBtn>.btn-label.is-pre-fade-in {
+          opacity: 0;
+      }
+
+
+
       
-      button:active {
-          transform: translateY(2px) scale(0.97);
-          box-shadow: 0 2px 0 rgba(0, 0, 0, 0.3);
+      button:active:not(:disabled) {
+          transform: translateY(8px);
+          box-shadow: 0 0 0 rgba(0, 0, 0, 0.3);
           filter: brightness(0.95);
       }
       button b {
@@ -170,7 +200,7 @@
       }
       button:disabled {
           background: #9e9e9e;
-          box-shadow: 0 3px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 8px 0 rgba(0, 0, 0, 0.2);
           cursor: not-allowed;
           filter: grayscale(0.2);
       }
@@ -180,17 +210,15 @@
           background: var(--green);
       }
       #generateBtn.processing {
-          background-image: linear-gradient(
-              270deg,
-              #007bff,
-              #00c853,
-              #ffeb3b,
-              #ff4081,
-              #007bff
-          );
+          background-image: linear-gradient( 45deg, #0566ce, #14bd5a, #c6b836, #ff4081, #007bff );
           background-size: 400% 400%;
+          font-weight: 600;
           animation: buttonRainbow 2s linear infinite;
-          box-shadow: 0 0 32px rgba(255, 235, 59, 0.9);
+          box-shadow: 0 8px 0 rgba(0, 0, 0, 0.25);
+      }
+      #revealBtn {
+          margin-top: 15px;
+          height: 5rem;
       }
 
       @keyframes buttonRainbow {
@@ -209,7 +237,7 @@
       #overlay {
           position: fixed;
           inset: 0;
-          background: #000;
+          background: rgba(0, 0, 0, 0.6);
           color: #fff;
           display: none;
           align-items: center;
@@ -218,6 +246,8 @@
           z-index: 1000;
           text-align: center;
           padding: 20px;
+          backdrop-filter: blur(18px) grayscale(0.8);
+          -webkit-backdrop-filter: blur(18px) grayscale(0.8);
       }
 
       #overlay-name {
@@ -289,8 +319,12 @@
 
       <div class="field">
         <div class="buttons-group">
-          <button id="generateBtn">Aplicar magia navideña ❄️</button>
-          <button id="revealBtn" disabled>Revelar resultados 🎊</button>
+          <button id="generateBtn">
+            <span class="btn-label">aplicar magia navideña ❄️</span>
+          </button>
+          <button id="revealBtn" disabled>
+            <span class="btn-label">mostrar resultados 🎊</span>
+          </button>
         </div>
         <div id="errorOutput" class="error"></div>
       </div>
@@ -330,7 +364,8 @@
       const overlayCountdown = document.getElementById("overlay-countdown");
       const overlayAssignments = document.getElementById("overlay-assignments");
 
-      const generateDefaultText = "Aplicar magia navideña ❄️";
+      const generateDefaultText = "aplicar magia navideña ❄️";
+      const revealDefaultText = "mostrar resultados 🎊";
       let names = [];
       let assignments = []; // array of arrays of strings
       let currentIndex = 0; // index of the NEXT person to reveal
@@ -338,11 +373,55 @@
       let isRevealing = false;
       let generateAnimationTimeouts = [];
 
+
+      function setButtonText(button, newText) {
+          const label = button.querySelector(".btn-label");
+          if (!label) return;
+          
+          // default text has no animation
+          if (newText === generateDefaultText) {
+              label.textContent = generateDefaultText;
+              return;
+          }
+
+          // Phase 1: fade out to the left
+          label.classList.add("is-fading-out");
+
+          setTimeout(() => {
+              // End of fade-out (label is left & invisible)
+
+              // Temporarily disable transitions for the jump
+              label.classList.add("no-transition");
+
+              // Remove fade-out state
+              label.classList.remove("is-fading-out");
+
+              // Change text while still invisible
+              label.innerHTML = newText;
+
+              // Put it on the right, still invisible, with transitions OFF
+              label.classList.add("is-pre-fade-in");
+
+              // Force the browser to apply this state
+              void label.offsetWidth;
+
+              // Re-enable transitions
+              label.classList.remove("no-transition");
+
+              // Next frame: remove pre-fade-in so it animates from right → center
+              requestAnimationFrame(() => {
+                  label.classList.remove("is-pre-fade-in");
+                  // Now opacity + transform will transition back to the default (center, opacity 1)
+              });
+          }, 200); // 200ms = your CSS transition duration
+      }
+
+      
       function onInputsChanged() {
           // Reset any ongoing animation / text
           clearGenerateAnimationTimeouts();
           generateBtn.classList.remove("processing");
-          generateBtn.textContent = generateDefaultText;
+          setButtonText(generateBtn, generateDefaultText);
 
           // Simple condition: only enable if there's at least one non-empty name
           // and K is a positive integer.
@@ -415,12 +494,12 @@
 
       function updateRevealButtonLabel() {
           if (!names.length) {
-              revealBtn.textContent = "Revelar resultados 🎊";
+              setButtonText(revealBtn, revealDefaultText);
               revealBtn.disabled = true;
               return;
           }
           const personName = names[currentIndex];
-          revealBtn.innerHTML = `🙊🙈 A <b>${personName}</b> le tocó...`;
+          setButtonText(revealBtn, `🙊🙈 a <b>${personName}</b> le tocó...`);
           revealBtn.disabled = false;
       }
 
@@ -437,7 +516,8 @@
 
           // If there are no messages, skip straight to done.
           if (!generateMessages || generateMessages.length === 0) {
-              generateBtn.textContent = generateDefaultText;
+              setButtonText(generateBtn, generateDefaultText);
+              //generateBtn.textContent = generateDefaultText;
               generateBtn.disabled = false;
               generateBtn.classList.remove("processing");
               onDone();
@@ -446,17 +526,19 @@
 
           generateBtn.disabled = true;
           generateBtn.classList.add("processing");
-          generateBtn.textContent = generateMessages[0];
+          setButtonText(generateBtn, generateMessages[0]);
 
           for (let i = 1; i < generateMessages.length; i++) {
               const timeoutId = setTimeout(() => {
-                  generateBtn.textContent = generateMessages[i];
+                  setButtonText(generateBtn, generateMessages[i]);
+                  //generateBtn.textContent = generateMessages[i];
               }, i * inter_process_time);
               generateAnimationTimeouts.push(timeoutId);
           }
 
           const doneTimeoutId = setTimeout(() => {
-              generateBtn.textContent = generateDefaultText;
+              setButtonText(generateBtn, generateDefaultText);
+              //generateBtn.textContent = generateDefaultText;
               generateBtn.disabled = false;
               generateBtn.classList.remove("processing");
               onDone();
@@ -484,7 +566,7 @@
 
           // prepare list of assignments
           overlayAssignments.innerHTML = "";
-          overlayAssignments.style.color = "rgba(255,255,255,0)"; // transparent text
+          overlayAssignments.style.color = "var(--transparent)";
           personAssignments.forEach(name => {
               const line = document.createElement("div");
               line.className = "assignment-line";
@@ -500,12 +582,12 @@
 
               // When countdown hits 6, show the assignments
               if (secondsLeft === 6) {
-                  overlayAssignments.style.color = "rgba(255,255,255,255)"; // white text
+                  overlayAssignments.style.color = "var(--color-assignment)";
               }
 
               // When countdown hits 2, hide the assignments
               if (secondsLeft === 2) {
-                  overlayAssignments.style.color = "rgba(255,255,255,0)"; // transparent text
+                  overlayAssignments.style.color = "var(--transparent)";
               }
 
               // Update the countdown text while secondsLeft >= 0
@@ -535,9 +617,6 @@
           }, 1000);
 
 
-
-
-
           
       }
       namesInput.addEventListener("input", onInputsChanged);
@@ -548,7 +627,8 @@
           revealBtn.disabled = true;
           clearGenerateAnimationTimeouts();
           generateBtn.classList.remove("processing");
-          generateBtn.textContent = generateDefaultText;
+          setButtonText(revealBtn, "musica de suspenso...");
+          setButtonText(generateBtn, generateDefaultText);
 
           try {
               const parsed = parseInput();
@@ -566,7 +646,8 @@
               currentIndex = 0;
               errorOutput.textContent = e.message;
               clearGenerateAnimationTimeouts();
-              generateBtn.textContent = generateDefaultText;
+              setButtonText(generateBtn, generateDefaultText);
+              //generateBtn.textContent = generateDefaultText;
               generateBtn.disabled = false;
               generateBtn.classList.remove("processing");
               updateRevealButtonLabel();
