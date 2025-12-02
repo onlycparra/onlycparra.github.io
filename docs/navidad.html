@@ -1,520 +1,575 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Santa's Secret Assignments</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    :root {
-      --red: #d32f2f;
-      --green: #388e3c;
-      --gold: #ffb300;
-      --card-bg: #fffdf7;
-    }
+  <head>
+    <meta charset="UTF-8">
+    <title>Santa's Secret Assignments</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      :root {
+          --red: #d32f2f;
+          --green: #388e3c;
+          --gold: #ffb300;
+          --card-bg: #fbeec7;
+          --red-bg: #860303;
+          --green-bg: #035309;
+      }
 
-    * {
-      box-sizing: border-box;
-    }
+      * {
+          box-sizing: border-box;
+      }
 
-    body {
-      margin: 0;
-      font-family: "Comic Neue", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      padding: 16px;
-      font-size: 20px;
-      text-align: center;
-      background: unset;
-      color: #333;
-    }
-
-    .container {
-      width: 100%;
-      max-width: 600px;
-      margin: 16px auto;
-      background: var(--card-bg);
-      border-radius: 16px;
-      padding: 18px 16px 20px;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
-      border: 3px dashed var(--gold);
-    }
-
-    h1 {
-      margin: 0 0 10px;
-      font-size: 3rem;
-      text-align: center;
-      color: var(--red);
-      letter-spacing: 0.04em;
-    }
-
-    .subtitle {
-      text-align: center;
-      margin-bottom: 14px;
-      color: #555;
-    }
-
-    label {
-      font-weight: 600;
-      display: block;
-      margin-bottom: 6px;
-      color: var(--green);
-    }
-
-    textarea {
-      width: 100%;
-      text-align: center;
-      min-height: 140px;
-      padding: 10px;
-      border-radius: 10px;
-      border: 2px solid #e0e0e0;
-      resize: vertical;
-      background: #ffffff;
-      font-size: inherit;
-    }
-
-    input[type="number"] {
-    padding: 8px 10px;
-    text-align: center;
-    font-size: inherit;
-    width: 90px;
-    border-radius: 10px;
-    border: 2px solid #e0e0e0;
-    background: #ffffff;
-
-    -moz-appearance: textfield; /* hides arrows in Firefox */
-    }
-
-    .field {
-      margin-bottom: 14px;
-    }
-
-    .small-note {
-      color: #777;
-      margin-top: 4px;
-    }
-
-    .buttons-group {
-      display: flex;
-      flex-direction: column;
-      flex-wrap: wrap;
-      gap: 8px;
-      align-items: center;
-      margin-top: 50px;
-    }
-
-    button {
-      appearance: none;
-      min-width: 100%;
-      border: none;
-      border-radius: 999px;
-      padding: 10px 18px;
-      font-weight: 600;
-      font-size: inherit;
-      cursor: pointer;
-      color: #fff;
-      background: #007bff; /* base blue */
-      box-shadow: 0 4px 0 rgba(0, 0, 0, 0.25);
-      text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
-      flex-shrink: 0;
-      min-height: 44px;
-      transition:
-        background 300ms ease,
-        color 300ms ease,
-        box-shadow 300ms ease,
-        transform 80ms ease,
-        filter 300ms ease;
-    }
-
-    button:active {
-      transform: translateY(2px) scale(0.97);
-      box-shadow: 0 2px 0 rgba(0, 0, 0, 0.3);
-      filter: brightness(0.95);
-    }
-
-    button:disabled {
-      background: #9e9e9e;
-      box-shadow: 0 3px 0 rgba(0, 0, 0, 0.2);
-      cursor: not-allowed;
-      filter: grayscale(0.2);
-    }
-
-    /* Processing state: moving colors + yellow halo */
-    button.processing {
-      background-image: linear-gradient(
-        270deg,
-        #007bff,
-        #00c853,
-        #ffeb3b,
-        #ff4081,
-        #007bff
-      );
-      background-size: 400% 400%;
-      animation: buttonRainbow 2s linear infinite;
-      box-shadow: 0 0 32px rgba(255, 235, 59, 0.9);
-    }
-
-    @keyframes buttonRainbow {
-      0% { background-position: 0% 50%; }
-      100% { background-position: 100% 50%; }
-    }
-
-    .error {
-      color: var(--red);
-      margin-top: 6px;
-      min-height: 1.1em;
-      font-weight: 600;
-    }
-
-    /* Fullscreen-like overlay for dramatic reveal */
-    #overlay {
-      position: fixed;
-      inset: 0;
-      background: #000;
-      color: #fff;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      z-index: 1000;
-      text-align: center;
-      padding: 20px;
-    }
-
-    #overlay-name {
-      font-size: clamp(1.4rem, 6vw, 4rem);
-      margin-bottom: 1rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-    }
-
-    #overlay-countdown {
-      font-size: clamp(4rem, 30vw, 8rem);
-      margin-bottom: 1.2rem;
-      font-weight: 800;
-    }
-
-    #overlay-assignments {
-      font-size: clamp(2rem, 10vw, 5rem);
-      max-width: 90%;
-      font-weight: 800;
-      text-align: center;
-      line-height: 1.4;
-    }
-
-    .assignment-line {
-      margin: 0.2em 0;
-    }
-
-    @media (max-width: 600px) {
       body {
-        padding: 8px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          margin: 0;
+          font-family: "Comic Neue", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+          padding: 16px;
+          font-size: 20px;
+          text-align: center;
+          color: #333;
+          /* base green */
+          background-color: var(--green-bg);
+
+          /* cheesy wrapping paper: red stripes + gold dots */
+          background-image:
+              /* gold dots layer 1 */
+              radial-gradient(circle at 10px 10px, #ffd54f 0, #ffd54f 3px, transparent 4px),
+              radial-gradient(circle at 40px 30px, #ffd54f 0, #ffd54f 4px, transparent 5px),
+              radial-gradient(circle at 70px 50px, #ffd54f 0, #ffd54f 3px, transparent 4px),
+              /* gold dots layer 2 (offset) */
+              radial-gradient(circle at 25px 60px, #ffecb3 0, #ffecb3 3px, transparent 4px),
+              radial-gradient(circle at 80px 15px, #ffecb3 0, #ffecb3 4px, transparent 5px),
+              /* diagonal red/green stripes */
+              repeating-linear-gradient(
+                  45deg,
+                  var(--red-bg) 0,
+                  var(--red-bg) 14px,
+                  var(--green-bg) 14px,
+                  var(--green-bg) 40px
+              );
+
+          /* size & tiling to make it feel like wrapping paper */
+          background-size:
+              90px 90px, 90px 90px, 90px 90px,
+              90px 90px, 90px 90px,
+              auto;
+
+          background-attachment: fixed;   /* feels more “paper-like” when scrolling */
       }
 
       .container {
-        margin: 8px auto;
-        padding: 14px 12px 16px;
+          width: 100%;
+          max-width: 600px;
+          margin: auto auto;
+          background: var(--card-bg);
+          border-radius: 16px;
+          padding: 18px 16px 20px;
+          box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+          border: 10px solid var(--gold);
+      }
+
+      h1 {
+          margin: 0 0 10px;
+          font-size: 3rem;
+          text-align: center;
+          color: var(--red);
+          letter-spacing: 0.04em;
+      }
+
+      .subtitle {
+          text-align: center;
+          margin-bottom: 14px;
+          color: #555;
+      }
+
+      label {
+          font-weight: 600;
+          display: block;
+          margin-bottom: 6px;
+          color: var(--green);
       }
 
       textarea {
-        min-height: 120px;
+          width: 100%;
+          text-align: center;
+          min-height: 140px;
+          padding: 10px;
+          border-radius: 10px;
+          border: 2px solid #e0e0e0;
+          resize: vertical;
+          background: #ffffff;
+          font-size: inherit;
+      }
+
+      input[type="number"] {
+          padding: 8px 10px;
+          text-align: center;
+          font-size: inherit;
+          width: 90px;
+          border-radius: 10px;
+          border: 2px solid #e0e0e0;
+          background: #ffffff;
+
+          -moz-appearance: textfield; /* hides arrows in Firefox */
+      }
+
+      .field {
+          margin-bottom: 14px;
+      }
+
+      .small-note {
+          color: #777;
+          margin-top: 4px;
       }
 
       .buttons-group {
+          display: flex;
+          flex-direction: column;
+          flex-wrap: wrap;
+          gap: 8px;
+          align-items: center;
+          margin-top: 50px;
       }
 
       button {
-        width: 100%;
-        text-align: center;
+          appearance: none;
+          min-width: 100%;
+          border: none;
+          border-radius: 999px;
+          padding: 10px 18px;
+          font-weight: 600;
+          font-size: inherit;
+          cursor: pointer;
+          color: #fff;
+          background: var(--red);
+          box-shadow: 0 4px 0 rgba(0, 0, 0, 0.25);
+          text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
+          flex-shrink: 0;
+          min-height: 44px;
+          transition:
+              background 300ms ease,
+              color 300ms ease,
+              box-shadow 300ms ease,
+              transform 80ms ease,
+              filter 300ms ease;
       }
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <h1>🎅Santa Secreto🤫</h1>
-    <div class="subtitle">La magia de la navidad 🎄, con una pisca de tecnología 🌟.</div>
+      
+      button:active {
+          transform: translateY(2px) scale(0.97);
+          box-shadow: 0 2px 0 rgba(0, 0, 0, 0.3);
+          filter: brightness(0.95);
+      }
 
-    <div class="field">
-      <label for="namesInput">Eche sus papelitos en la tómbola navideña! 📝 🗳️</label>
-      <div class="small-note">(una persona en cada linea)</div>
-      <textarea id="namesInput"></textarea>
-    </div>
+      button:disabled {
+          background: #9e9e9e;
+          box-shadow: 0 3px 0 rgba(0, 0, 0, 0.2);
+          cursor: not-allowed;
+          filter: grayscale(0.2);
+      }
 
-    <div class="field">
-      <label for="kInput">¿Cuántos regalos por persona? 🎁</label>
-      <div class="small-note">(deben haber más personas que regalos por persona)</div>
-      <input type="number" id="kInput" min="1" value="2">
-    </div>
+      /* Generate Button wacky colors */
+      #generateBtn {
+          background: var(--green);
+      }
+      #generateBtn.processing {
+          background-image: linear-gradient(
+              270deg,
+              #007bff,
+              #00c853,
+              #ffeb3b,
+              #ff4081,
+              #007bff
+          );
+          background-size: 400% 400%;
+          animation: buttonRainbow 2s linear infinite;
+          box-shadow: 0 0 32px rgba(255, 235, 59, 0.9);
+      }
 
-    <div class="field">
-      <div class="buttons-group">
-        <button id="generateBtn">Aplicar magia navideña ❄️</button>
-        <button id="revealBtn" disabled>Revelar resultados 🎊</button>
+      @keyframes buttonRainbow {
+          0% { background-position: 0% 50%; }
+          100% { background-position: 100% 50%; }
+      }
+
+      .error {
+          color: var(--red);
+          margin-top: 6px;
+          min-height: 1.1em;
+          font-weight: 600;
+      }
+
+      /* Fullscreen-like overlay for dramatic reveal */
+      #overlay {
+          position: fixed;
+          inset: 0;
+          background: #000;
+          color: #fff;
+          display: none;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          z-index: 1000;
+          text-align: center;
+          padding: 20px;
+      }
+
+      #overlay-name {
+          font-size: clamp(1.4rem, 6vw, 4rem);
+          margin-bottom: 1rem;
+          font-weight: 600;
+          letter-spacing: 0.08em;
+      }
+
+      #overlay-countdown {
+          font-size: clamp(4rem, 30vw, 8rem);
+          margin-bottom: 4rem;
+          font-weight: 800;
+      }
+
+      #overlay-assignments {
+          display: block;
+          font-size: clamp(2rem, 10vw, 5rem);
+          max-width: 90%;
+          font-weight: 800;
+          text-align: center;
+          line-height: 1.4;
+      }
+
+      .assignment-line {
+          margin: 0.2em 0;
+      }
+
+      @media (max-width: 600px) {
+          body {
+              padding: 8px;
+          }
+
+          .container {
+              margin: 8px auto;
+              padding: 14px 12px 16px;
+          }
+
+          textarea {
+              min-height: 120px;
+          }
+
+          .buttons-group {
+          }
+
+          button {
+              width: 100%;
+              text-align: center;
+          }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>🎅Santa Secreto🤫</h1>
+      <div class="subtitle">La magia de la navidad 🎄, con una pisca de tecnología 🌟.</div>
+
+      <div class="field">
+        <label for="namesInput">Eche sus papelitos en la tómbola navideña! 📝 🗳️</label>
+        <div class="small-note">(una persona en cada linea)</div>
+        <textarea id="namesInput"></textarea>
       </div>
-      <div id="errorOutput" class="error"></div>
+
+      <div class="field">
+        <label for="kInput">¿Cuántos regalos por persona? 🎁</label>
+        <div class="small-note">(deben haber más personas que regalos por persona)</div>
+        <input type="number" id="kInput" min="1" value="2">
+      </div>
+
+      <div class="field">
+        <div class="buttons-group">
+          <button id="generateBtn">Aplicar magia navideña ❄️</button>
+          <button id="revealBtn" disabled>Revelar resultados 🎊</button>
+        </div>
+        <div id="errorOutput" class="error"></div>
+      </div>
     </div>
-  </div>
 
-  <!-- Dramatic fullscreen-like overlay -->
-  <div id="overlay">
-    <div id="overlay-name"></div>
-    <div id="overlay-countdown"></div>
-    <div id="overlay-assignments"></div>
-  </div>
+    <!-- Dramatic fullscreen-like overlay -->
+    <div id="overlay">
+      <div id="overlay-countdown"></div>
+      <div id="overlay-name"></div>
+      <div id="overlay-assignments"></div>
+    </div>
 
-  <script>
-    // Global customizable messages for the Generate button animation.
-    // Each message is shown for one second, in order.
-    const generateMessages = [
-        "invocando a los elfos...",
-        "añadiendo polvo de hadas 🦆...",
-        "elfos estornudando 🤧...",
-        "brillitos ✨ de la Coti...",
-        "'gojo' del Efra ❤️"
-    ];
+    <script>
+      // Global customizable messages for the Generate button animation.
+      // Each message is shown for one second, in order.
+      const generateMessages = [
+          "invocando a los elfos...",
+          "añadiendo polvo de hadas 💨",
+          "elfos estornudando 🤧",
+          "brillitos ✨ de la Coti",
+          "'gojo' del Efra ❤️"
+      ];
 
-    const namesInput = document.getElementById("namesInput");
-    const kInput = document.getElementById("kInput");
-    const generateBtn = document.getElementById("generateBtn");
-    if(namesInput.value == "") {
-        generateBtn.disabled = true;
-    }
-    
-
-    const revealBtn = document.getElementById("revealBtn");
-    const errorOutput = document.getElementById("errorOutput");
-
-    const overlay = document.getElementById("overlay");
-    const overlayName = document.getElementById("overlay-name");
-    const overlayCountdown = document.getElementById("overlay-countdown");
-    const overlayAssignments = document.getElementById("overlay-assignments");
-
-    const generateDefaultText = "Aplicar magia navideña ❄️";
-    let names = [];
-    let assignments = []; // array of arrays of strings
-    let currentIndex = 0; // index of the NEXT person to reveal
-    let isRevealing = false;
-    let generateAnimationTimeouts = [];
-
-    function onInputsChanged() {
-        // Reset any ongoing animation / text
-        clearGenerateAnimationTimeouts();
-        generateBtn.classList.remove("processing");
-        generateBtn.textContent = generateDefaultText;
-
-        // Simple condition: only enable if there's at least one non-empty name
-        // and K is a positive integer.
-        const hasName = namesInput.value
-              .split("\n")
-              .some(line => line.trim().length > 0);
-
-        const K = parseInt(kInput.value, 10);
-
-        if (hasName && Number.isInteger(K) && K > 0) {
-            generateBtn.disabled = false;
-        } else {
-            generateBtn.disabled = true;
-        }
-    }
-    
-    function shuffle(array) {
-      for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
+      const namesInput = document.getElementById("namesInput");
+      const kInput = document.getElementById("kInput");
+      const generateBtn = document.getElementById("generateBtn");
+      if(namesInput.value == "") {
+          generateBtn.disabled = true;
       }
-    }
+      
 
-    // Generate a K-regular assignment with no self assignments and no duplicates per person.
-    // Also guarantees each person appears exactly K times overall.
-    function generateAssignmentsList(names, K) {
-      const N = names.length;
-      const indices = [...Array(N).keys()]; // 0..N-1
-      shuffle(indices); // randomize the cycle
+      const revealBtn = document.getElementById("revealBtn");
+      const errorOutput = document.getElementById("errorOutput");
 
-      const assignmentsIdx = Array.from({ length: N }, () => []);
+      const overlay = document.getElementById("overlay");
+      const overlayName = document.getElementById("overlay-name");
+      const overlayCountdown = document.getElementById("overlay-countdown");
+      const overlayAssignments = document.getElementById("overlay-assignments");
 
-      for (let shift = 1; shift <= K; shift++) {
-        for (let i = 0; i < N; i++) {
-          const fromIndex = indices[i];
-          const toIndex = indices[(i + shift) % N];
-          assignmentsIdx[fromIndex].push(toIndex);
-        }
+      const generateDefaultText = "Aplicar magia navideña ❄️";
+      let names = [];
+      let assignments = []; // array of arrays of strings
+      let currentIndex = 0; // index of the NEXT person to reveal
+      let unboundIndex = 0; // same as currentIndex, but does not wrap around
+      let isRevealing = false;
+      let generateAnimationTimeouts = [];
+
+      function onInputsChanged() {
+          // Reset any ongoing animation / text
+          clearGenerateAnimationTimeouts();
+          generateBtn.classList.remove("processing");
+          generateBtn.textContent = generateDefaultText;
+
+          // Simple condition: only enable if there's at least one non-empty name
+          // and K is a positive integer.
+          const hasName = namesInput.value
+                .split("\n")
+                .some(line => line.trim().length > 0);
+
+          const K = parseInt(kInput.value, 10);
+
+          if (hasName && Number.isInteger(K) && K > 0) {
+              generateBtn.disabled = false;
+          } else {
+              generateBtn.disabled = true;
+          }
+      }
+      
+      function shuffle(array) {
+          for (let i = array.length - 1; i > 0; i--) {
+              const j = Math.floor(Math.random() * (i + 1));
+              [array[i], array[j]] = [array[j], array[i]];
+          }
       }
 
-      // Convert indices to names
-      return assignmentsIdx.map(list => list.map(i => names[i]));
-    }
+      // Generate a K-regular assignment with no self assignments and no duplicates per person.
+      // Also guarantees each person appears exactly K times overall.
+      function generateAssignmentsList(names, K) {
+          const N = names.length;
+          const indices = [...Array(N).keys()]; // 0..N-1
+          shuffle(indices); // randomize the cycle
 
-    function parseInput() {
-      const rawLines = namesInput.value.split("\n");
-      const parsedNames = rawLines
-        .map(line => line.trim())
-        .filter(line => line.length > 0);
+          const assignmentsIdx = Array.from({ length: N }, () => []);
 
-      const K = parseInt(kInput.value, 10);
+          for (let shift = 1; shift <= K; shift++) {
+              for (let i = 0; i < N; i++) {
+                  const fromIndex = indices[i];
+                  const toIndex = indices[(i + shift) % N];
+                  assignmentsIdx[fromIndex].push(toIndex);
+              }
+          }
 
-      if (parsedNames.length === 0) {
-        throw new Error("Sin personas es muy aburrido...");
+          // Convert indices to names
+          return assignmentsIdx.map(list => list.map(i => names[i]));
       }
 
-      if (!Number.isInteger(K) || K < 1) {
-        throw new Error("El número de regalos tiene que ser positivo.");
+      function parseInput() {
+          const rawLines = namesInput.value.split("\n");
+          const parsedNames = rawLines
+                .map(line => line.trim())
+                .filter(line => line.length > 0);
+
+          const K = parseInt(kInput.value, 10);
+
+          if (parsedNames.length === 0) {
+              throw new Error("Sin personas es muy aburrido...");
+          }
+
+          if (!Number.isInteger(K) || K < 1) {
+              throw new Error("El número de regalos tiene que ser positivo.");
+          }
+
+          const N = parsedNames.length;
+          if (N <= K) {
+              throw new Error(
+                  `Deben haben más personas que regalos.`
+              );
+          }
+
+          return { names: parsedNames, K };
       }
 
-      const N = parsedNames.length;
-      if (N <= K) {
-        throw new Error(
-          `Deben haben más personas que regalos.`
-        );
+      function updateRevealButtonLabel() {
+          if (!names.length) {
+              revealBtn.textContent = "Revelar resultados 🎊";
+              revealBtn.disabled = true;
+              return;
+          }
+          const personName = names[currentIndex];
+          revealBtn.textContent = `Revelar resultados para ${personName}! 🙊🙈🙉`;
+          revealBtn.disabled = false;
       }
 
-      return { names: parsedNames, K };
-    }
-
-    function updateRevealButtonLabel() {
-      if (!names.length) {
-        revealBtn.textContent = "Revelar resultados 🎊";
-        revealBtn.disabled = true;
-        return;
-      }
-      const personName = names[currentIndex];
-      revealBtn.textContent = `Revelar resultados para ${personName}! 🙊🙈🙉`;
-      revealBtn.disabled = false;
-    }
-
-    function clearGenerateAnimationTimeouts() {
-      generateAnimationTimeouts.forEach(id => clearTimeout(id));
-      generateAnimationTimeouts = [];
-    }
-
-    const inter_process_time = 2000;
-    // Runs the "processing" sequence on the Generate button.
-    // After the messages complete, calls onDone().
-    function runGenerateAnimation(onDone) {
-      clearGenerateAnimationTimeouts();
-
-      // If there are no messages, skip straight to done.
-      if (!generateMessages || generateMessages.length === 0) {
-        generateBtn.textContent = generateDefaultText;
-        generateBtn.disabled = false;
-        generateBtn.classList.remove("processing");
-        onDone();
-        return;
+      function clearGenerateAnimationTimeouts() {
+          generateAnimationTimeouts.forEach(id => clearTimeout(id));
+          generateAnimationTimeouts = [];
       }
 
-      generateBtn.disabled = true;
-      generateBtn.classList.add("processing");
-      generateBtn.textContent = generateMessages[0];
+      const inter_process_time = 2000;
+      // Runs the "processing" sequence on the Generate button.
+      // After the messages complete, calls onDone().
+      function runGenerateAnimation(onDone) {
+          clearGenerateAnimationTimeouts();
 
-      for (let i = 1; i < generateMessages.length; i++) {
-        const timeoutId = setTimeout(() => {
-          generateBtn.textContent = generateMessages[i];
-        }, i * inter_process_time);
-        generateAnimationTimeouts.push(timeoutId);
+          // If there are no messages, skip straight to done.
+          if (!generateMessages || generateMessages.length === 0) {
+              generateBtn.textContent = generateDefaultText;
+              generateBtn.disabled = false;
+              generateBtn.classList.remove("processing");
+              onDone();
+              return;
+          }
+
+          generateBtn.disabled = true;
+          generateBtn.classList.add("processing");
+          generateBtn.textContent = generateMessages[0];
+
+          for (let i = 1; i < generateMessages.length; i++) {
+              const timeoutId = setTimeout(() => {
+                  generateBtn.textContent = generateMessages[i];
+              }, i * inter_process_time);
+              generateAnimationTimeouts.push(timeoutId);
+          }
+
+          const doneTimeoutId = setTimeout(() => {
+              generateBtn.textContent = generateDefaultText;
+              generateBtn.disabled = false;
+              generateBtn.classList.remove("processing");
+              onDone();
+          }, generateMessages.length * inter_process_time);
+          generateAnimationTimeouts.push(doneTimeoutId);
       }
 
-      const doneTimeoutId = setTimeout(() => {
-        generateBtn.textContent = generateDefaultText;
-        generateBtn.disabled = false;
-        generateBtn.classList.remove("processing");
-        onDone();
-      }, generateMessages.length * inter_process_time);
-      generateAnimationTimeouts.push(doneTimeoutId);
-    }
+      function startReveal(index) {
+          if (isRevealing) return;
+          if (!names.length || !assignments.length) return;
+          if (index < 0 || index >= names.length) return;
 
-    function startReveal(index) {
-      if (isRevealing) return;
-      if (!names.length || !assignments.length) return;
-      if (index < 0 || index >= names.length) return;
+          isRevealing = true;
+          revealBtn.disabled = true;
+          generateBtn.disabled = true;
 
-      isRevealing = true;
-      revealBtn.disabled = true;
-      generateBtn.disabled = true;
+          const personName = names[index];
+          const personAssignments = assignments[index];
 
-      const personName = names[index];
-      const personAssignments = assignments[index];
+          overlay.style.display = "flex";
+          overlayName.textContent = personName + ":";
+          
+          overlayCountdown.style.display = "block";
 
-      overlay.style.display = "flex";
-      overlayName.textContent = personName + ":";
-      overlayAssignments.innerHTML = "";
-      overlayAssignments.style.display = "none";
-      overlayCountdown.style.display = "block";
 
-      let secondsLeft = 5;
-      overlayCountdown.textContent = secondsLeft;
-
-      const countdownInterval = setInterval(() => {
-        secondsLeft--;
-        if (secondsLeft > 0) {
-          overlayCountdown.textContent = secondsLeft;
-        } else {
-          clearInterval(countdownInterval);
-
-          // Show assignments for 5 seconds
-          overlayCountdown.style.display = "none";
-
-          // Build K lines, centered, bold, larger than the name
+          // prepare list of assignments
           overlayAssignments.innerHTML = "";
+          overlayAssignments.style.color = "rgba(255,255,255,0)"; // transparent text
           personAssignments.forEach(name => {
-            const line = document.createElement("div");
-            line.className = "assignment-line";
+              const line = document.createElement("div");
+              line.className = "assignment-line";
               line.textContent = name;
-            overlayAssignments.appendChild(line);
+              overlayAssignments.appendChild(line);
           });
-          overlayAssignments.style.display = "block";
+          
+          let secondsLeft = 10;
+          overlayCountdown.textContent = secondsLeft;
 
-          setTimeout(() => {
-            overlay.style.display = "none";
-            overlayCountdown.textContent = "";
-            overlayAssignments.innerHTML = "";
+          const countdownInterval = setInterval(() => {
+              secondsLeft--;
 
-            isRevealing = false;
+              // When countdown hits 5, build and show the assignments
+              if (secondsLeft === 5) {
+                  overlayAssignments.style.color = "rgba(255,255,255,255)"; // white text
+              }
 
-            // Move to next person, looping back to the first after the last
-            currentIndex = (currentIndex + 1) % names.length;
-            updateRevealButtonLabel();
-          }, 5000);
-        }
-      }, 1000);
-    }
-    namesInput.addEventListener("input", onInputsChanged);
-    kInput.addEventListener("input", onInputsChanged);
-    generateBtn.addEventListener("click", () => {
-      errorOutput.textContent = "";
-      revealBtn.disabled = true;
-      clearGenerateAnimationTimeouts();
-      generateBtn.classList.remove("processing");
-      generateBtn.textContent = generateDefaultText;
+              // Update the countdown text while secondsLeft >= 0
+              if (secondsLeft >= 0) {
+                  overlayCountdown.textContent = secondsLeft;
+              }
 
-      try {
-        const parsed = parseInput();
-        names = parsed.names;
-        assignments = generateAssignmentsList(names, parsed.K);
-        currentIndex = 0;
+              // Once we've shown 0 for one second, hide everything and move on
+              if (secondsLeft < 0) {
+                  clearInterval(countdownInterval);
 
-        // Run the fake processing animation, then enable reveal.
-        runGenerateAnimation(() => {
-          updateRevealButtonLabel();
-        });
-      } catch (e) {
-        names = [];
-        assignments = [];
-        currentIndex = 0;
-        errorOutput.textContent = e.message;
-        clearGenerateAnimationTimeouts();
-        generateBtn.textContent = generateDefaultText;
-        generateBtn.disabled = false;
-        generateBtn.classList.remove("processing");
-        updateRevealButtonLabel();
+                  overlay.style.display = "none";
+                  overlayCountdown.textContent = "";
+                  overlayAssignments.innerHTML = "";
+
+                  isRevealing = false;
+
+                  // Move to next person, looping back to the first after the last
+                  unboundIndex = unboundIndex + 1;
+                  currentIndex = unboundIndex % names.length;
+                  // If we already looped through the whole list, re-enable the generating button
+                  if ((unboundIndex) % names.length == 0){
+                      generateBtn.disabled = false;
+                  }
+                  updateRevealButtonLabel();
+              }
+          }, 1000);
+
+
+
+
+
+          
       }
-    });
+      namesInput.addEventListener("input", onInputsChanged);
+      kInput.addEventListener("input", onInputsChanged);
+      generateBtn.addEventListener("click", () => {
+          unboundIndex = 0;
+          errorOutput.textContent = "";
+          revealBtn.disabled = true;
+          clearGenerateAnimationTimeouts();
+          generateBtn.classList.remove("processing");
+          generateBtn.textContent = generateDefaultText;
 
-    revealBtn.addEventListener("click", () => {
-      if (!names.length || !assignments.length) {
-        errorOutput.textContent = "Aplique la magia navideña primero.";
-        return;
-      }
-      errorOutput.textContent = "";
-      startReveal(currentIndex);
-    });
-  </script>
-</body>
+          try {
+              const parsed = parseInput();
+              names = parsed.names;
+              assignments = generateAssignmentsList(names, parsed.K);
+              currentIndex = 0;
+
+              // Run the fake processing animation, then enable reveal.
+              runGenerateAnimation(() => {
+                  updateRevealButtonLabel();
+              });
+          } catch (e) {
+              names = [];
+              assignments = [];
+              currentIndex = 0;
+              errorOutput.textContent = e.message;
+              clearGenerateAnimationTimeouts();
+              generateBtn.textContent = generateDefaultText;
+              generateBtn.disabled = false;
+              generateBtn.classList.remove("processing");
+              updateRevealButtonLabel();
+          }
+      });
+
+      revealBtn.addEventListener("click", () => {
+          if (!names.length || !assignments.length) {
+              errorOutput.textContent = "Aplique la magia navideña primero.";
+              return;
+          }
+          errorOutput.textContent = "";
+          startReveal(currentIndex);
+      });
+    </script>
+  </body>
 </html>
